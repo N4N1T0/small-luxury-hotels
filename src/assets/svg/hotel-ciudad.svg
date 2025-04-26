@@ -1,0 +1,42 @@
+<svg width="600" height="450" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#e6e6e6"/>
+  <g transform="translate(150, 50)">
+    <!-- Edificio principal -->
+    <rect x="50" y="100" width="200" height="250" fill="#1f2a44"/>
+    
+    <!-- Ventanas -->
+    <rect x="70" y="130" width="30" height="40" fill="#c09250"/>
+    <rect x="120" y="130" width="30" height="40" fill="#c09250"/>
+    <rect x="170" y="130" width="30" height="40" fill="#c09250"/>
+    <rect x="200" y="130" width="30" height="40" fill="#c09250"/>
+    
+    <rect x="70" y="190" width="30" height="40" fill="#c09250"/>
+    <rect x="120" y="190" width="30" height="40" fill="#c09250"/>
+    <rect x="170" y="190" width="30" height="40" fill="#c09250"/>
+    <rect x="200" y="190" width="30" height="40" fill="#c09250"/>
+    
+    <rect x="70" y="250" width="30" height="40" fill="#c09250"/>
+    <rect x="120" y="250" width="30" height="40" fill="#c09250"/>
+    <rect x="170" y="250" width="30" height="40" fill="#c09250"/>
+    <rect x="200" y="250" width="30" height="40" fill="#c09250"/>
+    
+    <!-- Puerta -->
+    <rect x="120" y="300" width="60" height="50" fill="#c09250"/>
+    
+    <!-- Edificio secundario -->
+    <rect x="250" y="150" width="150" height="200" fill="#1f2a44"/>
+    
+    <!-- Ventanas edificio secundario -->
+    <rect x="270" y="180" width="25" height="35" fill="#c09250"/>
+    <rect x="310" y="180" width="25" height="35" fill="#c09250"/>
+    <rect x="350" y="180" width="25" height="35" fill="#c09250"/>
+    
+    <rect x="270" y="230" width="25" height="35" fill="#c09250"/>
+    <rect x="310" y="230" width="25" height="35" fill="#c09250"/>
+    <rect x="350" y="230" width="25" height="35" fill="#c09250"/>
+    
+    <rect x="270" y="280" width="25" height="35" fill="#c09250"/>
+    <rect x="310" y="280" width="25" height="35" fill="#c09250"/>
+    <rect x="350" y="280" width="25" height="35" fill="#c09250"/>
+  </g>
+</svg>

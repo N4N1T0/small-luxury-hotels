@@ -1,0 +1,60 @@
+<svg width="600" height="450" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#e6e6e6"/>
+  
+  <!-- Cielo -->
+  <rect width="600" height="150" fill="#87CEEB"/>
+  
+  <!-- Montañas -->
+  <polygon points="0,150 100,50 200,150" fill="#808080"/>
+  <polygon points="150,150 250,30 350,150" fill="#696969"/>
+  <polygon points="300,150 400,70 500,150" fill="#808080"/>
+  <polygon points="450,150 550,90 600,150" fill="#696969"/>
+  
+  <!-- Bosque -->
+  <rect y="150" width="600" height="300" fill="#228B22"/>
+  
+  <!-- Hotel -->
+  <g transform="translate(150, 150)">
+    <!-- Edificio principal (cabaña) -->
+    <rect x="50" y="100" width="250" height="150" fill="#8B4513"/>
+    
+    <!-- Techo -->
+    <polygon points="50,100 175,30 300,100" fill="#654321"/>
+    
+    <!-- Ventanas -->
+    <rect x="80" y="130" width="40" height="40" fill="#c09250"/>
+    <rect x="150" y="130" width="40" height="40" fill="#c09250"/>
+    <rect x="220" y="130" width="40" height="40" fill="#c09250"/>
+    
+    <!-- Puerta -->
+    <rect x="150" y="200" width="50" height="50" fill="#654321"/>
+    
+    <!-- Chimenea -->
+    <rect x="250" y="50" width="20" height="50" fill="#A52A2A"/>
+    <rect x="245" y="40" width="30" height="10" fill="#A52A2A"/>
+    
+    <!-- Humo -->
+    <ellipse cx="260" cy="30" rx="10" ry="5" fill="#DCDCDC" opacity="0.7"/>
+    <ellipse cx="265" cy="20" rx="8" ry="4" fill="#DCDCDC" opacity="0.5"/>
+    <ellipse cx="270" cy="10" rx="6" ry="3" fill="#DCDCDC" opacity="0.3"/>
+  </g>
+  
+  <!-- Árboles -->
+  <g transform="translate(50, 200)">
+    <!-- Tronco -->
+    <rect x="20" y="50" width="15" height="100" fill="#8B4513"/>
+    
+    <!-- Copa -->
+    <polygon points="0,50 27.5,0 55,50" fill="#006400"/>
+    <polygon points="5,30 27.5,-20 50,30" fill="#006400"/>
+  </g>
+  
+  <g transform="translate(450, 200)">
+    <!-- Tronco -->
+    <rect x="20" y="50" width="15" height="100" fill="#8B4513"/>
+    
+    <!-- Copa -->
+    <polygon points="0,50 27.5,0 55,50" fill="#006400"/>
+    <polygon points="5,30 27.5,-20 50,30" fill="#006400"/>
+  </g>
+</svg>

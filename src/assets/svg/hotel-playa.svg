@@ -1,0 +1,53 @@
+<svg width="600" height="450" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#e6e6e6"/>
+  
+  <!-- Cielo -->
+  <rect width="600" height="200" fill="#87CEEB"/>
+  
+  <!-- Mar -->
+  <rect y="200" width="600" height="150" fill="#1E90FF"/>
+  
+  <!-- Arena -->
+  <rect y="350" width="600" height="100" fill="#F5DEB3"/>
+  
+  <!-- Hotel -->
+  <g transform="translate(150, 150)">
+    <!-- Edificio principal -->
+    <rect x="50" y="50" width="250" height="200" fill="#FFFFFF" rx="5" ry="5"/>
+    
+    <!-- Techo -->
+    <polygon points="50,50 175,0 300,50" fill="#c09250"/>
+    
+    <!-- Ventanas -->
+    <rect x="80" y="90" width="40" height="50" fill="#1f2a44"/>
+    <rect x="150" y="90" width="40" height="50" fill="#1f2a44"/>
+    <rect x="220" y="90" width="40" height="50" fill="#1f2a44"/>
+    
+    <rect x="80" y="160" width="40" height="50" fill="#1f2a44"/>
+    <rect x="150" y="160" width="40" height="50" fill="#1f2a44"/>
+    <rect x="220" y="160" width="40" height="50" fill="#1f2a44"/>
+    
+    <!-- Puerta -->
+    <rect x="150" y="200" width="50" height="50" fill="#c09250"/>
+    
+    <!-- Palmeras -->
+    <g transform="translate(-50, 100)">
+      <!-- Tronco -->
+      <rect x="20" y="50" width="10" height="100" fill="#8B4513"/>
+      
+      <!-- Hojas -->
+      <ellipse cx="25" cy="50" rx="30" ry="20" fill="#228B22"/>
+    </g>
+    
+    <g transform="translate(350, 100)">
+      <!-- Tronco -->
+      <rect x="20" y="50" width="10" height="100" fill="#8B4513"/>
+      
+      <!-- Hojas -->
+      <ellipse cx="25" cy="50" rx="30" ry="20" fill="#228B22"/>
+    </g>
+  </g>
+  
+  <!-- Sol -->
+  <circle cx="500" cy="80" r="40" fill="#FFD700"/>
+</svg>
