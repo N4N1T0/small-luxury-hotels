@@ -16,6 +16,11 @@ These rules must be followed by the AI when working within the `trae.ai` context
   - Use `//` for single-line comments
   - Use `/** */` for block comments
   - Comments should be clear and concise
+- **Imports**:
+  - Imports should be grouped by type (e.g., `import React from 'react'`)
+  - Imports should be sorted alphabetically
+- **Style**:
+  - use sharp corners not rounded corners
 
 ## Languages and Frameworks
 
