@@ -1,0 +1,49 @@
+{
+  "title": "Hotel Montaña",
+  "description": "Un refugio exclusivo en las alturas, donde el lujo se fusiona con la majestuosidad de la naturaleza. Experimente la tranquilidad y el confort mientras disfruta de impresionantes vistas panorámicas a la cordillera.",
+  "shortDescription": "Elegancia y confort en las alturas",
+  "location": {
+    "address": "Valle Verde 456",
+    "city": "Sierra Maestra",
+    "country": "Cuba",
+    "coordinates": {
+      "lat": 20.0107,
+      "lng": -76.8328
+    }
+  },
+  "amenities": [
+    "Chimeneas en habitaciones",
+    "Spa de montaña",
+    "Restaurante panorámico",
+    "Rutas de senderismo",
+    "Bodega de vinos",
+    "Terraza mirador"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Fachada del Hotel Montaña"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Vista panorámica desde el restaurante"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Suite con chimenea"
+    }
+  ],
+  "featured": false,
+  "rooms": ["deluxe-suite", "executive-room", "family-suite", "standard-room"],
+  "priceRange": {
+    "min": 200,
+    "max": 800,
+    "currency": "USD"
+  },
+  "contactInfo": {
+    "phone": "+53 23 654321",
+    "email": "reservas@hotelmontana.com"
+  },
+  "publishDate": "2024-01-15T00:00:00.000Z",
+  "updatedDate": "2024-01-15T00:00:00.000Z"
+}

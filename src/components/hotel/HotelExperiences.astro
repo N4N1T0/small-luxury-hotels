@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ShowMore from '@/components/ui/ShowMore.astro';
+import { buttonClasses } from '../ui/ui';
+import { Image } from 'astro:assets';
+
+interface Props {
+  experiences: CollectionEntry<'experiences'>[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<section class="container-full px-4 py-16">
+  <ShowMore
+    title="Experiencias"
+    subtitle="Descubre nuestras experiencias únicas y personalizadas para ti."
+    showMoreUrl="/experiencias"
+    showMoreLabel="Ver Mas"
+  />
+  <div class="space-y-16">
+    {
+      experiences.map((experience, index) => (
+        <div
+          class={`flex flex-col items-center gap-8 md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+        >
+          <div class="w-full md:w-1/2">
+            <Image
+              src={experience.data.gallery[0]?.url || 'https://placehold.co/800x600'}
+              alt={experience.data.gallery[0]?.alt || experience.data.title}
+              width={800}
+              height={600}
+              class="h-[400px] w-full object-cover"
+            />
+          </div>
+          <div class="w-full space-y-4 md:w-1/2">
+            <h3 class="text-3xl font-semibold">{experience.data.title}</h3>
+            <p class="text-gray-600">{experience.data.description}</p>
+            <div class="space-y-2">
+              <p class="text-xl font-medium">Incluye:</p>
+              <ul class="list-inside list-disc space-y-1">
+                {experience.data.included.slice(0, 3).map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-6 flex items-center gap-4">
+              <a href={`/experiencias/${experience.id}`} class={buttonClasses.primary}>
+                Ver Más
+              </a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

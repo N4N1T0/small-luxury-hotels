@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  hotel: CollectionEntry<'hotels'>;
+}
+
+const { hotel } = Astro.props;
+const { description, shortDescription } = hotel.data;
+---
+
+<section class="bg-background my-16 pt-16">
+  <div class="mx-auto max-w-2xl space-y-8 text-center">
+    <h2 class="text-5xl font-bold">{shortDescription}</h2>
+    <p class="text-xl">{description}</p>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import HotelHero from '@/components/hotel/HotelHero.astro';
+import BookingForm from '@/components/hotel/preact-hotel/BookingForm';
+import RoomList from '@/components/hotel/RoomList.astro';
+import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
+import HotelLocation from '@/components/hotel/preact-hotel/HotelLocation';
+import HotelDescription from '@/components/hotel/HotelDescription.astro';
+import HotelExperiences from '@/components/hotel/HotelExperiences.astro';
+import { getAllHotels, getHotelBySlug } from '@/lib/utils/hotels';
+import { getRoomsByHotel } from '@/lib/utils/rooms';
+import { getExperiencesByHotel } from '@/lib/utils/experiences';
+
+export async function getStaticPaths() {
+  const hotels = await getAllHotels();
+
+  return hotels.map((hotel) => {
+    return {
+      params: { slug: hotel.id }
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const hotel = await getHotelBySlug(slug);
+const rooms = await getRoomsByHotel(slug);
+const experiences = await getExperiencesByHotel(slug);
+
+if (!hotel) {
+  throw new Error(`No experience found with slug "${slug}"`);
+}
+---
+
+<Layout title={hotel.data.title}>
+  <main class="bg-background">
+    <HotelHero hotel={hotel} />
+    <BookingForm client:visible hotel={hotel} />
+    <HotelDescription hotel={hotel} />
+    <RoomList rooms={rooms} />
+    <HotelExperiences experiences={experiences} />
+    <HotelLocation client:visible client:only={true} hotel={hotel} />
+    <BlogCarousel />
+  </main>
+</Layout>
