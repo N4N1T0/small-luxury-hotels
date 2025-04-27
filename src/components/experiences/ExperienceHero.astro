@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import { LaHabana2 } from '@/assets';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  image?: ImageMetadata;
+}
+
+const isSingleExperience = Astro.url.pathname.endsWith('/experiencias');
+
+const {
+  title = 'Descubre experiencias únicas en nuestros hoteles',
+  subtitle = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.',
+  image = LaHabana2
+} = Astro.props;
+---
+
+<section class="bg-main text-background flex flex-col items-center pt-28 pb-16">
+  <div class="container-full">
+    <div
+      class="mx-auto mb-12 max-w-3xl text-center"
+      style={{ display: isSingleExperience ? 'block' : 'none' }}
+    >
+      <h1 class="animate-fade-in-up animate-delay-150 mb-6 text-4xl font-bold md:text-5xl">
+        {title}
+      </h1>
+      <p
+        class="text-background/80 animate-fade-in-up animate-delay-250 mx-auto max-w-2xl text-lg leading-relaxed"
+      >
+        {subtitle}
+      </p>
+    </div>
+
+    <div
+      class="animate-fade-in animate-delay-400 mx-auto h-[600px] w-full overflow-hidden"
+      style={{ display: isSingleExperience ? 'none' : 'block' }}
+    >
+      <Image
+        src={image}
+        alt="Experiencia de lujo"
+        class="object-fit h-auto w-full rounded-none"
+        width={1200}
+        height={600}
+      />
+    </div>
+  </div>
+</section>

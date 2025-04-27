@@ -1,0 +1,62 @@
+{
+  "title": "Navegación al Atardecer",
+  "description": "Embárcate en un viaje mágico por las aguas cristalinas del Caribe cubano, disfrutando de un espectacular atardecer desde nuestro yate de lujo.",
+  "location": "Cayo Santa María, Cuba",
+  "price": 149,
+  "duration": "4 horas",
+  "maxParticipants": 12,
+  "included": [
+    "Navegación en yate de lujo",
+    "Cóckteles premium",
+    "Aperitivos gourmet",
+    "Equipo de snorkel",
+    "Fotografía profesional"
+  ],
+  "gallery": [
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Atardecer espectacular sobre las aguas del Caribe"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Yate de lujo navegando al atardecer"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Buceadores explorando arrecifes de coral"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Cócteles premium servidos a bordo"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Pareja disfrutando de la vista desde la cubierta"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Peces tropicales nadando en aguas cristalinas"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Aperitivos gourmet presentados elegantemente"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Vista aérea del yate en el mar turquesa"
+    }
+  ],
+  "highlights": [
+    "Navegación al atardecer",
+    "Snorkel en aguas cristalinas",
+    "Cócteles y aperitivos premium",
+    "Fotografía profesional incluida"
+  ],
+  "featured": false,
+  "publishDate": "2024-01-15T00:00:00.000Z",
+  "content": {
+    "description": "Embárcate en una experiencia única navegando por las aguas cristalinas del Caribe cubano mientras el sol se pone en el horizonte.",
+    "experience": "Disfruta de una tarde perfecta combinando lujo, naturaleza y romance a bordo de nuestro exclusivo yate. Nuestro experimentado equipo te guiará a los mejores lugares para snorkel y te deleitará con una selección de cócteles premium y aperitivos gourmet.",
+    "highlights": "Captura momentos inolvidables con nuestro servicio de fotografía profesional incluido, mientras exploras los vibrantes arrecifes de coral y disfrutas de un espectacular atardecer en el mar Caribe."
+  }
+}

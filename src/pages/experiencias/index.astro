@@ -1,0 +1,18 @@
+---
+import TwoColumns from '@/components/shared/TwoColumns.astro';
+import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
+import ExperiencesGrid from '@/components/experiences/preact-experiences/ExperiencesGrid';
+import ExperienceLayout from '@/layouts/ExperienceLayout.astro';
+import { getAllExperiences } from '@/lib/utils/experiences';
+
+const experiences = await getAllExperiences();
+---
+
+<ExperienceLayout>
+  <TwoColumns
+    title="Experiencias Exclusivas"
+    description="Descubre momentos únicos y memorables en nuestros hoteles boutique. Desde escapadas románticas hasta aventuras culinarias, cada experiencia está diseñada para crear recuerdos inolvidables."
+  />
+  <ExperiencesGrid experiences={experiences} client:load />
+  <BlogCarousel />
+</ExperienceLayout>

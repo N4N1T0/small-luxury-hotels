@@ -1,0 +1,41 @@
+---
+import ExperienceLayout from '@/layouts/ExperienceLayout.astro';
+import ExperienceDetails from '@/components/experiences/ExperienceDetails.astro';
+import ExperienceGallery from '@/components/experiences/ExperienceGallery.astro';
+import {
+  getAllExperiences,
+  getRelatedExperiences,
+  getExperienceBySlug
+} from '@/lib/utils/experiences';
+import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
+import ExperiencesGrid from '@/components/experiences/preact-experiences/ExperiencesGrid';
+
+export async function getStaticPaths() {
+  const experiences = await getAllExperiences();
+  return experiences.map((experience) => ({
+    params: { slug: experience.id }
+  }));
+}
+
+const { slug } = Astro.params;
+const experience = await getExperienceBySlug(slug);
+
+if (!experience) {
+  throw new Error(`No experience found with slug "${slug}"`);
+}
+
+const relatedExperiences = await getRelatedExperiences(experience.id);
+---
+
+<ExperienceLayout
+  title={experience.data.title}
+  image={experience.data.gallery[0]?.url}
+  experience={experience}
+>
+  <article class="container mx-auto space-y-8 px-4 py-16">
+    <ExperienceDetails experience={experience} />
+    <ExperienceGallery images={experience.data.gallery} />
+    <ExperiencesGrid experiences={relatedExperiences} client:load />
+    <HotelCarousel />
+  </article>
+</ExperienceLayout>

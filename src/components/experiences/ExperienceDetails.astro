@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  experience: CollectionEntry<'experiences'>;
+}
+
+const {
+  experience: {
+    data: { price, duration, location, title, maxParticipants, included }
+  }
+} = Astro.props;
+---
+
+<div class="flex py-8">
+  <div class="mb-12 flex-1 text-center md:text-left">
+    <p class="text-foreground/80 font-hum mb-2 text-lg">{title}</p>
+    <h2 class="text-foreground mb-4 text-4xl font-semibold md:text-5xl">Detalles</h2>
+  </div>
+  <div class="flex-1">
+    <div class="border-secondary border-b py-4">
+      <div class="flex items-start gap-4">
+        <span class="w-fit font-semibold text-gray-600">Precio:</span>
+        <span class="flex-1">${price}</span>
+      </div>
+    </div>
+    <div class="border-secondary border-b py-4">
+      <div class="flex items-start gap-4">
+        <span class="w-fit font-semibold text-gray-600">Duración:</span>
+        <span class="flex-1">{duration}</span>
+      </div>
+    </div>
+    <div class="border-secondary border-b py-4">
+      <div class="flex items-start gap-4">
+        <span class="w-fit font-semibold text-gray-600">Lugar:</span>
+        <span class="flex-1">{location}</span>
+      </div>
+    </div>
+    <div class="border-secondary border-b py-4">
+      <div class="flex items-start gap-4">
+        <span class="w-fit font-semibold text-gray-600">Participantes:</span>
+        <span class="flex-1">Máximo {maxParticipants} personas</span>
+      </div>
+    </div>
+    <div class="border-secondary border-b py-4">
+      <div class="flex items-start gap-4">
+        <span class="w-fit font-semibold text-gray-600">Incluye:</span>
+        <ul class="flex-1 list-disc pl-4">
+          {included.map((item: string) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

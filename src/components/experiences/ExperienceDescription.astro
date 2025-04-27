@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Star } from 'lucide-astro';
+
+interface Props {
+  experience: CollectionEntry<'experiences'>;
+}
+
+const { experience } = Astro.props;
+const {
+  data: { title, description, highlights }
+} = experience;
+---
+
+<section class="bg-main text-background py-16">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <div class="space-y-4 md:w-1/2">
+        <h2 class="text-4xl font-bold md:text-5xl">{title}</h2>
+      </div>
+
+      <div class="space-y-6 md:w-1/2">
+        <p class="text-lg text-white/80 md:text-xl">{description}</p>
+        <ul class="grid grid-cols-2 gap-4">
+          {
+            highlights.map((highlight) => (
+              <li class="flex gap-4">
+                <Star class="fill-background inline-block size-5 shrink-0" />
+                <span class="col-span-1 text-lg font-bold text-white">{highlight}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

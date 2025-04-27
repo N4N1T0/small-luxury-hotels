@@ -1,0 +1,62 @@
+{
+  "title": "Escapada romántica",
+  "description": "Disfruta de una experiencia única con tu pareja en nuestro resort de lujo, incluyendo cena privada bajo las estrellas y spa para dos.",
+  "location": "Varadero, Cuba",
+  "price": 299,
+  "duration": "2 días / 1 noche",
+  "maxParticipants": 2,
+  "included": [
+    "Alojamiento de lujo",
+    "Cena romántica privada",
+    "Masaje en pareja",
+    "Decoración especial en la habitación",
+    "Desayuno en la cama"
+  ],
+  "gallery": [
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Cena romántica en la playa"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Spa para parejas"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Suite romántica con vista al mar"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Decoración especial con pétalos y velas"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Desayuno gourmet en la cama"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Atardecer en la playa privada"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Área de piscina exclusiva para parejas"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Jardines tropicales del resort"
+    }
+  ],
+  "highlights": [
+    "Cena privada en la playa al atardecer",
+    "Sesión de spa en pareja",
+    "Suite con vista al mar",
+    "Servicio personalizado"
+  ],
+  "featured": true,
+  "publishDate": "2024-01-15T00:00:00.000Z",
+  "content": {
+    "description": "Escapa de la rutina y sumérgete en una experiencia romántica diseñada para crear momentos inolvidables con tu pareja.",
+    "experience": "Disfruta de una estancia de lujo con vistas al mar, comenzando con una bienvenida especial en tu suite decorada con pétalos y velas. Relájate con un masaje en pareja en nuestro spa premium y culmina el día con una cena privada en la playa al atardecer.",
+    "amenities": "Nuestro equipo de servicio personalizado estará atento a cada detalle, desde el desayuno gourmet servido en la cama hasta los pequeños detalles que harán de tu estancia una experiencia verdaderamente memorable."
+  }
+}

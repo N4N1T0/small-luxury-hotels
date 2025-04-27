@@ -1,0 +1,67 @@
+{
+  "title": "Viaje Culinario Cubano",
+  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
+  "location": "La Habana, Cuba",
+  "price": 199,
+  "duration": "1 día",
+  "maxParticipants": 8,
+  "included": [
+    "Clase de cocina práctica",
+    "Tour por el mercado local",
+    "Degustación de ron",
+    "Almuerzo gourmet",
+    "Recetario exclusivo"
+  ],
+  "gallery": [
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Clase de cocina cubana tradicional"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Mercado local de La Habana y sus productos frescos"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Chef preparando platos típicos cubanos"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Selección de especias y hierbas cubanas"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Degustación de rones premium cubanos"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Participantes aprendiendo técnicas de cocina"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Presentación de platos terminados"
+    },
+    {
+      "url": "https://placehold.co/500x500",
+      "alt": "Ambiente del taller de cocina cubana"
+    }
+  ],
+  "highlights": [
+    "Aprende a preparar platos tradicionales cubanos",
+    "Visita al mercado local con el chef",
+    "Secretos de la cocina criolla",
+    "Maridaje con rones premium"
+  ],
+  "featured": false,
+  "publishDate": "2024-01-16T00:00:00.000Z",
+  "content": {
+    "description": "Sumérgete en un viaje gastronómico único que te llevará a través de los sabores y aromas de la cocina cubana tradicional. Esta experiencia está diseñada tanto para principiantes como para entusiastas culinarios.",
+    "program": "Comienza tu día con una visita guiada al mercado local, donde aprenderás sobre los ingredientes frescos y especias esenciales en la cocina cubana. Luego, participa en una clase práctica de cocina donde aprenderás a preparar platos icónicos.",
+    "learnings": [
+      "Domina los métodos de cocción tradicionales cubanos",
+      "Aprende a identificar y seleccionar los mejores productos locales",
+      "Descubre cómo combinar los platos con los mejores rones cubanos"
+    ],
+    "experience": "No solo aprenderás a cocinar, sino que también comprenderás la rica historia cultural detrás de cada plato, mientras disfrutas de una experiencia gastronómica única en el corazón de La Habana."
+  }
+}
