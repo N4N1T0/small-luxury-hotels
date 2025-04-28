@@ -1,0 +1,99 @@
+---
+import { Logo } from '@/assets';
+import { Menu, X } from 'lucide-astro';
+import { navbarItems } from '@/data/site-data';
+import { cn } from '@/lib/utils';
+
+const pathname = Astro.url.pathname;
+---
+
+<div
+  id="mobile-navbar"
+  class="fixed top-0 left-0 z-50 h-screen w-full translate-x-full transform overflow-y-auto bg-white"
+>
+  <div class="flex h-full flex-col p-6">
+    <!-- Logo at the top -->
+    <div class="mt-4 mb-10 flex justify-center">
+      <a href="/" aria-label="Pagina Principal">
+        <Logo aria-label="Logo de Small Luxury Hotels" />
+      </a>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-grow">
+      <ul class="m-0 flex list-none flex-col space-y-6 p-0">
+        {
+          navbarItems.map(({ label, link }) => (
+            <li class="relative">
+              <a
+                href={link}
+                class={cn(
+                  'text-foreground text-3xl font-medium no-underline',
+                  link === pathname ? 'text-secondary' : ''
+                )}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <!-- Reservar Button at the bottom -->
+    <div class="mt-auto mb-8">
+      <a
+        href="/reservar"
+        class="bg-secondary block w-full rounded-none py-3 text-center text-base font-medium text-white no-underline"
+        >Reservar</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- Toggle Button -->
+<button id="mobile-menu-toggle" class="fixed top-4 right-4 z-[60] flex rounded-md p-2 md:hidden">
+  <div class="relative">
+    <Menu
+      id="menu-open"
+      class="text-secondary absolute top-0 right-0 size-10 opacity-100 transition-opacity duration-200 ease-out"
+    />
+    <X
+      id="menu-close"
+      class="absolute top-0 right-0 size-10 opacity-0 transition-opacity duration-200 ease-out"
+    />
+  </div>
+</button>
+
+<script>
+  import { animate } from 'animejs';
+  import { $, toggleOpacity } from '@/lib/utils';
+
+  // Cache DOM elements
+  const toggleButton = $('#mobile-menu-toggle');
+  const mobileNavbar = $('#mobile-navbar');
+  const menuOpen = $('#menu-open');
+  const menuClose = $('#menu-close');
+
+  // Constants for animation
+  const ANIMATION_DURATION = 150;
+  const OPEN_POSITION = '0%';
+  const CLOSED_POSITION = '100%';
+  const EASING = 'easeInOutQuad';
+
+  // Handle mobile menu toggle
+  toggleButton?.addEventListener('click', () => {
+    const isOpen = mobileNavbar?.style.translate === OPEN_POSITION;
+
+    // Toggle menu icons
+    toggleOpacity(menuOpen, isOpen ? '100' : '0');
+    toggleOpacity(menuClose, isOpen ? '0' : '100');
+
+    // Animate navbar
+    animate(mobileNavbar!, {
+      translate: isOpen ? [OPEN_POSITION, CLOSED_POSITION] : [CLOSED_POSITION, OPEN_POSITION],
+      duration: ANIMATION_DURATION,
+      easing: EASING
+    });
+  });
+</script>

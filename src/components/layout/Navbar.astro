@@ -1,0 +1,44 @@
+---
+import { Logo } from '@/assets';
+import { navbarItems } from '@/data/site-data';
+import { cn } from '@/lib/utils';
+import { buttonClasses } from '../ui/ui';
+
+const pathname = Astro.url.pathname;
+---
+
+<nav
+  class="bg-background border-foreground/50 animate-fade-in-down animate-delay-500 fixed top-0 z-[9999] hidden w-full border-b py-2 md:block"
+>
+  <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4">
+    <div class="flex justify-center">
+      <a href="/" aria-label="Pagina Principal">
+        <Logo aria-label="Logo de Small Luxury Hotels" />
+      </a>
+    </div>
+
+    <div>
+      <ul class="m-0 flex list-none gap-8 p-0">
+        {
+          navbarItems.map(({ label, link }) => (
+            <li>
+              <a
+                href={link}
+                class={cn(
+                  'text-foreground hover:text-secondary hover-200 text-lg font-medium no-underline',
+                  link === pathname ? 'text-secondary' : ''
+                )}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <a href="/reservar" class={buttonClasses.primary}>Reservar</a>
+    </div>
+  </div>
+</nav>
