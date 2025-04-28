@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import ShowMore from '@/components/ui/ShowMore.astro';
+import { buttonClasses } from '../ui/ui';
+import { getFeaturedHotel } from '@/lib/utils/hotels';
+
+const featuredHotel = await getFeaturedHotel();
+
+const images = featuredHotel?.data?.images ?? [];
+const description = featuredHotel?.data?.description ?? '';
+const slug = featuredHotel?.id ?? '';
+---
+
+{
+  featuredHotel && (
+    <section class="featured-hotel py-12 md:py-16" aria-labelledby="featured-hotel-title">
+      <div class="container-full mx-auto grid grid-cols-1 gap-8 px-4 md:grid-cols-2 md:px-6">
+        {/* <!-- Column 1 --> */}
+        <article class="col-span-1 flex flex-col items-center md:gap-8 lg:gap-12">
+          <figure class="mb-6 w-full overflow-hidden md:mb-0">
+            {images[0] && (
+              <Image
+                src={images[0].url}
+                alt={images[0].alt}
+                width={600}
+                height={400}
+                class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+              />
+            )}
+          </figure>
+
+          <div class="w-full">
+            <p class="text-foreground/80 font-hum mb-6 text-base font-thin">{description}</p>
+
+            <div class="flex flex-wrap gap-4">
+              <a href={`/hoteles/${slug}`} class={buttonClasses.primary}>
+                Reservar
+              </a>
+              <a href={`/hoteles/${slug}`} class={buttonClasses.ghost}>
+                Explorar
+                <span class="ml-1" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        {/* <!-- Column 2 --> */}
+        <article class="col-span-1 flex flex-col items-center md:gap-8 lg:gap-12">
+          <ShowMore title="Tu refugio ideal te espera aquí" preTitle="Hotel Destacado" />
+
+          <figure class="mb-6 w-full overflow-hidden md:mb-0">
+            {images[1] && (
+              <Image
+                src={images[1].url}
+                alt={images[1].alt}
+                width={600}
+                height={400}
+                class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+              />
+            )}
+          </figure>
+        </article>
+      </div>
+    </section>
+  )
+}

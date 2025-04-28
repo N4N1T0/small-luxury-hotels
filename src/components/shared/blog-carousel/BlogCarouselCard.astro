@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  blog: {
+    title: string;
+    description: string;
+    img: string;
+    link: string;
+    category: string;
+  };
+}
+
+const { blog } = Astro.props;
+---
+
+<div class="text-main flex h-72 w-full items-center justify-center bg-gray-200">
+  <Image
+    src={blog.img}
+    alt={blog.title}
+    class="h-full w-full object-cover"
+    width={500}
+    height={500}
+  />
+</div>
+<div class="space-y-3 pt-4">
+  <p class="text-secondary text-lg font-light uppercase">{blog.category}</p>
+  <h3 class="text-2xl font-bold">{blog.title}</h3>
+  <p class="font-hum text-base font-thin text-gray-600">{blog.description}</p>
+</div>

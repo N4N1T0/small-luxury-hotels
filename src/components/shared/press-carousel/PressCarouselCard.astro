@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  blog: {
+    title: string;
+    description: string;
+    img: string;
+    link: string;
+    category: string;
+  };
+}
+
+const { blog } = Astro.props;
+---
+
+<div class="group relative overflow-hidden">
+  <div class="relative h-[450px] w-full bg-gray-200">
+    {
+      blog.img ? (
+        <Image
+          src={blog.img}
+          alt={blog.title}
+          class="h-full w-full object-cover"
+          width={300}
+          height={300}
+        />
+      ) : (
+        <div class="flex h-full w-full items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-16 w-16 text-gray-400"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 12l8.954-8.955c.05-.052.2-.052.25 0l8.955 8.955m-8.955 3h.008v.008H13.5v-.008h-.036a9 9 0 01-9.936-9.936L2.25 12zm4.856-8.955L12 2.25l4.894 4.895m-4.894 8.955L12 21.75l4.894-4.895"
+            />
+          </svg>
+        </div>
+      )
+    }
+  </div>
+  <div
+    class="bg-opacity-60 absolute right-0 bottom-0 left-0 translate-y-full bg-black p-4 text-white transition-transform duration-300 group-hover:translate-y-0"
+  >
+    <h3 class="text-lg font-bold">{blog.title}</h3>
+    <p class="font-hum text-sm font-thin">{blog.description}</p>
+  </div>
+</div>
