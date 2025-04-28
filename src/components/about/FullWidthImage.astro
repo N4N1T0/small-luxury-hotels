@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+
+// Full width image with caption component for the about page
+
+interface Props {
+  imageSrc?: string;
+  imageAlt?: string;
+  caption?: string;
+}
+
+const {
+  imageSrc = 'https://placehold.co/1200x400',
+  imageAlt = 'Vista panorámica de playa tropical',
+  caption = 'Image caption goes here'
+} = Astro.props;
+---
+
+<section class="bg-background py-16">
+  <div class="container">
+    <p class="mb-8 text-lg font-bold text-pretty">
+      Elit nisi in eleifend sed nisi. Pulvinar at orci, proin imperdiet commodo consectetur
+      convallis risus. Sed condimentum enim dignissim adipiscing faucibus consequat, urna. Viverra
+      purus et erat auctor aliquam.
+    </p>
+    <p class="mb-8 text-lg text-pretty">
+      Elit nisi in eleifend sed nisi. Pulvinar at orci, proin imperdiet commodo consectetur
+      convallis risus. Sed condimentum enim dignissim adipiscing faucibus consequat, urna. Viverra
+      purus et erat auctor aliquam. Risus, volutpat vulputate posuere purus sit congue convallis
+      aliquet. Arcu id augue ut feugiat donec porttitor neque. Mauris, neque ultricies eu
+      vestibulum, bibendum quam lorem id. Dolor lacus, eget nunc lectus in tellus, pharetra,
+      porttitor.
+    </p>
+    <div class="relative">
+      <!-- Full width image -->
+      <div class="w-full overflow-hidden shadow-lg">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          class="h-auto w-full object-cover"
+          width={1200}
+          height={600}
+        />
+      </div>
+
+      <!-- Caption -->
+      <div class="text-foreground/70 mt-4 text-sm italic">
+        {caption}
+      </div>
+    </div>
+  </div>
+</section>

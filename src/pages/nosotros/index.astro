@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Locations from '@/components/shared/preact-shared/LocationMap';
+import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
+import Hero from '@/components/home/Hero.astro';
+import { HeroHome } from '@/assets';
+import DescriptionCta from '@/components/home/DescriptionCta.astro';
+import Timeline from '@/components/about/Timeline.astro';
+import QuoteWithImage from '@/components/about/QuoteWithImage.astro';
+import FullWidthImage from '@/components/about/FullWidthImage.astro';
+import { getAllHotels } from '@/lib/utils/hotels';
+
+const hotels = await getAllHotels();
+---
+
+<Layout>
+  <main class="bg-background">
+    <Hero
+      backgroundImage={HeroHome}
+      title="Sobre nuestro grupo"
+      subtitle="En nuestro grupo, nos dedicamos a ofrecerte estancias inolvidables en los mejores destinos. Cada hotel está diseñado para brindarte comodidad y experiencias memorables."
+      showCTA={false}
+    />
+    <DescriptionCta
+      title="Descubre el placer de hospedarte con nosotros"
+      description="En nuestro grupo, ofrecemos una experiencia única de alojamiento que combina confort y estilo. Nuestros hoteles están ubicados en los destinos más atractivos, ideales para cualquier tipo de viajero. En nuestro grupo, ofrecemos una experiencia única de alojamiento que combina confort y estilo. Nuestros hoteles están ubicados en los destinos más atractivos, ideales para cualquier tipo de viajero."
+      showCta={false}
+    />
+    <FullWidthImage caption="Disfruta de nuestras increíbles vistas y servicios de primera clase" />
+    <Timeline
+      title="Nuestra Historia"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
+    />
+    <QuoteWithImage
+      quote="Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim mauris id. Non pellentesque congue eget consectetur turpis. Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt aenean tempus."
+    />s
+    <HotelCarousel />
+    <Locations client:only={true} hotels={hotels} />
+  </main>
+</Layout>

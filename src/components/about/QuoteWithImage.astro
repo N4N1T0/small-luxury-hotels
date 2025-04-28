@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+
+// Quote with image component for the about page
+
+interface Props {
+  quote: string;
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  quote = 'Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim mauris id. Non pellentesque congue eget consectetur turpis. Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt aenean tempus.',
+  imageSrc = 'https://placehold.co/800x500',
+  imageAlt = 'Vista de un hotel al atardecer'
+} = Astro.props;
+---
+
+<section class="bg-background py-16">
+  <div class="container">
+    <p class="mb-8 text-lg text-pretty">
+      Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend
+      faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam.
+      Mauris posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At feugiat sapien varius id.
+      Eget quis mi enim, leo lacinia pharetra, semper. Eget in volutpat mollis at volutpat lectus
+      velit, sed auctor. Porttitor fames arcu quis fusce augue enim. Quis at habitant diam at.
+      Suscipit tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum molestie aliquet
+      sodales id est ac volutpat. Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum,
+      nulla odio nisl vitae. In aliquet pellentesque aenean hac vestibulum turpis mi bibendum diam.
+      Tempor integer aliquam in vitae malesuada fringilla. Elit nisi in eleifend sed nisi. Pulvinar
+      at orci, proin imperdiet commodo consectetur convallis risus.
+    </p>
+    <div class="flex flex-col items-center gap-8 md:flex-row">
+      <!-- Image section -->
+      <div class="w-full md:w-1/2">
+        <div class="relative overflow-hidden">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            class="h-auto w-full object-cover shadow-lg"
+            width={500}
+            height={500}
+          />
+        </div>
+      </div>
+
+      <!-- Quote section -->
+      <div class="w-full md:w-1/2">
+        <div class="border-secondary border-l-4 py-2 pl-6">
+          <blockquote
+            class="text-foreground/90 text-xl leading-relaxed font-light italic md:text-2xl"
+          >
+            "{quote}"
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+
+// Timeline component for the about page
+
+interface TimelineItem {
+  year: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  items?: TimelineItem[];
+}
+
+const { title, description, items } = Astro.props;
+
+// Default timeline items if none provided
+const defaultItems: TimelineItem[] = [
+  {
+    year: '2010',
+    title: 'Fundación',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.',
+    imageSrc: 'https://placehold.co/400x300',
+    imageAlt: 'Imagen de la fundación del hotel'
+  },
+  {
+    year: '2015',
+    title: 'Expansión',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.',
+    imageSrc: 'https://placehold.co/400x300',
+    imageAlt: 'Imagen de la expansión del hotel'
+  },
+  {
+    year: '2020',
+    title: 'Renovación',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.',
+    imageSrc: 'https://placehold.co/400x300',
+    imageAlt: 'Imagen de la renovación del hotel'
+  },
+  {
+    year: '2025',
+    title: 'Futuro',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.',
+    imageSrc: 'https://placehold.co/400x300',
+    imageAlt: 'Imagen del futuro del hotel'
+  }
+];
+
+const timelineItems = items || defaultItems;
+---
+
+<section class="bg-background py-16">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 text-4xl font-bold">{title}</h2>
+      <p class="text-foreground/80 mx-auto max-w-2xl">{description}</p>
+    </div>
+
+    <div class="relative">
+      <!-- Horizontal line -->
+      <div class="bg-foreground/20 absolute top-1/2 right-0 left-0 z-0 h-px"></div>
+
+      <div class="relative z-10 flex flex-col gap-16 lg:flex-row lg:justify-between">
+        {
+          timelineItems.map((item) => (
+            <div class="mx-auto flex w-full max-w-xs flex-col items-center text-center">
+              {/* <!-- Image --> */}
+              <Image
+                src={item.imageSrc}
+                alt={item.imageAlt}
+                width={100}
+                height={100}
+                class="mb-4 h-40 w-full object-cover"
+              />
+
+              {/* <!-- Dot --> */}
+              <div class="bg-secondary mb-4 h-4 w-4 rounded-full" />
+
+              {/* <!-- Year --> */}
+              <h3 class="mb-2 text-2xl font-bold">{item.year}</h3>
+
+              {/* <!-- Title and description --> */}
+              <div class="text-foreground/80">
+                <h4 class="mb-2 text-lg font-semibold">{item.title}</h4>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
