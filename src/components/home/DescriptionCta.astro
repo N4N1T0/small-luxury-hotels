@@ -1,0 +1,64 @@
+---
+import { cn } from '@/lib/utils';
+import { buttonClasses } from '../ui/ui';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  description: string;
+  showCta?: boolean;
+  className?: string;
+  cta?: {
+    primary?: {
+      text: string;
+      url: string;
+    };
+    secondary?: {
+      text: string;
+      url: string;
+    };
+  };
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  showCta = true,
+  cta = {},
+  className = 'container-full'
+} = Astro.props;
+---
+
+<section class="bg-main py-16 md:py-24">
+  <div class={cn('mx-auto px-4 md:px-6', className)}>
+    <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <div class="space-y-4 md:w-1/2">
+        {subtitle && <p class="font-medium text-white">{subtitle}</p>}
+        <h2 class="text-4xl font-bold text-white md:text-5xl">{title}</h2>
+      </div>
+
+      <div class="space-y-6 md:w-1/2">
+        <p class="text-lg text-white/80 md:text-xl">{description}</p>
+
+        {
+          showCta && (cta.primary || cta.secondary) && (
+            <div class="flex flex-wrap gap-4 pt-4">
+              {cta.primary && (
+                <a href={cta.primary.url} class={buttonClasses.primary}>
+                  {cta.primary.text}
+                </a>
+              )}
+
+              {cta.secondary && (
+                <a href={cta.secondary.url} class={buttonClasses.outlineDark}>
+                  {cta.secondary.text}
+                </a>
+              )}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

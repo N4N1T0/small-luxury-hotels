@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+import { HeroHome, LaHabana1, LaHabana2, LaHabana3 } from '@/assets/index';
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
+
+const images = [HeroHome, LaHabana1, LaHabana2, LaHabana3];
+const features = [
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 22 4-10 4 10"/></svg>',
+    title: 'Momentos inolvidables',
+    description: 'Vive experiencias que crearán recuerdos duraderos durante tu visita con nosotros.'
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/></svg>',
+    title: 'Aventura y Relax',
+    description: 'Elige entre una variedad de actividades que se adaptan a tus preferencias.'
+  }
+];
+---
+
+<section class="text-main bg-background py-8 md:py-16">
+  <div class="container-full mx-auto px-4 md:px-16">
+    <div class="flex flex-col items-end justify-between md:flex-row">
+      <!-- Header and Description -->
+      <div class="mb-10 max-w-3xl">
+        <h2 class="text-3xl font-semibold md:text-4xl">
+          Descubre experiencias únicas que transformarán tu estancia en nuestros hoteles.
+        </h2>
+        <p class="mt-2 text-base md:text-lg">
+          Sumérgete en actividades diseñadas para todos los gustos. Desde aventuras al aire libre
+          hasta relajantes escapadas, tenemos algo para ti.
+        </p>
+      </div>
+      <!-- Features Row -->
+      <div class="mb-12 grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2">
+        {
+          features.map((feature) => (
+            <div class="flex items-start gap-6">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center">
+                <span class="text-xl" set:html={feature.icon} />
+              </div>
+              <div>
+                <h3 class="text-main text-xl font-semibold">{feature.title}</h3>
+                <p class="mt-2">{feature.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="relative h-[75vh] w-full overflow-hidden rounded-md shadow-md">
+      <div class="swiper-feature-section h-full w-full">
+        <div class="swiper-wrapper h-full">
+          {
+            images.map((img, idx) => (
+              <div class="swiper-slide h-full">
+                <Image
+                  src={img}
+                  alt={`Experiencia ${idx + 1}`}
+                  class="h-full w-full object-cover"
+                  width={1280}
+                  height={720}
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+        <!-- Navigation Buttons -->
+        <div
+          class="prev-feature-section border-main bg-background hover:bg-main text-main hover:text-background absolute right-20 bottom-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
+          aria-label="Anterior"
+        >
+          <ArrowLeft class="current" />
+        </div>
+        <div
+          class="next-feature-section border-main bg-background hover:bg-main text-main hover:text-background absolute right-6 bottom-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
+          aria-label="Siguiente"
+        >
+          <ArrowRight color="current" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  import { Navigation } from 'swiper/modules';
+
+  new Swiper('.swiper-feature-section', {
+    modules: [Navigation],
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    navigation: {
+      prevEl: '.prev-feature-section',
+      nextEl: '.next-feature-section'
+    }
+  });
+</script>

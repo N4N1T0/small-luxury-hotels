@@ -1,11 +1,47 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
+import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
+import FeatureSection from '@/components/home/FeatureSection.astro';
+import Locations from '@/components/shared/preact-shared/LocationMap';
+import Hero from '@/components/home/Hero.astro';
+import DescriptionCta from '@/components/home/DescriptionCta.astro';
+import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
+import PressCarousel from '@/components/shared/press-carousel/PressCarousel.astro';
+import FeaturedHotel from '@/components/shared/FeaturedHotel.astro';
+import ContactSection from '@/components/home/ContactSection.astro';
+import { getAllHotels, getFeaturedHotel } from '@/lib/utils/hotels';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const hotels = await getAllHotels();
+const featuredHotel = await getFeaturedHotel();
 ---
 
 <Layout>
-	<Welcome />
+  <Hero
+    title="ELEGANTS HOTELS OF CUBA"
+    subtitle="En nuestro grupo, nos dedicamos a ofrecerte estancias inolvidables en los mejores destinos. Cada hotel está diseñado para brindarte comodidad y experiencias memorables."
+  />
+
+  <DescriptionCta
+    subtitle="Bienvenido"
+    title="Descubre el placer de hospedarte con nosotros"
+    description="En nuestro grupo, ofrecemos una experiencia única de alojamiento que combina confort y estilo. Nuestros hoteles están ubicados en los destinos más atractivos, ideales para cualquier tipo de viajero."
+    cta={{
+      primary: {
+        text: 'Explorar Hoteles',
+        url: '/hoteles'
+      },
+      secondary: {
+        text: 'Reservar',
+        url: '/reservar'
+      }
+    }}
+  />
+
+  <HotelCarousel />
+  <FeatureSection />
+  <Locations client:only={true} hotels={hotels} />
+  <PressCarousel />
+  <FeaturedHotel />
+  <BlogCarousel />
+  <ContactSection />
 </Layout>
