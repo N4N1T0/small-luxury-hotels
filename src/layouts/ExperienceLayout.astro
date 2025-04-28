@@ -1,0 +1,23 @@
+---
+import ExperienceHero from '@/components/experiences/ExperienceHero.astro';
+import Layout from './Layout.astro';
+import ExperienceDescription from '@/components/experiences/ExperienceDescription.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  image?: string;
+  experience?: CollectionEntry<'experiences'>;
+}
+
+const { title, subtitle, image, experience }: Props = Astro.props;
+---
+
+<Layout title={title} description={subtitle} image={image}>
+  <main class="bg-background">
+    <ExperienceHero title={title} subtitle={subtitle} />
+    {experience && <ExperienceDescription experience={experience} />}
+    <slot />
+  </main>
+</Layout>
