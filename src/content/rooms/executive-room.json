@@ -1,0 +1,36 @@
+{
+  "title": "Habitación Executive",
+  "description": "Elegante habitación con diseño contemporáneo, perfecta para viajeros de negocios y parejas que buscan confort y estilo.",
+  "shortDescription": "Habitación elegante con comodidades premium para el viajero exigente",
+  "size": 35,
+  "maxOccupancy": 2,
+  "bedType": "Queen Size",
+  "amenities": [
+    "Escritorio de trabajo ergonómico",
+    "Baño completo con ducha de lluvia",
+    "Smart TV 55\"",
+    "Minibar",
+    "Cafetera",
+    "Wi-Fi de alta velocidad",
+    "Plancha y tabla de planchar",
+    "Caja fuerte digital"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Vista interior de la Habitación Executive"
+    },
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Área de trabajo de la Habitación Executive"
+    },
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Baño de la Habitación Executive"
+    }
+  ],
+  "pricePerNight": 450,
+  "currency": "EUR",
+  "featured": false,
+  "availability": true
+}

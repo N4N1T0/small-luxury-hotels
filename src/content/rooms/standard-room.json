@@ -1,0 +1,36 @@
+{
+  "title": "Habitación Estándar",
+  "description": "Acogedora habitación con todas las comodidades esenciales para una estancia confortable, decorada con un estilo moderno y elegante.",
+  "shortDescription": "Habitación confortable con todas las comodidades esenciales",
+  "size": 28,
+  "maxOccupancy": 2,
+  "bedType": "Queen Size",
+  "amenities": [
+    "Baño privado con ducha",
+    "Smart TV 43\"",
+    "Minibar",
+    "Wi-Fi de alta velocidad",
+    "Aire acondicionado",
+    "Caja fuerte",
+    "Secador de pelo",
+    "Set de té y café"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Vista interior de la Habitación Estándar"
+    },
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Baño de la Habitación Estándar"
+    },
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Vista detalle de la Habitación Estándar"
+    }
+  ],
+  "pricePerNight": 250,
+  "currency": "EUR",
+  "featured": false,
+  "availability": true
+}
