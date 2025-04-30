@@ -3,7 +3,8 @@ import type { CollectionEntry } from "astro:content";
 import { buttonClasses } from "@/components/ui/ui";
 
 interface Props {
-  hotel: CollectionEntry<"hotels">;
+  hotel?: CollectionEntry<"hotels">;
+  room?: CollectionEntry<"rooms">;
 }
 
 interface BookingFormData {
@@ -14,13 +15,14 @@ interface BookingFormData {
   roomType: string;
 }
 
-export default function BookingForm({ hotel }: Props) {
+export default function BookingForm({ hotel, room }: Props) {
   const [formData, setFormData] = useState<BookingFormData>({
     checkIn: "",
     checkOut: "",
     adults: 1,
     children: 0,
-    roomType: hotel.data.rooms[0].id || "Selecciona un tipo de habitación",
+    roomType:
+      hotel?.data.rooms[0].id || room?.id || "Seleccione un tipo de habitación",
   });
 
   const handleSubmit = (e: Event) => {
@@ -74,11 +76,17 @@ export default function BookingForm({ hotel }: Props) {
             <option value="" selected>
               Selecciona un tipo de habitación
             </option>
-            {hotel.data.rooms.map((type) => (
-              <option key={type.id} value={type.id}>
-                {type.id}
+            {hotel ? (
+              hotel.data.rooms.map((type) => (
+                <option key={type.id} value={type.id}>
+                  {type.id}
+                </option>
+              ))
+            ) : (
+              <option value={room?.id} selected>
+                {room?.id}
               </option>
-            ))}
+            )}
           </select>
 
           <input
