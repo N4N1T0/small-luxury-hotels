@@ -9,10 +9,10 @@ import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
 import PressCarousel from '@/components/shared/press-carousel/PressCarousel.astro';
 import FeaturedHotel from '@/components/shared/FeaturedHotel.astro';
 import ContactSection from '@/components/home/ContactSection.astro';
-import { getAllHotels, getFeaturedHotel } from '@/lib/utils/hotels';
+import { getAllHotels } from '@/lib/utils/hotels';
+import ExperiencesCarousel from '@/components/home/ExperiencesCarousel.astro';
 
 const hotels = await getAllHotels();
-const featuredHotel = await getFeaturedHotel();
 ---
 
 <Layout>
@@ -39,6 +39,7 @@ const featuredHotel = await getFeaturedHotel();
 
   <HotelCarousel />
   <FeatureSection />
+  <ExperiencesCarousel />
   <Locations client:only={true} hotels={hotels} />
   <PressCarousel />
   <FeaturedHotel />

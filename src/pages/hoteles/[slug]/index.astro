@@ -1,12 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import HotelHero from '@/components/hotel/HotelHero.astro';
-import BookingForm from '@/components/hotel/preact-hotel/BookingForm';
-import RoomList from '@/components/hotel/RoomList.astro';
+import HotelHero from '@/components/hotels/HotelHero.astro';
+import BookingForm from '@/components/hotels/preact-hotel/BookingForm';
+import RoomList from '@/components/hotels/RoomList.astro';
 import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
-import HotelLocation from '@/components/hotel/preact-hotel/HotelLocation';
-import HotelDescription from '@/components/hotel/HotelDescription.astro';
-import HotelExperiences from '@/components/hotel/HotelExperiences.astro';
+import HotelLocation from '@/components/hotels/preact-hotel/HotelLocation';
+import HotelDescription from '@/components/hotels/HotelDescription.astro';
+import HotelExperiences from '@/components/hotels/HotelExperiences.astro';
 import { getAllHotels, getHotelBySlug } from '@/lib/utils/hotels';
 import { getRoomsByHotel } from '@/lib/utils/rooms';
 import { getExperiencesByHotel } from '@/lib/utils/experiences';
@@ -32,13 +32,11 @@ if (!hotel) {
 ---
 
 <Layout title={hotel.data.title}>
-  <main class="bg-background">
-    <HotelHero hotel={hotel} />
-    <BookingForm client:visible hotel={hotel} />
-    <HotelDescription hotel={hotel} />
-    <RoomList rooms={rooms} />
-    <HotelExperiences experiences={experiences} />
-    <HotelLocation client:visible client:only={true} hotel={hotel} />
-    <BlogCarousel />
-  </main>
+  <HotelHero hotel={hotel} />
+  <BookingForm client:visible hotel={hotel} />
+  <HotelDescription hotel={hotel} />
+  <RoomList rooms={rooms} />
+  <HotelExperiences experiences={experiences} />
+  <HotelLocation client:visible client:only={true} hotel={hotel} />
+  <BlogCarousel />
 </Layout>

@@ -3,7 +3,6 @@ import Layout from '@/layouts/Layout.astro';
 import Locations from '@/components/shared/preact-shared/LocationMap';
 import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
 import Hero from '@/components/home/Hero.astro';
-import { HeroHome } from '@/assets';
 import DescriptionCta from '@/components/home/DescriptionCta.astro';
 import Timeline from '@/components/about/Timeline.astro';
 import QuoteWithImage from '@/components/about/QuoteWithImage.astro';
@@ -16,7 +15,6 @@ const hotels = await getAllHotels();
 <Layout>
   <main class="bg-background">
     <Hero
-      backgroundImage={HeroHome}
       title="Sobre nuestro grupo"
       subtitle="En nuestro grupo, nos dedicamos a ofrecerte estancias inolvidables en los mejores destinos. Cada hotel está diseñado para brindarte comodidad y experiencias memorables."
       showCTA={false}

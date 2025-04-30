@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getAllLegal, getLegalBySlug } from '@/lib/utils/legal';
+
+export async function getStaticPaths() {
+  const legalDocuments = await getAllLegal();
+  return legalDocuments.map((document) => ({
+    params: { slug: document.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const legalDocument = await getLegalBySlug(slug);
+
+if (!legalDocument) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await legalDocument?.render();
+---
+
+<Layout>
+  <section class="container mt-16 py-16">
+    <h1 class="mb-4 text-4xl font-bold">{legalDocument.data.title}</h1>
+    <article class="prose lg:prose-xl max-w-none">
+      <Content />
+    </article>
+  </section>
+</Layout>
