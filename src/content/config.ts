@@ -112,9 +112,19 @@ const blogCollection = defineCollection({
   }),
 });
 
+const legalCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    publishDate: z.string(),
+    updatedDate: z.string().optional(),
+  }),
+});
+
 export const collections = {
   experiences: experiencesCollection,
   hotels: hotelsCollection,
   rooms: roomsCollection,
   blog: blogCollection,
+  legal: legalCollection,
 };
