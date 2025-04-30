@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ShowMore from '@/components/ui/ShowMore.astro';
+import ExperiencesCard from '@/components/experiences/ExperiencesCard.astro';
+
+interface Props {
+  experiences: CollectionEntry<'experiences'>[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<section class="container px-4 py-16">
+  <ShowMore
+    title="Experiencias"
+    subtitle="Descubre nuestras experiencias únicas y personalizadas para ti."
+    showMoreUrl="/experiencias"
+    showMoreLabel="Ver Mas"
+  />
+  <div class="space-y-16">
+    {
+      experiences.map((experience, index) => (
+        <ExperiencesCard experience={experience} index={index} />
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import RoomListCard from './RoomListCard.astro';
+
+interface Props {
+  rooms: CollectionEntry<'rooms'>[];
+}
+
+const { rooms } = Astro.props;
+---
+
+<section class="container">
+  <h2 class="mb-8 text-5xl font-semibold">Nuestras Habitaciones</h2>
+
+  <div class="grid grid-cols-1 gap-8 space-y-8 md:grid-cols-2">
+    {rooms.map((room) => <RoomListCard room={room} />)}
+  </div>
+</section>

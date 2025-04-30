@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
+
+interface Props {
+  hotel: CollectionEntry<'hotels'>;
+}
+
+const { hotel } = Astro.props;
+const { title, gallery, shortDescription } = hotel.data;
+---
+
+<section class="bg-main relative w-full py-16 md:pt-32">
+  <div class="container space-y-8">
+    <!-- Left: Text Info -->
+    <div class="animate-fade-in-down animate-delay-100 flex max-w-2xl flex-col justify-center">
+      <h1 class="text-4xl font-bold text-white md:text-6xl">{title}</h1>
+      <p class="mt-6 text-base text-white/80 md:text-xl">
+        {shortDescription}
+      </p>
+    </div>
+
+    <!-- Right: Swiper Gallery -->
+    <div class="animate-fade-in animate-delay-300 h-full w-full space-y-4 overflow-hidden">
+      <div class="swiper-hotel-hero h-[75vh] w-full">
+        <div class="swiper-wrapper h-full">
+          {
+            gallery.map((image) => (
+              <div class="swiper-slide h-full">
+                <Image
+                  src={image.url}
+                  alt={image.alt}
+                  width={800}
+                  height={600}
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <!-- Navigation BTNS -->
+      <div class="flex w-full items-center justify-between">
+        <div class="swiper-pagination-hotel-hero custom-pagination-swiper"></div>
+        <div class="flex gap-3">
+          <div
+            class="prev-hotel-hero border-main bg-background hover:bg-main text-main hover:text-background flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
+            aria-label="Anterior"
+          >
+            <ArrowLeft class="current" />
+          </div>
+          <div
+            class="next-hotel-hero border-main bg-background hover:bg-main text-main hover:text-background flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
+            aria-label="Siguiente"
+          >
+            <ArrowRight class="current" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+
+  new Swiper('.swiper-hotel-hero', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    navigation: {
+      nextEl: '.next-hotel-hero',
+      prevEl: '.prev-hotel-hero'
+    },
+    pagination: {
+      el: '.swiper-pagination-hotel-hero',
+      clickable: true
+    }
+  });
+</script>

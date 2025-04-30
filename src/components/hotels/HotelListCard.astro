@@ -8,15 +8,15 @@ interface Props {
 }
 
 const { hotel } = Astro.props;
-const { title, description, images, amenities } = hotel.data;
+const { title, description, gallery, amenities } = hotel.data;
 ---
 
 <li class="border-foreground/10 border-t">
   <article class="flex flex-col gap-8 pt-8 md:flex-row">
     <div class="relative h-64 w-full overflow-hidden rounded md:h-auto md:w-1/2">
       <Image
-        src={images[0].url}
-        alt={images[0].alt}
+        src={gallery[0].url}
+        alt={gallery[0].alt}
         class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
         width={800}
         height={500}
