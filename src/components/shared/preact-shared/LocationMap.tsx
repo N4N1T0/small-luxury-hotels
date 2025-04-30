@@ -27,7 +27,7 @@ export default function Locations({
 
   return (
     <section class="text-main bg-background py-8 md:py-16">
-      <div className="container-full">
+      <div className="container">
         <div class="mb-10 max-w-3xl">
           <h2 class="text-3xl font-semibold md:text-4xl">
             Descubre experiencias únicas que transformarán tu estancia en

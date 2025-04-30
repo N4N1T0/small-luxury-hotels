@@ -2,43 +2,66 @@
 import { Logo } from '@/assets';
 import { navbarItems } from '@/data/site-data';
 import { cn } from '@/lib/utils';
-import { buttonClasses } from '../ui/ui';
+import { buttonClasses } from '@/components/ui/ui';
+import MegaMenu from '@/components/layout/MegaMenu.astro';
 
 const pathname = Astro.url.pathname;
 ---
 
 <nav
-  class="bg-background border-foreground/50 animate-fade-in-down animate-delay-500 fixed top-0 z-[9999] hidden w-full border-b py-2 md:block"
+  id="navbar"
+  class="bg-background border-main fixed top-0 z-[9999] w-full translate-y-0 border-b py-2 transition-transform duration-300"
 >
-  <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4">
+  <div class="mx-auto flex w-full max-w-[1200px] items-center justify-between px-4">
     <div class="flex justify-center">
       <a href="/" aria-label="Pagina Principal">
         <Logo aria-label="Logo de Small Luxury Hotels" />
       </a>
     </div>
-
     <div>
-      <ul class="m-0 flex list-none gap-8 p-0">
+      <ul class="m-0 flex list-none gap-8 p-0" id="navbar-list">
         {
-          navbarItems.map(({ label, link }) => (
-            <li>
+          navbarItems.map(({ label, link, megamenu }) => (
+            <li data-mega-menu={megamenu ? link : null}>
               <a
                 href={link}
                 class={cn(
-                  'text-foreground hover:text-secondary hover-200 text-lg font-medium no-underline',
-                  link === pathname ? 'text-secondary' : ''
+                  'text-foreground hover:text-secondary hover-200 flex gap-2 text-lg font-medium no-underline',
+                  pathname.includes(link) ? 'text-secondary' : ''
                 )}
               >
                 {label}
               </a>
+
+              {megamenu && <MegaMenu collection={link as '/hoteles' | '/experiencias'} />}
             </li>
           ))
         }
       </ul>
     </div>
-
     <div>
       <a href="/reservar" class={buttonClasses.primary}>Reservar</a>
     </div>
   </div>
 </nav>
+
+<script>
+  let lastScrollY = window.scrollY;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (!navbar) return;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      // Scroll hacia abajo
+      navbar.style.transform = 'translateY(-100%)';
+    } else {
+      // Scroll hacia arriba
+      navbar.style.transform = 'translateY(0)';
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>

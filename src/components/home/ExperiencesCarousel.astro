@@ -1,0 +1,90 @@
+---
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
+import ShowMore from '@/components/ui/ShowMore.astro';
+import ExperiencesCard from '../experiences/ExperiencesCard.astro';
+import { getAllExperiences } from '@/lib/utils/experiences';
+
+const experiences = await getAllExperiences();
+---
+
+<section class="relative py-8 md:py-15">
+  <div class="container mx-auto px-4 md:px-6">
+    <ShowMore
+      title="Nuestros Experiencias"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      showMoreUrl="/experiencias"
+    />
+
+    <!-- Versión de escritorio (3 columnas) -->
+    <div class="swiper-experience-carousel h-full w-full">
+      <ul class="swiper-wrapper mb-8 hidden h-full gap-8 md:grid md:grid-cols-3">
+        {
+          experiences.map((experience) => (
+            <li class="swiper-slide">
+              <ExperiencesCard experience={experience} />
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- Navigation BTNS -->
+      <div class="flex w-full items-center justify-between">
+        <div class=".swiper-pagination-swiper-experience-carousel"></div>
+        <div class="flex gap-3">
+          <div
+            class="prev-experience-carousel border-main bg-background hover:bg-main text-main hover:text-background flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
+            aria-label="Anterior"
+          >
+            <ArrowLeft class="current" />
+          </div>
+          <div
+            class="next-experience-carousel border-main bg-background hover:bg-main text-main hover:text-background flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
+            aria-label="Siguiente"
+          >
+            <ArrowRight class="current" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Versión móvil (carrusel) -->
+    <div class="mb-8 md:hidden">
+      <swiper-container
+        slides-per-view="1.2"
+        space-between="16"
+        pagination="true"
+        navigation="true"
+        class="hotel-swiper"
+      >
+        {
+          experiences.map((experience) => (
+            <li class="swiper-slide">
+              <ExperiencesCard experience={experience} />
+            </li>
+          ))
+        }
+      </swiper-container>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+  import { Navigation, Pagination } from 'swiper/modules';
+
+  new Swiper('.swiper-experience-carousel', {
+    modules: [Navigation, Pagination],
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 40,
+    navigation: {
+      prevEl: '.prev-experience-carousel',
+      nextEl: '.next-experience-carousel'
+    },
+    pagination: {
+      el: '.swiper-pagination-swiper-experience-carousel'
+    }
+  });
+</script>

@@ -6,7 +6,7 @@ import ShowMore from '@/components/ui/ShowMore.astro';
 ---
 
 <section class="bg-background relative py-8 md:py-15">
-  <div class="container-full mx-auto px-4 md:px-6">
+  <div class="container mx-auto px-4 md:px-6">
     <ShowMore title="Una selección de nuestros blogs" preTitle="Blogs" showMoreUrl="/blogs" />
 
     <!-- Desktop Version (3 columns) -->
@@ -43,7 +43,7 @@ import ShowMore from '@/components/ui/ShowMore.astro';
 
     <!-- Mobile Version (carousel) -->
     <div class="mb-8 md:hidden">
-      <swiper-container-full
+      <swiper-container
         slides-per-view="1.2"
         space-between="16"
         pagination="true"
@@ -57,7 +57,7 @@ import ShowMore from '@/components/ui/ShowMore.astro';
             </div>
           ))
         }
-      </swiper-container-full>
+      </swiper-container>
     </div>
   </div>
 </section>

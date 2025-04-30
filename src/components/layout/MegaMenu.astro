@@ -1,0 +1,121 @@
+---
+import { experiences, hotels } from '@/data/mega-menu';
+import { Image } from 'astro:assets';
+
+interface Props {
+  collection: '/experiencias' | '/hoteles';
+}
+
+const { collection } = Astro.props;
+
+const data = collection === '/experiencias' ? experiences : hotels;
+const collectionEntries = await data.data();
+const collectionFeatured = await data.featured();
+---
+
+<div
+  class="border-main mega-menu text-main bg-background absolute top-full left-0 z-20 hidden h-fit w-full -translate-y-2 border-y opacity-0 transition-all duration-300"
+  data-mega-menu-for={collection}
+>
+  <div class="container flex size-full gap-4 p-4">
+    {
+      collectionFeatured && (
+        <div class="h-full flex-1">
+          <h3 class="text-muted-foreground mb-4 text-2xl font-semibold">{data.featuredLabel}</h3>
+          <article class="group flex h-full gap-4">
+            <a href={`${collection}/${collectionFeatured.id}`} class="flex-1 overflow-hidden">
+              <Image
+                src={collectionFeatured.data.gallery[0].url}
+                alt={collectionFeatured.data.gallery[0].alt}
+                width={200}
+                height={200}
+                class="aspect-video size-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </a>
+            <div class="my-auto flex-1 space-y-4">
+              <a
+                class="group-hover:text-secondary block text-xl font-bold"
+                href={`${collection}/${collectionFeatured.id}`}
+              >
+                {collectionFeatured.data.title}
+              </a>
+              <p>{collectionFeatured.data.description}</p>
+            </div>
+          </article>
+        </div>
+      )
+    }
+
+    <div class="flex-1">
+      <h3 class="text-muted-foreground mb-4 text-2xl font-semibold">
+        {data.label}
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        {
+          collectionEntries.slice(0, 4).map((entry) => (
+            <article class="group flex gap-4">
+              <a href={`${collection}/${entry.id}`} class="aspect-square w-1/3">
+                <Image
+                  src={entry.data.gallery[0].url}
+                  alt={entry.data.gallery[0].alt}
+                  width={200}
+                  height={150}
+                  class="size-full object-cover"
+                />
+              </a>
+              <div class="flex w-2/3 flex-col gap-2">
+                <a
+                  class="group-hover:text-secondary mt-2 text-sm font-bold"
+                  href={`${collection}/${entry.id}`}
+                >
+                  {entry.data.title}
+                </a>
+                <p class="text-xs">{entry.data.description.split(' ').slice(0, 10).join(' ')}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const navbarItems = document.querySelectorAll('#navbar-list li[data-mega-menu]');
+
+  navbarItems.forEach((item) => {
+    const collection = item.getAttribute('data-mega-menu');
+    const menu = document.querySelector(`.mega-menu[data-mega-menu-for="${collection}"]`);
+
+    if (!menu) {
+      console.warn(`Mega menu not found for collection: ${collection}`);
+      return;
+    }
+
+    let hideTimeoutId: number;
+
+    const showMenu = () => {
+      clearTimeout(hideTimeoutId);
+      menu.classList.remove('hidden', 'pointer-events-none');
+
+      setTimeout(() => {
+        menu.classList.remove('opacity-0', 'translate-y-2');
+      }, 10);
+    };
+
+    const hideMenu = () => {
+      hideTimeoutId = setTimeout(() => {
+        menu.classList.add('opacity-0', 'translate-y-2');
+
+        setTimeout(() => {
+          menu.classList.add('hidden', 'pointer-events-none');
+        }, 300); // debe coincidir con tu transition-duration
+      }, 150); // pequeño delay para evitar el "flash"
+    };
+
+    item.addEventListener('mouseenter', showMenu);
+    item.addEventListener('mouseleave', hideMenu);
+    menu.addEventListener('mouseenter', showMenu);
+    menu.addEventListener('mouseleave', hideMenu);
+  });
+</script>

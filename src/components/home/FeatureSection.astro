@@ -1,9 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import { HeroHome, LaHabana1, LaHabana2, LaHabana3 } from '@/assets/index';
 import { ArrowLeft, ArrowRight } from 'lucide-astro';
 
-const images = [HeroHome, LaHabana1, LaHabana2, LaHabana3];
 const features = [
   {
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 22 4-10 4 10"/></svg>',
@@ -19,7 +17,7 @@ const features = [
 ---
 
 <section class="text-main bg-background py-8 md:py-16">
-  <div class="container-full mx-auto px-4 md:px-16">
+  <div class="container mx-auto px-4 md:px-16">
     <div class="flex flex-col items-end justify-between md:flex-row">
       <!-- Header and Description -->
       <div class="mb-10 max-w-3xl">
@@ -54,18 +52,20 @@ const features = [
       <div class="swiper-feature-section h-full w-full">
         <div class="swiper-wrapper h-full">
           {
-            images.map((img, idx) => (
-              <div class="swiper-slide h-full">
-                <Image
-                  src={img}
-                  alt={`Experiencia ${idx + 1}`}
-                  class="h-full w-full object-cover"
-                  width={1280}
-                  height={720}
-                  loading="lazy"
-                />
-              </div>
-            ))
+            Array(3)
+              .fill('https://placehold.co/1200x600')
+              .map((img, idx) => (
+                <div class="swiper-slide h-full">
+                  <Image
+                    src={img}
+                    alt={`Experiencia ${idx + 1}`}
+                    class="h-full w-full object-cover"
+                    width={1280}
+                    height={720}
+                    loading="lazy"
+                  />
+                </div>
+              ))
           }
         </div>
         <!-- Navigation Buttons -->

@@ -1,0 +1,20 @@
+---
+import { type BlogEntry } from '@/lib/utils/blog';
+import Layout from './Layout.astro';
+import BlogHero from '@/components/blogs/BlogHero.astro';
+import ExperiencesCarousel from '@/components/home/ExperiencesCarousel.astro';
+
+interface Props {
+  blog: BlogEntry;
+}
+
+const { blog } = Astro.props;
+---
+
+<Layout title={`${blog.data.title} | Small Luxury Hotels`} description={blog.data.description}>
+  <BlogHero blog={blog} />
+  <section class="container py-16">
+    <slot />
+  </section>
+  <ExperiencesCarousel />
+</Layout>
