@@ -2,18 +2,16 @@ export const navbarItems = [
   {
     label: "Hoteles",
     link: "/hoteles",
+    megamenu: true,
   },
   {
     label: "Experiencias",
     link: "/experiencias",
+    megamenu: true,
   },
   {
     label: "Nosotros",
     link: "/nosotros",
-  },
-  {
-    label: "Contacto",
-    link: "/contacto",
   },
   {
     label: "Blog",
@@ -68,21 +66,13 @@ export const footerData = {
     { label: "Inicio", link: "/" },
     { label: "Hoteles", link: "/hoteles" },
     { label: "Experiencias", link: "/experiencias" },
-    { label: "Ofertas", link: "/ofertas" },
     { label: "Galería", link: "/galeria" },
   ],
-  services: [
-    { label: "Reservas", link: "/reservas" },
-    { label: "Eventos", link: "/eventos" },
-    { label: "Spa & Wellness", link: "/spa" },
-    { label: "Restaurantes", link: "/restaurantes" },
-    { label: "Actividades", link: "/actividades" },
-  ],
   legal: [
-    { label: "Términos y Condiciones", link: "/terminos" },
-    { label: "Política de Privacidad", link: "/privacidad" },
-    { label: "Política de Cookies", link: "/cookies" },
-    { label: "Aviso Legal", link: "/aviso-legal" },
+    { label: "Términos y Condiciones", link: "/legal/terminos-y-condiciones" },
+    { label: "Política de Privacidad", link: "/legal/politica-de-privacidad" },
+    { label: "Política de Cookies", link: "/legal/politica-de-cookies" },
+    { label: "Aviso Legal", link: "/legal/aviso-legal" },
   ],
   newsletter: {
     title: "Suscríbete a nuestro newsletter",
