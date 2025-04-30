@@ -1,0 +1,131 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+// Generar array de páginas a mostrar
+const getPageNumbers = () => {
+  const pageNumbers = [];
+  const maxPagesToShow = 5;
+
+  if (totalPages <= maxPagesToShow) {
+    // Mostrar todas las páginas si son pocas
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+  } else {
+    // Lógica para mostrar un número limitado de páginas
+    if (currentPage <= 3) {
+      // Cerca del inicio
+      for (let i = 1; i <= 4; i++) {
+        pageNumbers.push(i);
+      }
+      pageNumbers.push('...');
+      pageNumbers.push(totalPages);
+    } else if (currentPage >= totalPages - 2) {
+      // Cerca del final
+      pageNumbers.push(1);
+      pageNumbers.push('...');
+      for (let i = totalPages - 3; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      // En medio
+      pageNumbers.push(1);
+      pageNumbers.push('...');
+      for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+        pageNumbers.push(i);
+      }
+      pageNumbers.push('...');
+      pageNumbers.push(totalPages);
+    }
+  }
+
+  return pageNumbers;
+};
+
+const pageNumbers = getPageNumbers();
+---
+
+<nav aria-label="Paginación" class="mt-10 flex justify-center">
+  <ul class="flex items-center gap-1">
+    <!-- Botón Anterior -->
+    <li>
+      <a
+        href={currentPage === 1 ? '#' : `${baseUrl}${currentPage > 2 ? `/${currentPage - 1}` : ''}`}
+        class={`flex h-10 w-10 items-center justify-center rounded ${currentPage === 1 ? 'cursor-not-allowed text-gray-400' : 'text-main hover:bg-gray-100'}`}
+        aria-label="Ir a la página anterior"
+        aria-disabled={currentPage === 1}
+        tabindex={currentPage === 1 ? -1 : 0}
+      >
+        <span class="sr-only">Anterior</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </li>
+
+    <!-- Números de página -->
+    {
+      pageNumbers.map((pageNumber) => {
+        if (pageNumber === '...') {
+          return (
+            <li>
+              <span class="flex h-10 w-10 items-center justify-center text-gray-500">...</span>
+            </li>
+          );
+        }
+
+        const isCurrentPage = pageNumber === currentPage;
+        return (
+          <li>
+            <a
+              href={pageNumber === 1 ? baseUrl : `${baseUrl}/${pageNumber}`}
+              class={`flex h-10 w-10 items-center justify-center rounded ${isCurrentPage ? 'bg-secondary text-white' : 'text-main hover:bg-gray-100'}`}
+              aria-label={`Ir a la página ${pageNumber}`}
+              aria-current={isCurrentPage ? 'page' : undefined}
+            >
+              {pageNumber}
+            </a>
+          </li>
+        );
+      })
+    }
+
+    <!-- Botón Siguiente -->
+    <li>
+      <a
+        href={currentPage === totalPages ? '#' : `${baseUrl}/${currentPage + 1}`}
+        class={`flex h-10 w-10 items-center justify-center rounded ${currentPage === totalPages ? 'cursor-not-allowed text-gray-400' : 'text-main hover:bg-gray-100'}`}
+        aria-label="Ir a la página siguiente"
+        aria-disabled={currentPage === totalPages}
+        tabindex={currentPage === totalPages ? -1 : 0}
+      >
+        <span class="sr-only">Siguiente</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</nav>

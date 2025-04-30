@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  blog: CollectionEntry<'blog'>;
+}
+
+const { blog } = Astro.props;
+---
+
+<article
+  class="group hover-200 overflow-hidden shadow-lg hover:shadow-xl"
+  aria-labelledby={`featured-title-${blog.slug}`}
+>
+  <a href={`/blog/${blog.slug}`} class="block">
+    <div class="relative aspect-video w-full overflow-hidden">
+      <Image
+        src={blog.data.image.url}
+        alt={blog.data.image.alt}
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        width="800"
+        height="450"
+      />
+      <div
+        class="bg-secondary absolute top-4 left-4 rounded px-3 py-1 text-sm font-medium text-white"
+      >
+        {blog.data.category}
+      </div>
+    </div>
+  </a>
+  <div class="p-6">
+    <h3
+      id={`featured-title-${blog.slug}`}
+      class="text-main hover-200 group-hover:text-secondary mb-3 text-2xl font-bold"
+    >
+      <a href={`/blog/${blog.slug}`}>{blog.data.title}</a>
+    </h3>
+    <p class="font-hum mb-4 text-gray-600">{blog.data.description}</p>
+    <div class="flex items-center justify-between">
+      <span class="text-sm text-gray-500">Por {blog.data.author}</span>
+      <a
+        href={`/blog/${blog.slug}`}
+        class="text-secondary hover-200 flex items-center text-sm font-medium hover:underline"
+        aria-label={`Leer más sobre ${blog.data.title}`}
+      >
+        Leer más
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="ml-1 h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

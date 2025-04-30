@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+import { formatBlogDate } from '@/lib/utils/blog';
+import type { BlogEntry } from '@/lib/utils/blog';
+
+interface Props {
+  blog: BlogEntry;
+}
+
+const { blog } = Astro.props;
+const { data, slug } = blog;
+const formattedDate = formatBlogDate(data.publishDate);
+---
+
+<article
+  class="group hover-200 flex flex-col overflow-hidden shadow-md hover:shadow-lg"
+  aria-labelledby={`blog-title-${slug}`}
+>
+  <a
+    href={`/blog/${slug}`}
+    class="block overflow-hidden"
+    aria-label={`Ver artículo: ${data.title}`}
+  >
+    <div class="relative aspect-[4/3] w-full overflow-hidden">
+      <Image
+        src={data.image.url}
+        alt={data.image.alt}
+        width={400}
+        height={300}
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+    </div>
+  </a>
+
+  <div class="flex flex-1 flex-col p-5">
+    <div class="mb-2 flex items-center justify-between">
+      <span class="text-secondary text-sm font-medium tracking-wider uppercase"
+        >{data.category}</span
+      >
+      <time datetime={data.publishDate} class="text-sm text-gray-500">{formattedDate}</time>
+    </div>
+
+    <h3
+      id={`blog-title-${slug}`}
+      class="text-main hover-200 group-hover:text-secondary mb-3 text-xl font-bold"
+    >
+      <a href={`/blog/${slug}`} class="block">{data.title}</a>
+    </h3>
+
+    <p class="font-hum mb-4 flex-1 text-sm font-thin text-gray-600">{data.description}</p>
+
+    <div class="mt-auto flex items-center justify-between">
+      <span class="text-sm text-gray-500">Por {data.author}</span>
+      <a
+        href={`/blog/${slug}`}
+        class="text-secondary hover-200 flex items-center text-sm font-medium hover:underline"
+        aria-label={`Leer más sobre ${data.title}`}
+      >
+        Leer más
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="ml-1 h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
