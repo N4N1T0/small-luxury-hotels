@@ -19,7 +19,7 @@
     "Bodega de vinos",
     "Terraza mirador"
   ],
-  "images": [
+  "gallery": [
     {
       "url": "https://placehold.co/600x400",
       "alt": "Fachada del Hotel Montaña"
@@ -45,5 +45,6 @@
     "email": "reservas@hotelmontana.com"
   },
   "publishDate": "2024-01-15T00:00:00.000Z",
-  "updatedDate": "2024-01-15T00:00:00.000Z"
+  "updatedDate": "2024-01-15T00:00:00.000Z",
+  "experiences": ["romantic-escape", "sunset-sailing"]
 }

@@ -27,6 +27,10 @@
     {
       "url": "https://placehold.co/1200x800",
       "alt": "Vista detalle de la Habitación Estándar"
+    },
+    {
+      "url": "https://placehold.co/1200x800",
+      "alt": "Área de descanso de la Habitación Estándar"
     }
   ],
   "pricePerNight": 250,
