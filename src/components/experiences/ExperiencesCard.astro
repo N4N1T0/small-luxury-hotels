@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import { buttonClasses } from '@/components/ui/ui';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  experience: CollectionEntry<'experiences'>;
+  index?: number;
+}
+
+const { experience, index } = Astro.props;
+const mainDivStyle =
+  index === undefined
+    ? 'flex flex-col items-center gap-8'
+    : `flex flex-col items-center gap-8 ${index % 2 !== 1 || index === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`;
+---
+
+<div class={mainDivStyle}>
+  <div class="text-main w-full">
+    <Image
+      src={experience.data.gallery[0]?.url || 'https://placehold.co/800x600'}
+      alt={experience.data.gallery[0]?.alt || experience.data.title}
+      width={800}
+      height={600}
+      class="h-[400px] w-full object-cover"
+    />
+  </div>
+  <div class="w-full space-y-4">
+    <h3 class="text-3xl font-semibold">{experience.data.title}</h3>
+    <p class="text-gray-600">{experience.data.description}</p>
+    <div class="space-y-2">
+      <p class="text-xl font-medium">Incluye:</p>
+      <ul class="list-inside list-disc space-y-1">
+        {experience.data.included.slice(0, 3).map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div class="mt-6 flex items-center gap-4">
+      <a href={`/experiencias/${experience.id}`} class={buttonClasses.primary}> Ver Más </a>
+    </div>
+  </div>
+</div>
