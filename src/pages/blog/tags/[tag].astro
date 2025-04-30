@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import BlogList from '@/components/blogs/BlogList.astro';
+import { getAllTags, getBlogsByTag } from '@/lib/utils/blog';
+
+export async function getStaticPaths() {
+  const allTags = await getAllTags();
+
+  return allTags.map((tag) => ({
+    params: { tag }
+  }));
+}
+
+const { tag } = Astro.params;
+const blogs = await getBlogsByTag(tag);
+---
+
+<Layout
+  title={`Blog | Etiqueta ${tag} | Small Luxury Hotels`}
+  description="Descubre artículos sobre viajes, hoteles de lujo, gastronomía y experiencias únicas en nuestro blog."
+>
+  <section class="mt-8 py-16">
+    <BlogList blogs={blogs} tag={tag} />
+  </section>
+</Layout>

@@ -1,0 +1,34 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import BlogList from '@/components/blogs/BlogList.astro';
+import Pagination from '@/components/blogs/Pagination.astro';
+import FeaturedBlog from '@/components/blogs/FeaturedBlog.astro';
+import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
+import { getAllBlogs } from '@/lib/utils/blog';
+
+// Parámetros de paginación
+const BLOGS_PER_PAGE = 6;
+const currentPage = 1;
+
+const allBlogs = await getAllBlogs();
+const regularBlogs = allBlogs.filter((blog) => !blog.data.featured);
+
+// Calcular paginación
+const totalRegularBlogs = regularBlogs.length;
+const totalPages = Math.ceil(totalRegularBlogs / BLOGS_PER_PAGE);
+const paginatedBlogs = regularBlogs.slice(0, BLOGS_PER_PAGE);
+---
+
+<Layout
+  title="Blog | Small Luxury Hotels"
+  description="Descubre artículos sobre viajes, hoteles de lujo, gastronomía y experiencias únicas en nuestro blog."
+>
+  <FeaturedBlog />
+  <BlogList blogs={paginatedBlogs} />
+  {
+    totalPages > 1 && (
+      <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl="/blog" />
+    )
+  }
+  <HotelCarousel />
+</Layout>

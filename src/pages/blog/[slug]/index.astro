@@ -1,0 +1,59 @@
+---
+import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from '@/lib/utils/blog';
+import BlogCard from '@/components/blogs/BlogCard.astro';
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import SocialShare from '@/components/blogs/SocialShare.astro';
+
+export async function getStaticPaths() {
+  const blogs = await getAllBlogs();
+  return blogs.map((blog) => ({
+    params: { slug: blog.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const blog = await getBlogBySlug(slug as string);
+
+if (!blog) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await blog.render();
+const relatedBlogs = await getRelatedBlogs(blog, 3);
+---
+
+<BlogLayout blog={blog}>
+  <div class="prose prose-lg font-hum container max-w-none">
+    <Content />
+  </div>
+
+  <div class="flex w-full items-center justify-between px-8">
+    {
+      blog.data.tags && blog.data.tags.length > 0 && (
+        <div class="mt-10 flex flex-wrap gap-2 px-4">
+          {blog.data.tags.map((tag: string) => (
+            <a href={`/blog/tags/${tag}`} class="bg-secondary text-background px-3 py-1 text-sm">
+              {tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
+    <SocialShare title={blog.data.title} description={blog.data.description} />
+  </div>
+
+  {
+    relatedBlogs.length > 0 && (
+      <section class="container mt-16" aria-labelledby="related-posts-title">
+        <h2 id="related-posts-title" class="text-main mb-8 text-center text-2xl font-bold">
+          Artículos relacionados
+        </h2>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedBlogs.map((relatedBlog) => (
+            <BlogCard blog={relatedBlog} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BlogLayout>

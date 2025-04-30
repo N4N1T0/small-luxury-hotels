@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import BlogList from '@/components/blogs/BlogList.astro';
+import Pagination from '@/components/blogs/Pagination.astro';
+import { getAllBlogs } from '@/lib/utils/blog';
+import type { PaginateFunction } from 'astro';
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const allBlogs = await getAllBlogs();
+  const regularBlogs = allBlogs.filter((blog) => !blog.data.featured);
+
+  return paginate(regularBlogs, {
+    pageSize: 6,
+    params: {}
+  });
+}
+
+const { page } = Astro.props;
+const { currentPage, data: blogs, lastPage } = page;
+---
+
+<Layout
+  title={`Blog | Página ${currentPage} | Small Luxury Hotels`}
+  description="Descubre artículos sobre viajes, hoteles de lujo, gastronomía y experiencias únicas en nuestro blog."
+>
+  <BlogList blogs={blogs} />
+  <Pagination currentPage={currentPage} totalPages={lastPage} baseUrl="/blog" />
+</Layout>
