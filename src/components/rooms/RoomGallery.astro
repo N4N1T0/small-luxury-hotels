@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  room: CollectionEntry<'rooms'> | undefined;
+}
+
+const { room } = Astro.props;
+const images = room?.data.images;
+const bigImagesIndex = [0, 2, 4, 6];
+
+if (!images) {
+  throw new Error('No images found for room');
+}
+
+// Make gallery more flexible by allowing fewer images
+const minImages = Math.min(images.length, 8);
+---
+
+<section class="bg-white py-12">
+  <div class="container mx-auto">
+    <div class="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2" id="gallery-lightbox">
+      {
+        images.slice(0, minImages).map((image, index) => (
+          <div
+            class:list={[
+              'group col-span-1 overflow-hidden rounded-lg shadow-md transition-transform',
+              {
+                'row-span-3': bigImagesIndex.includes(index),
+                'row-span-2': !bigImagesIndex.includes(index)
+              }
+            ]}
+          >
+            <a
+              class="lightbox block h-full"
+              href={image.url}
+              data-pswp-width="1200"
+              data-pswp-height="800"
+              target="_blank"
+              data-cropped="true"
+            >
+              <Image
+                src={image.url}
+                alt={image.alt}
+                width={800}
+                height={600}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                loading={index <= 2 ? 'eager' : 'lazy'}
+              />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery-lightbox',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+    imageClickAction: 'zoom',
+    tapAction: 'zoom',
+    showHideAnimationType: 'fade'
+  });
+
+  lightbox.init();
+</script>
