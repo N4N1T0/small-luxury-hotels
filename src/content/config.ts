@@ -16,7 +16,7 @@ const hotelsCollection = defineCollection({
       }),
     }),
     amenities: z.array(z.string()),
-    images: z.array(
+    gallery: z.array(
       z.object({
         url: z.string(),
         alt: z.string(),
@@ -94,8 +94,27 @@ const experiencesCollection = defineCollection({
   }),
 });
 
+const blogCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.string(),
+    updatedDate: z.string().optional(),
+    author: z.string(),
+    image: z.object({
+      url: z.string(),
+      alt: z.string(),
+    }),
+    category: z.string(),
+    featured: z.boolean().default(false),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 export const collections = {
   experiences: experiencesCollection,
   hotels: hotelsCollection,
   rooms: roomsCollection,
+  blog: blogCollection,
 };
