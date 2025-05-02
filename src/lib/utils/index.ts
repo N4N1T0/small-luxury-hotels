@@ -23,6 +23,20 @@ export const toggleOpacity = (
   }
 };
 
+export const toggleClass = (
+  element: HTMLElement | null,
+  className: string,
+): void => {
+  if (!element) return;
+  if (element.classList.contains(className)) {
+    element.classList.remove(className);
+    return;
+  } else {
+    element.classList.add(className);
+    return;
+  }
+};
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs)).trim();
 }
