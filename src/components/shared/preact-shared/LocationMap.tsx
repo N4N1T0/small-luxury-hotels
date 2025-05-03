@@ -30,18 +30,17 @@ export default function Locations({
       <div className="container">
         <div class="mb-10 max-w-3xl">
           <h2 class="text-3xl font-semibold md:text-4xl">
-            Descubre experiencias únicas que transformarán tu estancia en
-            nuestros hoteles.
+            Encuentra nuestros hoteles exclusivos
           </h2>
           <p class="mt-2 text-base md:text-lg">
-            Sumérgete en actividades diseñadas para todos los gustos. Desde
-            aventuras al aire libre hasta relajantes escapadas, tenemos algo
-            para ti.
+            Explora el mapa interactivo para descubrir dónde se encuentran
+            nuestros hoteles boutique y sus privilegiadas ubicaciones en los
+            destinos más codiciados.
           </p>
         </div>
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="flex-1">
-            <ul className="space-y-6">
+            <ul className="grid grid-cols-2 gap-4 md:grid-cols-1">
               {hotels.map((hotel) => (
                 <li
                   className="cursor-pointer"
