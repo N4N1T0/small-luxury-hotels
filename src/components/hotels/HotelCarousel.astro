@@ -1,8 +1,8 @@
 ---
-import { ArrowLeft, ArrowRight } from 'lucide-astro';
 import HotelCard from './HotelCard.astro';
 import ShowMore from '@/components/ui/ShowMore.astro';
-import { getAllHotels } from '@/lib/utils/hotels';
+import { getAllHotels } from '@/lib/fetchers/hotels';
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
 
 const hotels = await getAllHotels();
 ---
@@ -15,9 +15,9 @@ const hotels = await getAllHotels();
       showMoreUrl="/hoteles"
     />
 
-    <!-- Versión de escritorio (3 columnas) -->
+    <!-- Hotels -->
     <div class="swiper-hotel-carousel h-full w-full">
-      <ul class="swiper-wrapper mb-8 hidden h-full gap-8 md:grid md:grid-cols-3">
+      <ul class="swiper-wrapper mb-8 h-full">
         {
           hotels.map((hotel) => (
             <li class="swiper-slide">
@@ -28,7 +28,7 @@ const hotels = await getAllHotels();
       </ul>
 
       <!-- Navigation BTNS -->
-      <div class="flex w-full items-center justify-between">
+      <div class="mt-4 hidden w-full items-center justify-between md:flex">
         <div class=".swiper-pagination-swiper-hotel-carousel"></div>
         <div class="flex gap-3">
           <div
@@ -46,25 +46,6 @@ const hotels = await getAllHotels();
         </div>
       </div>
     </div>
-
-    <!-- Versión móvil (carrusel) -->
-    <div class="mb-8 md:hidden">
-      <swiper-container
-        slides-per-view="1.2"
-        space-between="16"
-        pagination="true"
-        navigation="true"
-        class="hotel-swiper"
-      >
-        {
-          hotels.map((hotel) => (
-            <li class="swiper-slide">
-              <HotelCard hotel={hotel} />
-            </li>
-          ))
-        }
-      </swiper-container>
-    </div>
   </div>
 </section>
 
@@ -77,8 +58,15 @@ const hotels = await getAllHotels();
   new Swiper('.swiper-hotel-carousel', {
     modules: [Navigation, Pagination],
     loop: true,
-    slidesPerView: 3,
     spaceBetween: 40,
+    breakpoints: {
+      768: {
+        slidesPerView: 1
+      },
+      1024: {
+        slidesPerView: 3
+      }
+    },
     navigation: {
       prevEl: '.prev-hotel-carousel',
       nextEl: '.next-hotel-carousel'

@@ -10,8 +10,8 @@ const { hotel } = Astro.props;
 const { title, description, gallery } = hotel.data;
 ---
 
-<div class="bg-background flex h-full flex-col overflow-hidden">
-  <div class="relative h-[450px] overflow-hidden">
+<article class="bg-background flex h-full flex-col overflow-hidden">
+  <a href=`/hoteles/${hotel.id}` class="relative h-[450px] overflow-hidden">
     <Image
       src={gallery[0].url}
       alt={gallery[0].alt}
@@ -19,10 +19,14 @@ const { title, description, gallery } = hotel.data;
       width={300}
       height={450}
     />
-  </div>
+  </a>
 
-  <div class="flex max-w-[80%] flex-grow flex-col pt-5">
-    <h3 class="text-foreground mb-2 text-2xl font-bold">{title}</h3>
+  <div class="flex w-full flex-grow flex-col pt-5 md:max-w-[80%]">
+    <a href=`/hoteles/${hotel.id}`>
+      <h3 class="text-foreground hover:text-secondary hover-200 mb-2 text-2xl font-bold">
+        {title}
+      </h3>
+    </a>
     <p class="text-foreground/80 mb-4 flex-grow">{description}</p>
 
     <a
@@ -32,4 +36,4 @@ const { title, description, gallery } = hotel.data;
       Ver Hotel
     </a>
   </div>
-</div>
+</article>

@@ -28,12 +28,12 @@ export default function HotelLocations({
 
   return (
     <section class="container">
-      <div class="mb-10 flex items-center justify-between px-8">
+      <div class="mb-10 flex items-center justify-between md:px-8">
         <div>
           <h2 class="text-foreground mb-4 text-4xl font-semibold md:text-5xl">
             Ubicación
           </h2>
-          <p class="text-foreground/80 font-hum text-lg">{shortDescription}</p>
+          <p class="text-foreground/80 font-hum">{shortDescription}</p>
         </div>
         <div
           class="cursor-pointer"

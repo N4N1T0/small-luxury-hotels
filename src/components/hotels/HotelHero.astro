@@ -34,6 +34,7 @@ const { title, gallery, shortDescription } = hotel.data;
                   width={800}
                   height={600}
                   class="h-full w-full object-cover"
+                  loading="eager"
                 />
               </div>
             ))
@@ -41,8 +42,8 @@ const { title, gallery, shortDescription } = hotel.data;
         </div>
       </div>
       <!-- Navigation BTNS -->
-      <div class="flex w-full items-center justify-between">
-        <div class="swiper-pagination-hotel-hero custom-pagination-swiper"></div>
+      <div class="hidden w-full items-center justify-between md:flex">
+        <div class="swiper-pagination-hotel-hero"></div>
         <div class="flex gap-3">
           <div
             class="prev-hotel-hero border-main bg-background hover:bg-main text-main hover:text-background flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
@@ -72,7 +73,7 @@ const { title, gallery, shortDescription } = hotel.data;
     slidesPerView: 1,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 4000,
       disableOnInteraction: false
     },
     navigation: {

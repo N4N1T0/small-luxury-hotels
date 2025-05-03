@@ -1,18 +1,22 @@
 ---
+import type { RoomEntry } from '@/lib/fetchers/rooms';
+import { buttonClasses } from '@/lib/ui';
 import { eurolize } from '@/lib/utils';
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { buttonClasses } from '../ui/ui';
 
 interface Props {
-  room: CollectionEntry<'rooms'>;
+  room: RoomEntry;
 }
 
 const { room } = Astro.props;
 const { images, title, description, size, maxOccupancy, pricePerNight, bedType } = room.data;
 ---
 
-<article class="group col-span-1 overflow-hidden">
+<article
+  class="group col-span-1 overflow-hidden"
+  role="article"
+  aria-labelledby={`room-title-${room.id}`}
+>
   <div class="flex flex-col gap-4">
     <!-- Imagen de la Habitación -->
     <div class="relative h-64 overflow-hidden md:h-auto">
@@ -22,41 +26,46 @@ const { images, title, description, size, maxOccupancy, pricePerNight, bedType }
         width={600}
         height={400}
         class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
       />
     </div>
 
     <!-- Detalles de la Habitación -->
-    <div class="flex flex-col justify-between pt-4 pr-4">
+    <div class="flex flex-col justify-between pt-4 md:max-w-[80%]">
       <div class="space-y-4">
-        <div>
-          <h3 class="text-2xl font-semibold">{title}</h3>
-          <p class="mt-2 text-lg">{description}</p>
-        </div>
+        <header>
+          <h3 id={`room-title-${room.id}`} class="text-2xl font-semibold">{title}</h3>
+          <p class="mt-2">{description}</p>
+        </header>
 
-        <div class="border-secondary grid grid-cols-4 gap-4 border-y py-2">
+        <dl class="border-secondary grid grid-cols-2 gap-4 border-y py-2 md:grid-cols-4">
           <div>
-            <span class="text-foreground/70 block text-sm">Tamaño</span>
-            <span class="text-lg font-medium">{size} m²</span>
+            <dt class="text-foreground/70 block text-sm">Tamaño</dt>
+            <dd class="text-lg font-medium">{size} m²</dd>
           </div>
           <div>
-            <span class="text-foreground/70 block text-sm">Ocupación máxima</span>
-            <span class="text-lg font-medium">{maxOccupancy} personas</span>
+            <dt class="text-foreground/70 block text-sm">Ocupación máxima</dt>
+            <dd class="text-lg font-medium">{maxOccupancy} personas</dd>
           </div>
           <div>
-            <span class="text-foreground/70 block text-sm">Tipo de cama</span>
-            <span class="text-lg font-medium">{bedType}</span>
+            <dt class="text-foreground/70 block text-sm">Tipo de cama</dt>
+            <dd class="text-lg font-medium">{bedType}</dd>
           </div>
           <div>
-            <span class="text-foreground/70 block text-sm">Precio por noche</span>
-            <span class="text-lg font-medium">
+            <dt class="text-foreground/70 block text-sm">Precio por noche</dt>
+            <dd class="text-lg font-medium">
               {eurolize(pricePerNight)}
-            </span>
+            </dd>
           </div>
-        </div>
+        </dl>
       </div>
 
       <div class="flex gap-4 pt-4">
-        <a href={`/habitaciones/${room.id}`} class={buttonClasses.ghost}>
+        <a
+          href={`/habitaciones/${room.id}`}
+          class={buttonClasses.ghost}
+          aria-label={`Ver detalles de la habitación ${title}`}
+        >
           Ver Habitación
           <svg
             class="h-4 w-4"
@@ -64,11 +73,19 @@ const { images, title, description, size, maxOccupancy, pricePerNight, bedType }
             stroke="currentColor"
             stroke-width="2"
             viewBox="0 0 24 24"
+            aria-hidden="true"
+            role="img"
           >
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
           </svg>
         </a>
-        <a href={`/habitaciones/${room.id}`} class={buttonClasses.primary}> Reservar </a>
+        <a
+          href={`/habitaciones/${room.id}`}
+          class={buttonClasses.primary}
+          aria-label={`Reservar habitación ${title}`}
+        >
+          Reservar
+        </a>
       </div>
     </div>
   </div>

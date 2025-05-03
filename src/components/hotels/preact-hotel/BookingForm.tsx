@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
-import { buttonClasses } from "@/components/ui/ui";
+import { buttonClasses } from "@/lib/ui";
 
 interface Props {
   hotel?: CollectionEntry<"hotels">;
@@ -21,8 +21,7 @@ export default function BookingForm({ hotel, room }: Props) {
     checkOut: "",
     adults: 1,
     children: 0,
-    roomType:
-      hotel?.data.rooms[0].id || room?.id || "Seleccione un tipo de habitación",
+    roomType: "",
   });
 
   const handleSubmit = (e: Event) => {
@@ -39,11 +38,11 @@ export default function BookingForm({ hotel, room }: Props) {
   };
 
   return (
-    <section class="bg-main pb-8">
-      <div class="container">
+    <section className="bg-main pb-8">
+      <div className="container">
         <form
           onSubmit={handleSubmit}
-          class="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3"
         >
           <input
             type="date"
@@ -51,7 +50,7 @@ export default function BookingForm({ hotel, room }: Props) {
             name="checkIn"
             value={formData.checkIn}
             onChange={handleInputChange}
-            class="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+            className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
             required
           />
 
@@ -61,7 +60,7 @@ export default function BookingForm({ hotel, room }: Props) {
             name="checkOut"
             value={formData.checkOut}
             onChange={handleInputChange}
-            class="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+            className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
             required
           />
 
@@ -70,10 +69,10 @@ export default function BookingForm({ hotel, room }: Props) {
             name="roomType"
             value={formData.roomType}
             onChange={handleInputChange}
-            class="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+            className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
             required
           >
-            <option value="" selected>
+            <option value="" disabled>
               Selecciona un tipo de habitación
             </option>
             {hotel ? (
@@ -89,30 +88,34 @@ export default function BookingForm({ hotel, room }: Props) {
             )}
           </select>
 
-          <input
-            type="number"
-            id="adults"
-            name="adults"
-            min="1"
-            max="4"
-            value={formData.adults}
-            onChange={handleInputChange}
-            class="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
-            required
-          />
+          <label className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main flex w-full gap-4 border-b-2 p-2 focus:ring-2 focus:outline-none">
+            Adultos
+            <input
+              type="number"
+              id="adults"
+              name="adults"
+              min="1"
+              max="4"
+              value={formData.adults}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
 
-          <input
-            type="number"
-            id="children"
-            name="children"
-            min="0"
-            max="4"
-            value={formData.children}
-            onChange={handleInputChange}
-            class="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
-          />
+          <label className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main flex w-full gap-4 border-b-2 p-2 focus:ring-2 focus:outline-none">
+            Niños
+            <input
+              type="number"
+              id="children"
+              name="children"
+              min="0"
+              max="4"
+              value={formData.children}
+              onChange={handleInputChange}
+            />
+          </label>
 
-          <button type="submit" class={buttonClasses.outlineDark}>
+          <button type="submit" className={buttonClasses.outlineDark}>
             Reservar ahora
           </button>
         </form>
