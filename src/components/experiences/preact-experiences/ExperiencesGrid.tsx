@@ -1,7 +1,7 @@
+import ExperienceCard from "./ExperienceCard";
 import { useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
-import ExperienceCard from "./ExperienceCard";
-import { buttonClasses } from "@/components/ui/ui";
+import { buttonClasses } from "@/lib/ui";
 
 interface Props {
   experiences: CollectionEntry<"experiences">[];
@@ -19,7 +19,7 @@ export default function ExperiencesGrid({ experiences }: Props) {
       <div className="container mx-auto px-4">
         <div className="mb-10">
           <h2 className="text-3xl font-semibold md:text-4xl">
-            Experiencias Exclusivas
+            Nuestras Experiencias
           </h2>
           <p className="mt-2 text-base md:text-lg">
             Descubre las experiencias inolvidables que puedes vivir en nuestros

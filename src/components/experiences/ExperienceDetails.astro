@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ShowMore from '../ui/ShowMore.astro';
 
 interface Props {
   experience: CollectionEntry<'experiences'>;
@@ -12,13 +13,10 @@ const {
 } = Astro.props;
 ---
 
-<div class="flex py-8">
-  <div class="mb-12 flex-1 text-center md:text-left">
-    <p class="text-foreground/80 font-hum mb-2 text-lg">{title}</p>
-    <h2 class="text-foreground mb-4 text-4xl font-semibold md:text-5xl">Detalles</h2>
-  </div>
+<div class="container flex flex-col py-8 md:flex-row">
+  <ShowMore preTitle={title} title="Detalles" className="flex-1 pb-4" />
   <div class="flex-1">
-    <div class="border-secondary border-b py-4">
+    <div class="border-secondary w-full border-b py-4">
       <div class="flex items-start gap-4">
         <span class="w-fit font-semibold text-gray-600">Precio:</span>
         <span class="flex-1">${price}</span>

@@ -33,15 +33,16 @@ const {
     </div>
 
     <div
-      class="animate-fade-in animate-delay-400 mx-auto h-[600px] w-full overflow-hidden"
+      class="animate-fade-in animate-delay-400 mx-auto h-auto w-full overflow-hidden md:h-[600px]"
       style={{ display: isSingleExperience ? 'none' : 'block' }}
     >
       <Image
         src={image}
         alt="Experiencia de lujo"
-        class="object-fit h-auto w-full rounded-none"
+        class="h-auto w-full rounded-none object-cover"
         width={1200}
         height={600}
+        loading="eager"
       />
     </div>
   </div>

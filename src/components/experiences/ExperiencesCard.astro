@@ -1,41 +1,50 @@
 ---
+import { buttonClasses } from '@/lib/ui';
 import { Image } from 'astro:assets';
-import { buttonClasses } from '@/components/ui/ui';
 import type { CollectionEntry } from 'astro:content';
 
+// PROPS
 interface Props {
   experience: CollectionEntry<'experiences'>;
   index?: number;
 }
 
 const { experience, index } = Astro.props;
+
+// CONST
 const mainDivStyle =
   index === undefined
     ? 'flex flex-col items-center gap-8'
     : `flex flex-col items-center gap-8 ${index % 2 !== 1 || index === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`;
+const {
+  data: { gallery, title, description, included },
+  id
+} = experience;
 ---
 
-<div class={mainDivStyle}>
-  <div class="text-main w-full">
+<article class={mainDivStyle}>
+  <a class="text-main w-full" href=`/experiencias/${id}`>
     <Image
-      src={experience.data.gallery[0]?.url || 'https://placehold.co/800x600'}
-      alt={experience.data.gallery[0]?.alt || experience.data.title}
+      src={gallery[0]?.url || 'https://placehold.co/800x600'}
+      alt={gallery[0]?.alt || title}
       width={800}
       height={600}
       class="h-[400px] w-full object-cover"
     />
-  </div>
-  <div class="w-full space-y-4">
-    <h3 class="text-3xl font-semibold">{experience.data.title}</h3>
-    <p class="text-gray-600">{experience.data.description}</p>
+  </a>
+  <div class="w-full space-y-4 md:max-w-[80%]">
+    <a href=`/experiencias/${id}`>
+      <h3 class="hover:text-secondary hover-200 text-3xl font-semibold">{title}</h3>
+    </a>
+    <p class="text-gray-600">{description}</p>
     <div class="space-y-2">
       <p class="text-xl font-medium">Incluye:</p>
       <ul class="list-inside list-disc space-y-1">
-        {experience.data.included.slice(0, 3).map((item) => <li>{item}</li>)}
+        {included.slice(0, 3).map((item) => <li>{item}</li>)}
       </ul>
     </div>
     <div class="mt-6 flex items-center gap-4">
-      <a href={`/experiencias/${experience.id}`} class={buttonClasses.primary}> Ver Más </a>
+      <a href=`/experiencias/${id}` class={buttonClasses.primary}> Ver Más </a>
     </div>
   </div>
-</div>
+</article>

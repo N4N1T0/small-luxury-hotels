@@ -1,4 +1,4 @@
-import { buttonClasses } from "@/components/ui/ui";
+import { buttonClasses } from "@/lib/ui";
 import { eurolize } from "@/lib/utils";
 import type { CollectionEntry } from "astro:content";
 
@@ -10,7 +10,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
   const { title, description, gallery } = experience.data;
 
   return (
-    <div class="group">
+    <article class="group">
       {gallery[0] && (
         <a
           href={`/experiencias/${experience.id}`}
@@ -19,6 +19,10 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
           <img
             src={experience.data.gallery[0].url}
             alt={experience.data.gallery[0].alt}
+            width={500}
+            height={500}
+            loading="lazy"
+            decoding="async"
             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
         </a>
@@ -46,6 +50,6 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
           </a>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
