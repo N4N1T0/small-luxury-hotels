@@ -1,5 +1,5 @@
 ---
-import { formatBlogDate, type BlogEntry } from '@/lib/utils/blog';
+import { formatBlogDate, type BlogEntry } from '@/lib/fetchers/blog';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -10,8 +10,8 @@ const { blog } = Astro.props;
 const formattedDate = formatBlogDate(blog.data.publishDate);
 ---
 
-<article class="bg-main text-background mt-16 w-full py-16">
-  <header class="container mb-8 text-center">
+<article class="bg-main text-background w-full py-16">
+  <header class="container mt-16 mb-8 text-center">
     <div class="animate-fade-in-down animate-delay-200 mb-4 flex items-center justify-center gap-4">
       <span class="text-secondary text-sm font-medium tracking-wider">{blog.data.category}</span>
       <span class="text-background/70">|</span>
@@ -43,6 +43,7 @@ const formattedDate = formatBlogDate(blog.data.publishDate);
       width={1200}
       height={675}
       class="h-[90vh] w-full object-cover"
+      loading="eager"
     />
   </div>
 </article>
