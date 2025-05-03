@@ -1,8 +1,8 @@
 import {
   getAllExperiences,
   getFeaturedExperience,
-} from "@/lib/utils/experiences";
-import { getAllHotels, getFeaturedHotel } from "@/lib/utils/hotels";
+} from "@/lib/fetchers/experiences";
+import { getAllHotels, getFeaturedHotel } from "@/lib/fetchers/hotels";
 import type { CollectionEntry } from "astro:content";
 
 type ExperienceEntry = CollectionEntry<"experiences">;
