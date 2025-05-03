@@ -2,7 +2,7 @@
 import { ArrowLeft, ArrowRight } from 'lucide-astro';
 import ShowMore from '@/components/ui/ShowMore.astro';
 import ExperiencesCard from '../experiences/ExperiencesCard.astro';
-import { getAllExperiences } from '@/lib/utils/experiences';
+import { getAllExperiences } from '@/lib/fetchers/experiences';
 
 const experiences = await getAllExperiences();
 ---
@@ -17,7 +17,7 @@ const experiences = await getAllExperiences();
 
     <!-- Versión de escritorio (3 columnas) -->
     <div class="swiper-experience-carousel h-full w-full">
-      <ul class="swiper-wrapper mb-8 hidden h-full gap-8 md:grid md:grid-cols-3">
+      <ul class="swiper-wrapper">
         {
           experiences.map((experience) => (
             <li class="swiper-slide">
@@ -28,8 +28,8 @@ const experiences = await getAllExperiences();
       </ul>
 
       <!-- Navigation BTNS -->
-      <div class="flex w-full items-center justify-between">
-        <div class=".swiper-pagination-swiper-experience-carousel"></div>
+      <div class="mt-4 hidden w-full items-center justify-between md:flex">
+        <div class=".swiper-pagination-swiper-experience-carousel custom-pagination"></div>
         <div class="flex gap-3">
           <div
             class="prev-experience-carousel border-main bg-background hover:bg-main text-main hover:text-background flex h-12 w-12 items-center justify-center rounded-full border transition-colors"
@@ -46,25 +46,6 @@ const experiences = await getAllExperiences();
         </div>
       </div>
     </div>
-
-    <!-- Versión móvil (carrusel) -->
-    <div class="mb-8 md:hidden">
-      <swiper-container
-        slides-per-view="1.2"
-        space-between="16"
-        pagination="true"
-        navigation="true"
-        class="hotel-swiper"
-      >
-        {
-          experiences.map((experience) => (
-            <li class="swiper-slide">
-              <ExperiencesCard experience={experience} />
-            </li>
-          ))
-        }
-      </swiper-container>
-    </div>
   </div>
 </section>
 
@@ -77,8 +58,15 @@ const experiences = await getAllExperiences();
   new Swiper('.swiper-experience-carousel', {
     modules: [Navigation, Pagination],
     loop: true,
-    slidesPerView: 3,
     spaceBetween: 40,
+    breakpoints: {
+      768: {
+        slidesPerView: 1
+      },
+      1024: {
+        slidesPerView: 3
+      }
+    },
     navigation: {
       prevEl: '.prev-experience-carousel',
       nextEl: '.next-experience-carousel'
