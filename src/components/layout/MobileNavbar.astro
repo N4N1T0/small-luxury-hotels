@@ -2,9 +2,9 @@
 import { Logo } from '@/assets';
 import { Menu, X } from 'lucide-astro';
 import { contactInfo, navbarItems } from '@/data/site-data';
-import { cn } from '@/lib/utils';
-import { getAllHotels } from '@/lib/utils/hotels';
-import { getAllExperiences } from '@/lib/utils/experiences';
+import { cn } from '@/lib/ui';
+import { getAllHotels } from '@/lib/fetchers/hotels';
+import { getAllExperiences } from '@/lib/fetchers/experiences';
 import { Image } from 'astro:assets';
 
 const pathname = Astro.url.pathname;
@@ -33,19 +33,20 @@ const experiences = await getAllExperiences();
             if (items) {
               return (
                 <li class="flex flex-col items-start gap-3">
-                  <span
+                  <a
+                    href={link}
                     class={cn(
                       'text-foreground text-3xl font-medium no-underline',
                       link === pathname ? 'text-secondary' : ''
                     )}
                   >
                     {label}
-                  </span>
+                  </a>
                   <ul class="flex w-full gap-2 overflow-x-auto">
                     {items.map(({ data: { title, gallery }, id }) => (
                       <li>
                         <a
-                          href={`/hoteles/${id}`}
+                          href={`${link}/${id}`}
                           class="text-foreground block aspect-square size-24 text-lg font-medium no-underline"
                         >
                           <Image
@@ -54,6 +55,7 @@ const experiences = await getAllExperiences();
                             width={100}
                             height={100}
                             class="size-full object-cover"
+                            loading="eager"
                           />
                         </a>
                       </li>
@@ -82,7 +84,7 @@ const experiences = await getAllExperiences();
     </nav>
 
     <!-- Social Media -->
-    <div class="border-main mt-auto flex gap-2 border-y py-2">
+    <div class="border-main mt-auto flex gap-2 border-y-[1px] py-2">
       {
         contactInfo.social.networks.map((network) => (
           <a
@@ -125,13 +127,13 @@ const experiences = await getAllExperiences();
         id="menu-open"
         class="text-secondary absolute inset-0 opacity-100 transition-opacity duration-200 ease-out"
         size={40}
-        strokeWidth={0.5}
+        stroke-width={1.5}
       />
       <X
         id="menu-close"
         class="text-secondary absolute inset-0 opacity-0 transition-opacity duration-200 ease-out"
         size={40}
-        strokeWidth={0.5}
+        stroke-width={1.5}
       />
     </button>
   </div>
@@ -139,7 +141,7 @@ const experiences = await getAllExperiences();
 
 <script>
   import { animate } from 'animejs';
-  import { $, toggleOpacity, toggleClass } from '@/lib/utils';
+  import { $, toggleOpacity, toggleClass } from '@/lib/scripts';
   import { navbarAnimation } from '@/lib/scripts';
 
   // CONST

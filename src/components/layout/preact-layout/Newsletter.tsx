@@ -14,7 +14,7 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="bg-accent-dark rounded-lg p-6">
+    <div className="bg-accent-dark mt-8 rounded-lg md:mt-0 md:p-6">
       <h3 className="mb-2 text-xl font-semibold text-white">
         Suscríbete a nuestro newsletter
       </h3>
