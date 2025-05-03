@@ -58,16 +58,35 @@ img {
   @apply shadow-md;
 }
 
-.custom-pagination-swiper {
-  @apply flex items-center justify-center gap-2;
+/* CUSTOM HERO HOTEL PAGINATION */
+.swiper-pagination-hotel-hero {
+  @apply flex !w-fit items-center justify-center gap-2;
 }
 
-.custom-pagination-swiper > .swiper-pagination-bullet {
+.swiper-pagination-hotel-hero > .swiper-pagination-bullet {
   @apply bg-background/50 block size-3 rounded-full;
 }
 
-.custom-pagination-swiper > .swiper-pagination-bullet-active {
+.swiper-pagination-hotel-hero > .swiper-pagination-bullet-active {
   @apply bg-secondary;
+}
+
+/* CUSTOM SWIPER PAGINATION */
+.custom-pagination {
+  @apply flex !w-fit items-center justify-center gap-2;
+}
+
+.custom-pagination > .swiper-pagination-bullet {
+  @apply bg-main/90 block size-3 rounded-full;
+}
+
+.custom-pagination > .swiper-pagination-bullet-active {
+  @apply bg-secondary;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Inverts black to white */
+  cursor: pointer;
 }
 
 @utility container-full {
