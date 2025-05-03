@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import BlogList from '@/components/blogs/BlogList.astro';
-import { getAllTags, getBlogsByTag } from '@/lib/utils/blog';
+import { getAllTags, getBlogsByTag } from '@/lib/fetchers/blog';
 
 export async function getStaticPaths() {
   const allTags = await getAllTags();

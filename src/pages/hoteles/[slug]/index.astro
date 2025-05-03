@@ -7,9 +7,9 @@ import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
 import HotelLocation from '@/components/hotels/preact-hotel/HotelLocation';
 import HotelDescription from '@/components/hotels/HotelDescription.astro';
 import HotelExperiences from '@/components/hotels/HotelExperiences.astro';
-import { getAllHotels, getHotelBySlug } from '@/lib/utils/hotels';
-import { getRoomsByHotel } from '@/lib/utils/rooms';
-import { getExperiencesByHotel } from '@/lib/utils/experiences';
+import { getAllHotels, getHotelBySlug } from '@/lib/fetchers/hotels';
+import { getRoomsByHotel } from '@/lib/fetchers/rooms';
+import { getExperiencesByHotel } from '@/lib/fetchers/experiences';
 
 export async function getStaticPaths() {
   const hotels = await getAllHotels();

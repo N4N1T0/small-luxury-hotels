@@ -3,9 +3,9 @@ import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/home/Hero.astro';
 import RoomDescription from '@/components/rooms/RoomDescription.astro';
 import BookingForm from '@/components/hotels/preact-hotel/BookingForm';
-import RoomGallery from '@/components/rooms/RoomGallery.astro';
+import Gallery from '@/components/ui/Gallery.astro';
 import RoomDetails from '@/components/rooms/RoomDetails.astro';
-import { getAllRooms, getRoomBySlug, getRelatedRooms } from '@/lib/utils/rooms';
+import { getAllRooms, getRoomBySlug, getRelatedRooms } from '@/lib/fetchers/rooms';
 import RoomList from '@/components/hotels/RoomList.astro';
 import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
 
@@ -18,12 +18,6 @@ export const getStaticPaths = async () => {
   });
 };
 
-const descriptionData = {
-  title: 'Una extraordinaria escapada al centro de una ciudad cultura',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.'
-};
-
 const { slug } = Astro.params;
 const room = await getRoomBySlug(slug);
 const otherRooms = await getRelatedRooms(slug);
@@ -32,8 +26,8 @@ const otherRooms = await getRelatedRooms(slug);
 <Layout title="Junior Suite | Small Luxury Hotels of Cuba">
   <Hero title={room?.data.title} subtitle={room?.data.description} />
   <BookingForm room={room} />
-  <RoomDescription {...descriptionData} />
-  <RoomGallery room={room} />
+  <Gallery images={room?.data.images} minImages={1} maxImages={8} />
+  <RoomDescription room={room} />
   <RoomDetails room={room} />
   <RoomList rooms={otherRooms} />
   <HotelCarousel />

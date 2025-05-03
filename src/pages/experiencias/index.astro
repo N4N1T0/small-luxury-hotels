@@ -3,7 +3,7 @@ import TwoColumns from '@/components/shared/TwoColumns.astro';
 import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
 import ExperiencesGrid from '@/components/experiences/preact-experiences/ExperiencesGrid';
 import ExperienceLayout from '@/layouts/ExperienceLayout.astro';
-import { getAllExperiences } from '@/lib/utils/experiences';
+import { getAllExperiences } from '@/lib/fetchers/experiences';
 
 const experiences = await getAllExperiences();
 ---

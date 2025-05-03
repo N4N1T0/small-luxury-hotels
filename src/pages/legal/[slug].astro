@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getAllLegal, getLegalBySlug } from '@/lib/utils/legal';
+import { getAllLegal, getLegalBySlug } from '@/lib/fetchers/legal';
 
 export async function getStaticPaths() {
   const legalDocuments = await getAllLegal();

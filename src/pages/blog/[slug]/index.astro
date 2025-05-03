@@ -1,5 +1,5 @@
 ---
-import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from '@/lib/utils/blog';
+import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from '@/lib/fetchers/blog';
 import BlogCard from '@/components/blogs/BlogCard.astro';
 import BlogLayout from '@/layouts/BlogLayout.astro';
 import SocialShare from '@/components/blogs/SocialShare.astro';
@@ -23,11 +23,11 @@ const relatedBlogs = await getRelatedBlogs(blog, 3);
 ---
 
 <BlogLayout blog={blog}>
-  <div class="prose prose-lg font-hum container max-w-none">
+  <div class="prose prose-lg font-hum container max-w-none p-0">
     <Content />
   </div>
 
-  <div class="flex w-full items-center justify-between px-8">
+  <div class="flex w-full flex-col items-center justify-between px-8 md:flex-row">
     {
       blog.data.tags && blog.data.tags.length > 0 && (
         <div class="mt-10 flex flex-wrap gap-2 px-4">

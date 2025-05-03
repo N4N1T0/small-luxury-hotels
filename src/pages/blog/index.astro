@@ -4,7 +4,8 @@ import BlogList from '@/components/blogs/BlogList.astro';
 import Pagination from '@/components/blogs/Pagination.astro';
 import FeaturedBlog from '@/components/blogs/FeaturedBlog.astro';
 import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
-import { getAllBlogs } from '@/lib/utils/blog';
+import { getAllBlogs } from '@/lib/fetchers/blog';
+import PressCarousel from '@/components/shared/press-carousel/PressCarousel.astro';
 
 // Parámetros de paginación
 const BLOGS_PER_PAGE = 6;
@@ -30,5 +31,6 @@ const paginatedBlogs = regularBlogs.slice(0, BLOGS_PER_PAGE);
       <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl="/blog" />
     )
   }
+  <PressCarousel />
   <HotelCarousel />
 </Layout>

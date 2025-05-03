@@ -1,12 +1,12 @@
 ---
 import ExperienceLayout from '@/layouts/ExperienceLayout.astro';
 import ExperienceDetails from '@/components/experiences/ExperienceDetails.astro';
-import ExperienceGallery from '@/components/experiences/ExperienceGallery.astro';
+import Gallery from '@/components/ui/Gallery.astro';
 import {
   getAllExperiences,
   getRelatedExperiences,
   getExperienceBySlug
-} from '@/lib/utils/experiences';
+} from '@/lib/fetchers/experiences';
 import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
 import ExperiencesGrid from '@/components/experiences/preact-experiences/ExperiencesGrid';
 
@@ -32,10 +32,8 @@ const relatedExperiences = await getRelatedExperiences(experience.id);
   image={experience.data.gallery[0]?.url}
   experience={experience}
 >
-  <article class="container mx-auto space-y-8 px-4 py-16">
-    <ExperienceDetails experience={experience} />
-    <ExperienceGallery images={experience.data.gallery} />
-    <ExperiencesGrid experiences={relatedExperiences} client:load />
-    <HotelCarousel />
-  </article>
+  <ExperienceDetails experience={experience} />
+  <Gallery images={experience.data.gallery} minImages={8} maxImages={8} />
+  <ExperiencesGrid experiences={relatedExperiences} client:load />
+  <HotelCarousel />
 </ExperienceLayout>
