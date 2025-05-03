@@ -1,9 +1,17 @@
 ---
+import type { RoomEntry } from '@/lib/fetchers/rooms';
+
 interface Props {
-  title: string;
-  description: string;
+  room: RoomEntry | undefined;
 }
-const { title, description } = Astro.props;
+
+const { room } = Astro.props;
+
+if (!room) {
+  throw new Error('Room not found');
+}
+
+const { title, description } = room?.data;
 ---
 
 <section class="w-full bg-white py-12">
