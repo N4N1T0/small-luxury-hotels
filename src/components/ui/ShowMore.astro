@@ -1,5 +1,5 @@
 ---
-import { buttonClasses } from '@/components/ui/ui';
+import { buttonClasses, cn } from '@/lib/ui';
 
 interface Props {
   title: string;
@@ -7,15 +7,21 @@ interface Props {
   showMoreUrl?: string;
   preTitle?: string;
   showMoreLabel?: string;
+  className?: string;
 }
 
-const { title, subtitle, showMoreUrl, showMoreLabel, preTitle } = Astro.props;
+const { title, subtitle, showMoreUrl, showMoreLabel, preTitle, className } = Astro.props;
 ---
 
-<div class="flex w-full flex-col items-start justify-between pb-4 md:flex-row md:items-center">
-  <div class="mb-12 text-center md:text-left">
+<div
+  class={cn(
+    'flex w-full flex-col items-center justify-between pb-16 md:flex-row md:pb-8',
+    className
+  )}
+>
+  <div class="mb-8 text-center md:text-left">
     {preTitle && <p class="text-foreground/80 font-hum mb-2 text-lg">{preTitle}</p>}
-    <h2 class="text-foreground mb-4 text-4xl font-semibold md:text-5xl">{title}</h2>
+    <h2 class="text-main mb-4 text-4xl font-semibold md:text-5xl">{title}</h2>
     {subtitle && <p class="text-foreground/80 font-hum text-lg">{subtitle}</p>}
   </div>
   {

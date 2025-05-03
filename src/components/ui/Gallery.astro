@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+
+interface GalleryImage {
+  url: string;
+  alt: string;
+}
+
+interface Props {
+  images: GalleryImage[] | undefined;
+  minImages?: number;
+  maxImages?: number;
+}
+
+const { images, minImages = 1, maxImages = 8 }: Props = Astro.props;
+
+if (!images || images.length < minImages) {
+  throw new Error(`Gallery requires at least ${minImages} images`);
+}
+
+const displayImages = images.slice(0, Math.min(images.length, maxImages));
+const bigImagesIndex = [0, 2, 4, 6];
+---
+
+<section class="py-12">
+  <div class="container">
+    <div class="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2" id="gallery-lightbox">
+      {
+        displayImages.map((image, index) => (
+          <div
+            class:list={[
+              'group col-span-1 overflow-hidden shadow-md transition-transform',
+              {
+                'row-span-1 md:row-span-3': bigImagesIndex.includes(index),
+                'row-span-1 md:row-span-2': !bigImagesIndex.includes(index)
+              }
+            ]}
+          >
+            <a
+              class="lightbox block h-full"
+              href={image.url}
+              data-pswp-width={800}
+              data-pswp-height={600}
+              target="_blank"
+              data-cropped="true"
+            >
+              <Image
+                src={image.url}
+                alt={image.alt}
+                width={800}
+                height={600}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery-lightbox',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+    imageClickAction: 'zoom',
+    tapAction: 'zoom',
+    showHideAnimationType: 'fade'
+  });
+  lightbox.init();
+</script>
