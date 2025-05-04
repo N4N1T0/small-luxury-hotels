@@ -1,7 +1,7 @@
 ---
-import { ArrowLeft, ArrowRight } from 'lucide-astro';
 import ShowMore from '@/components/ui/ShowMore.astro';
-import ExperiencesCard from '../experiences/ExperiencesCard.astro';
+import ExperiencesCard from '@/components/experiences/ExperiencesCard.astro';
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
 import { getAllExperiences } from '@/lib/fetchers/experiences';
 
 const experiences = await getAllExperiences();
@@ -9,11 +9,13 @@ const experiences = await getAllExperiences();
 
 <section class="relative py-8 md:py-15">
   <div class="container mx-auto px-4 md:px-6">
-    <ShowMore
-      title="Nuestros Experiencias"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      showMoreUrl="/experiencias"
-    />
+    <span id="show-more-experience">
+      <ShowMore
+        title="Nuestros Experiencias"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        showMoreUrl="/experiencias"
+      />
+    </span>
 
     <!-- Versión de escritorio (3 columnas) -->
     <div class="swiper-experience-carousel h-full w-full">
@@ -50,6 +52,7 @@ const experiences = await getAllExperiences();
 </section>
 
 <script>
+  import { animateElement, animateElements } from '@/lib/scripts';
   import Swiper from 'swiper';
   import 'swiper/css';
   import 'swiper/css/pagination';
@@ -75,4 +78,7 @@ const experiences = await getAllExperiences();
       el: '.swiper-pagination-swiper-experience-carousel'
     }
   });
+
+  animateElement('#show-more-experience', '0', 500);
+  animateElements('#experience-card', '40px', 100, 100);
 </script>

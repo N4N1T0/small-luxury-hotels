@@ -4,29 +4,32 @@ import ShowMore from '@/components/ui/ShowMore.astro';
 import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
 ---
 
-<section class="py-16 md:py-24">
+<section class="py-16 md:py-24" id="contact-section" aria-labelledby="contact-title">
   <div class="container mx-auto px-4">
-    <ShowMore title={contactInfo.title} subtitle={contactInfo.subtitle} className="pb-0" />
+    <div id="show-more-contact">
+      <ShowMore title={contactInfo.title} subtitle={contactInfo.subtitle} className="pb-0" />
+    </div>
 
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4" role="list">
       <!-- Email Section -->
-      <div class="flex flex-col items-start">
-        <div class="text-main mb-4">
+      <div class="flex flex-col items-start opacity-0" role="listitem" id="contact-info">
+        <div class="text-main mb-4" aria-hidden="true">
           <Mail size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.email.title}</h3>
         <p class="text-foreground/80 mb-4">{contactInfo.email.description}</p>
         <a
           href={`mailto:${contactInfo.email.address}`}
-          class="text-secondary hover-200 hover:underline"
+          class="text-secondary focus:ring-secondary transition-colors duration-200 hover:underline focus:ring-2 focus:outline-none"
         >
+          <span class="sr-only">Email us at</span>
           {contactInfo.email.address}
         </a>
       </div>
 
       <!-- Social Media Section -->
-      <div class="flex flex-col items-start">
-        <div class="text-main mb-4">
+      <div class="flex flex-col items-start opacity-0" role="listitem" id="contact-info">
+        <div class="text-main mb-4" aria-hidden="true">
           <MessagesSquare size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.social.title}</h3>
@@ -36,10 +39,10 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
             contactInfo.social.networks.map(({ url, name }) => (
               <a
                 href={url}
-                class="hover:text-main hover-200 text-secondary"
+                class="text-secondary hover:text-main focus:ring-secondary transition-colors duration-200 focus:ring-2 focus:outline-none"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Visítanos en ${name}`}
+                aria-label={`Visit us on ${name}`}
               >
                 {name}
               </a>
@@ -49,8 +52,8 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
       </div>
 
       <!-- Phone Section -->
-      <div class="flex flex-col items-start">
-        <div class="text-main mb-4">
+      <div class="flex flex-col items-start opacity-0" role="listitem" id="contact-info">
+        <div class="text-main mb-4" aria-hidden="true">
           <Phone size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.phone.title}</h3>
@@ -58,7 +61,11 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
         <div class="flex flex-col space-y-2">
           {
             contactInfo.phone.numbers.map((phone) => (
-              <a href={`tel:${phone.value}`} class="text-secondary hover-200 hover:underline">
+              <a
+                href={`tel:${phone.value}`}
+                class="text-secondary focus:ring-secondary transition-colors duration-200 hover:underline focus:ring-2 focus:outline-none"
+              >
+                <span class="sr-only">Call us at</span>
                 {phone.label}
               </a>
             ))
@@ -67,16 +74,27 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
       </div>
 
       <!-- Location Section -->
-      <div class="flex flex-col items-start">
-        <div class="text-main mb-4">
+      <div class="flex flex-col items-start opacity-0" role="listitem" id="contact-info">
+        <div class="text-main mb-4" aria-hidden="true">
           <MapPin size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.location.title}</h3>
         <p class="text-foreground/80 mb-4">{contactInfo.location.description}</p>
-        <a href={contactInfo.location.link} class="text-secondary hover-200 hover:underline">
+        <a
+          href={contactInfo.location.link}
+          class="text-secondary focus:ring-secondary transition-colors duration-200 hover:underline focus:ring-2 focus:outline-none"
+        >
+          <span class="sr-only">View our</span>
           Ubicaciones
         </a>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { animateElement, animateElements } from '@/lib/scripts';
+
+  animateElement('#show-more-contact', '0', 500);
+  animateElements('#contact-info', '40px', 100, 100);
+</script>

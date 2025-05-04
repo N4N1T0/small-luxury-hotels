@@ -20,7 +20,7 @@ const features = [
   <div class="container mx-auto px-4 md:px-16">
     <div class="flex flex-col items-end justify-between md:flex-row">
       <!-- Header and Description -->
-      <div class="mb-10 max-w-3xl">
+      <div class="mb-10 max-w-3xl" id="featured-section-header">
         <h2 class="text-3xl font-semibold md:text-4xl">Descubre experiencias únicas.</h2>
         <p class="mt-2 text-base md:text-lg">
           Sumérgete en actividades diseñadas para todos los gustos. Desde aventuras al aire libre
@@ -28,7 +28,10 @@ const features = [
         </p>
       </div>
       <!-- Features Row -->
-      <div class="mb-12 grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2">
+      <div
+        class="mb-12 grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2"
+        id="featured-section-info"
+      >
         {
           features.map((feature) => (
             <div class="flex items-start gap-6">
@@ -46,7 +49,10 @@ const features = [
     </div>
 
     <!-- Image Section -->
-    <div class="relative h-[75vh] w-full overflow-hidden rounded-md shadow-md">
+    <div
+      class="relative h-[75vh] w-full overflow-hidden rounded-md shadow-md"
+      id="feature-section-image"
+    >
       <div class="swiper-feature-section h-full w-full">
         <div class="swiper-wrapper h-full">
           {
@@ -85,6 +91,7 @@ const features = [
 </section>
 
 <script>
+  import { animateElement } from '@/lib/scripts';
   import Swiper from 'swiper';
   import 'swiper/css';
   import { Navigation } from 'swiper/modules';
@@ -99,4 +106,8 @@ const features = [
       nextEl: '.next-feature-section'
     }
   });
+
+  animateElement('#featured-section-header', '-40px', 500);
+  animateElement('#featured-section-info', '40px', 500);
+  animateElement('#feature-section-image', '0', 500);
 </script>
