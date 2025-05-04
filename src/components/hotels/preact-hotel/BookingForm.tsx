@@ -1,6 +1,7 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
 import { buttonClasses } from "@/lib/ui";
+import { animateElement } from "@/lib/scripts";
 
 interface Props {
   hotel?: CollectionEntry<"hotels">;
@@ -37,9 +38,13 @@ export default function BookingForm({ hotel, room }: Props) {
     setFormData({ ...formData, [target.name]: value });
   };
 
+  useEffect(() => {
+    animateElement("#booking-section", "0", 500);
+  });
+
   return (
     <section className="bg-main pb-8">
-      <div className="container">
+      <div className="container" id="booking-section">
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3"

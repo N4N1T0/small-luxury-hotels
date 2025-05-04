@@ -10,7 +10,7 @@ const { hotel } = Astro.props;
 const { title, description, gallery } = hotel.data;
 ---
 
-<article class="bg-background flex h-full flex-col overflow-hidden">
+<article class="bg-background flex h-full flex-col overflow-hidden opacity-0" id="hotel-card">
   <a href=`/hoteles/${hotel.id}` class="relative h-[450px] overflow-hidden">
     <Image
       src={gallery[0].url}

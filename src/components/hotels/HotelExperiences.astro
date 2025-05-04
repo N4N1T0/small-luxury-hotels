@@ -11,12 +11,14 @@ const { experiences } = Astro.props;
 ---
 
 <section class="container px-4 py-16">
-  <ShowMore
-    title="Experiencias"
-    subtitle="Descubre nuestras experiencias únicas y personalizadas para ti."
-    showMoreUrl="/experiencias"
-    showMoreLabel="Ver Mas"
-  />
+  <span id="show-more-hotel-experiences">
+    <ShowMore
+      title="Experiencias"
+      subtitle="Descubre nuestras experiencias únicas y personalizadas para ti."
+      showMoreUrl="/experiencias"
+      showMoreLabel="Ver Mas"
+    />
+  </span>
   <div class="space-y-16">
     {
       experiences.map((experience, index) => (
@@ -25,3 +27,9 @@ const { experiences } = Astro.props;
     }
   </div>
 </section>
+
+<script>
+  import { animateElement, animateElements } from '@/lib/scripts';
+  animateElement('#show-more-hotel-experiences', '0', 500);
+  animateElements('#experience-card', '40px', 100, 100);
+</script>

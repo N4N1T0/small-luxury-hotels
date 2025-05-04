@@ -1,19 +1,35 @@
 ---
 import { getAllHotels } from '@/lib/fetchers/hotels';
 import HotelListCard from './HotelListCard.astro';
+import ShowMore from '../ui/ShowMore.astro';
 
 const hotels = await getAllHotels();
 ---
 
 <section class="py-16" aria-labelledby="hotels-section-title">
   <div class="container mx-auto px-4">
-    <h2 id="hotels-section-title" class="text-foreground mb-6 text-4xl font-bold md:text-5xl">
-      Nuestros Hoteles
-    </h2>
-    <p class="text-foreground/70 mb-12 text-lg">Explora una variedad de opciones de alojamiento.</p>
+    <span id="show-more-hotel-list">
+      <ShowMore
+        title="Nuestros Hoteles"
+        subtitle="Explora una variedad de opciones de alojamiento."
+      />
+    </span>
 
     <ul class="flex flex-col gap-16" role="list" aria-label="Lista de hoteles disponibles">
-      {hotels.map((hotel) => <HotelListCard hotel={hotel} />)}
+      {
+        hotels.map((hotel) => (
+          <li class="border-foreground/10 border-t" id="hotel-list-card">
+            <HotelListCard hotel={hotel} />
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
+
+<script>
+  import { animateElements, animateElement } from '@/lib/scripts';
+
+  animateElement('#show-more-hotel-list', '0', 500);
+  animateElements('#hotel-list-card', '40px', 300, 600);
+</script>

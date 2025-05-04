@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import RoomListCard from './RoomListCard.astro';
+import ShowMore from '../ui/ShowMore.astro';
 
 interface Props {
   rooms: CollectionEntry<'rooms'>[];
@@ -11,9 +12,17 @@ const { rooms, title = 'Nuestras Habitaciones' } = Astro.props;
 ---
 
 <section class="container">
-  <h2 class="mb-8 text-4xl font-semibold md:text-5xl">{title}</h2>
+  <span id="show-more-room-list">
+    <ShowMore title={title} />
+  </span>
 
   <div class="grid grid-cols-1 gap-8 space-y-8 md:grid-cols-2">
     {rooms.map((room) => <RoomListCard room={room} />)}
   </div>
 </section>
+
+<script>
+  import { animateElement, animateElements } from '@/lib/scripts';
+  animateElement('#show-more-room-list', '0', 500);
+  animateElements('#room-list-card', '40px', 200, 400);
+</script>
