@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { CollectionEntry } from "astro:content";
+import { animateElement } from "@/lib/scripts";
 
 export default function Locations({
   hotels,
@@ -25,10 +26,16 @@ export default function Locations({
     }
   }, [selectedCoords]);
 
+  useEffect(() => {
+    animateElement("#location-header", "0", 500);
+    animateElement("#locations-list", "-40px", 500);
+    animateElement("#locations-map", "40px", 500);
+  }, []);
+
   return (
     <section class="text-main bg-background py-8 md:py-16">
       <div className="container">
-        <div class="mb-10 max-w-3xl">
+        <div class="mb-10 max-w-3xl" id="location-header">
           <h2 class="text-3xl font-semibold md:text-4xl">
             Encuentra nuestros hoteles exclusivos
           </h2>
@@ -39,7 +46,7 @@ export default function Locations({
           </p>
         </div>
         <div className="flex flex-col gap-8 md:flex-row">
-          <div className="flex-1">
+          <div className="flex-1" id="locations-list">
             <ul className="grid grid-cols-2 gap-4 md:grid-cols-1">
               {hotels.map((hotel) => (
                 <li
@@ -61,7 +68,7 @@ export default function Locations({
               ))}
             </ul>
           </div>
-          <div className="flex-1">
+          <div className="flex-1" id="locations-map">
             <div id="map" style={{ width: "100%", height: "400px" }} />
           </div>
         </div>
