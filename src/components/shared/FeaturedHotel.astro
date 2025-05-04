@@ -16,7 +16,10 @@ const slug = featuredHotel?.id ?? '';
     <section class="featured-hotel py-12 md:py-16" aria-labelledby="featured-hotel-title">
       <div class="container flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:px-6">
         {/* <!-- Column 1 --> */}
-        <article class="flex flex-1 flex-col items-center md:gap-8 lg:gap-12">
+        <article
+          class="flex flex-1 flex-col items-center md:gap-8 lg:gap-12"
+          id="featured-hotel-column-1"
+        >
           <figure class="mb-6 w-full overflow-hidden md:mb-0">
             {images[0] && (
               <Image
@@ -48,7 +51,7 @@ const slug = featuredHotel?.id ?? '';
         </article>
 
         {/* <!-- Column 2 --> */}
-        <article class="flex flex-1 flex-col items-center">
+        <article class="flex flex-1 flex-col items-center" id="featured-hotel-column-2">
           <ShowMore
             title="Tu refugio ideal te espera aquí"
             preTitle="Hotel Destacado"
@@ -72,3 +75,10 @@ const slug = featuredHotel?.id ?? '';
     </section>
   )
 }
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#featured-hotel-column-1', '-40px', 500);
+  animateElement('#featured-hotel-column-2', '40px', 500);
+</script>

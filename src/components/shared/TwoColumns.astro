@@ -27,7 +27,7 @@ const {
   <div class="container mx-auto px-4">
     <div class="flex flex-col items-center gap-12 lg:flex-row">
       <!-- Image -->
-      <div class="animate-fade-in-left animate-delay-300 w-full lg:w-1/2">
+      <div class="animate-fade-in-left animate-delay-300 w-full lg:w-1/2" id="two-columns-image">
         <Image
           src={imageSrc}
           alt={imageAlt || 'Imagen sobre nosotros'}
@@ -39,7 +39,7 @@ const {
       </div>
 
       <!-- Content -->
-      <div class="animate-fade-in-right animate-delay-300 w-full lg:w-1/2">
+      <div class="animate-fade-in-right animate-delay-300 w-full lg:w-1/2" id="two-columns-info">
         {subtitle && <p class="text-foreground/60 mb-2 text-sm">{subtitle}</p>}
         <h2 class="mb-6 text-3xl font-bold md:text-4xl">{title}</h2>
         <p class="text-foreground/80 mb-8">{description}</p>
@@ -58,3 +58,10 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#two-columns-image', '-40px', 500);
+  animateElement('#two-columns-info', '40px', 500);
+</script>
