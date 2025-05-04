@@ -55,3 +55,12 @@ export const getAmenityIcon = (amenity: string) => {
 
   return Star;
 };
+
+export const slugify = (str: string) => {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};

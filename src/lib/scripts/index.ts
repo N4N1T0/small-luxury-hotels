@@ -1,3 +1,5 @@
+import { onScroll, animate, createTimeline, stagger } from "animejs";
+
 export const navbarAnimation = (navbarId: string) => {
   let lastScrollY = window.scrollY;
   const navbar = document.getElementById(navbarId);
@@ -50,4 +52,51 @@ export const toggleClass = (
     element.classList.add(className);
     return;
   }
+};
+
+export const animateElement = (
+  id: string,
+  translate: string,
+  duration: number,
+) => {
+  animate(id, {
+    opacity: [0, 1],
+    translateX: [translate, 0],
+    duration: duration,
+    easing: "easeInOutSine",
+    autoplay: onScroll({
+      container: "body",
+      enter: "bottom top",
+    }),
+  });
+};
+
+export const animateElements = (
+  id: string,
+  translate: string,
+  duration: number,
+  staggerDuration: number,
+) => {
+  const hotelCards = document.querySelectorAll(id);
+
+  const timeline = createTimeline({
+    alternate: true,
+    duration: duration,
+    autoplay: onScroll({
+      target: hotelCards[0],
+      container: "body",
+      enter: "bottom top",
+    }),
+  });
+
+  timeline.add(
+    hotelCards,
+    {
+      opacity: [0, 1],
+      translateY: [translate, 0],
+      duration: 200,
+      easing: "easeOutQuad",
+    },
+    stagger(staggerDuration),
+  );
 };
