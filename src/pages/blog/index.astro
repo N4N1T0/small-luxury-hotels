@@ -4,17 +4,18 @@ import BlogList from '@/components/blogs/BlogList.astro';
 import Pagination from '@/components/blogs/Pagination.astro';
 import FeaturedBlog from '@/components/blogs/FeaturedBlog.astro';
 import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
-import { getAllBlogs } from '@/lib/fetchers/blog';
 import PressCarousel from '@/components/shared/press-carousel/PressCarousel.astro';
+import { getAllBlogs } from '@/lib/fetchers/blog';
 
-// Parámetros de paginación
+// PARAMS
 const BLOGS_PER_PAGE = 6;
 const currentPage = 1;
 
+// CONST
 const allBlogs = await getAllBlogs();
 const regularBlogs = allBlogs.filter((blog) => !blog.data.featured);
 
-// Calcular paginación
+// PAGINATION
 const totalRegularBlogs = regularBlogs.length;
 const totalPages = Math.ceil(totalRegularBlogs / BLOGS_PER_PAGE);
 const paginatedBlogs = regularBlogs.slice(0, BLOGS_PER_PAGE);

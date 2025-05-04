@@ -6,13 +6,16 @@ import ExperienceLayout from '@/layouts/ExperienceLayout.astro';
 import { getAllExperiences } from '@/lib/fetchers/experiences';
 
 const experiences = await getAllExperiences();
+
+const twoColumnsInfo = {
+  title: 'Experiencias Exclusivas',
+  description:
+    'Descubre momentos únicos y memorables en nuestros hoteles boutique. Desde escapadas románticas hasta aventuras culinarias, cada experiencia está diseñada para crear recuerdos inolvidables.'
+};
 ---
 
 <ExperienceLayout>
-  <TwoColumns
-    title="Experiencias Exclusivas"
-    description="Descubre momentos únicos y memorables en nuestros hoteles boutique. Desde escapadas románticas hasta aventuras culinarias, cada experiencia está diseñada para crear recuerdos inolvidables."
-  />
+  <TwoColumns {...twoColumnsInfo} />
   <ExperiencesGrid experiences={experiences} client:load />
   <BlogCarousel />
 </ExperienceLayout>

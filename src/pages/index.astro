@@ -12,31 +12,35 @@ import ContactSection from '@/components/home/ContactSection.astro';
 import ExperiencesCarousel from '@/components/home/ExperiencesCarousel.astro';
 import { getAllHotels } from '@/lib/fetchers/hotels';
 
+// CONST
 const hotels = await getAllHotels();
+
+const heroInfo = {
+  title: 'ELEGANTS HOTELS OF CUBA',
+  subtitle:
+    'En nuestro grupo, nos dedicamos a ofrecerte estancias inolvidables en los mejores destinos. Cada hotel está diseñado para brindarte comodidad y experiencias memorables.'
+};
+
+const descriptionContent = {
+  title: 'Elegant Hotels of Cuba',
+  description:
+    'En nuestro grupo, nos dedicamos a ofrecerte estancias inolvidables en los mejores destinos. Cada hotel está diseñado para brindarte comodidad y experiencias memorables.',
+  cta: {
+    primary: {
+      text: 'Reservar ahora',
+      url: '/hoteles'
+    },
+    secondary: {
+      text: 'Conocer más',
+      url: '/hoteles'
+    }
+  }
+};
 ---
 
 <Layout>
-  <Hero
-    title="ELEGANTS HOTELS OF CUBA"
-    subtitle="En nuestro grupo, nos dedicamos a ofrecerte estancias inolvidables en los mejores destinos. Cada hotel está diseñado para brindarte comodidad y experiencias memorables."
-  />
-
-  <DescriptionCta
-    subtitle="Bienvenido"
-    title="Descubre el placer de hospedarte con nosotros"
-    description="En nuestro grupo, ofrecemos una experiencia única de alojamiento que combina confort y estilo. Nuestros hoteles están ubicados en los destinos más atractivos, ideales para cualquier tipo de viajero."
-    cta={{
-      primary: {
-        text: 'Explorar Hoteles',
-        url: '/hoteles'
-      },
-      secondary: {
-        text: 'Reservar',
-        url: '/reservar'
-      }
-    }}
-  />
-
+  <Hero {...heroInfo} />
+  <DescriptionCta {...descriptionContent} />
   <HotelCarousel />
   <FeatureSection />
   <ExperiencesCarousel />

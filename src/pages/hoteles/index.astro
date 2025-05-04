@@ -6,12 +6,12 @@ import FeaturedHotel from '@/components/shared/FeaturedHotel.astro';
 import HotelList from '@/components/hotels/HotelList.astro';
 import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
 
-const heroContent = {
+const heroInfo = {
   title: 'Nuestros Hoteles',
   subtitle: 'Descubre el lujo y el confort en cada rincón de Cuba'
 };
 
-const descriptionContent = {
+const descriptionInfo = {
   title: 'Una experiencia única en cada destino',
   description:
     'Nuestra colección de hoteles de lujo ofrece experiencias inolvidables en los destinos más exclusivos de Cuba. Desde playas paradisíacas hasta el encanto colonial de La Habana, cada propiedad ha sido cuidadosamente seleccionada para brindar el más alto nivel de servicio y confort.',
@@ -29,12 +29,8 @@ const descriptionContent = {
 ---
 
 <Layout title="Hoteles | Small Luxury Hotels of Cuba">
-  <Hero title={heroContent.title} subtitle={heroContent.subtitle} />
-  <DescriptionCta
-    title={descriptionContent.title}
-    description={descriptionContent.description}
-    cta={descriptionContent.cta}
-  />
+  <Hero {...heroInfo} />
+  <DescriptionCta {...descriptionInfo} />
   <FeaturedHotel />
   <HotelList />
   <BlogCarousel />

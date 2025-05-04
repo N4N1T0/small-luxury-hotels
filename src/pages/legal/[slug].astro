@@ -21,9 +21,16 @@ const { Content } = await legalDocument?.render();
 
 <Layout>
   <section class="container mt-16 py-16">
-    <h1 class="mb-4 text-4xl font-bold">{legalDocument.data.title}</h1>
-    <article class="prose lg:prose-xl max-w-none">
+    <h1 class="mb-4 text-4xl font-bold" id="legal-title">{legalDocument.data.title}</h1>
+    <article class="prose lg:prose-xl max-w-none" id="legal-content">
       <Content />
     </article>
   </section>
 </Layout>
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#legal-title', '40px', 500);
+  animateElement('#legal-content', '-40px', 500);
+</script>

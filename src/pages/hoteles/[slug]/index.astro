@@ -33,7 +33,7 @@ if (!hotel) {
 
 <Layout title={hotel.data.title}>
   <HotelHero hotel={hotel} />
-  <BookingForm client:visible hotel={hotel} />
+  <BookingForm client:visible client:only={true} hotel={hotel} />
   <HotelDescription hotel={hotel} />
   <RoomList rooms={rooms} />
   <HotelExperiences experiences={experiences} />

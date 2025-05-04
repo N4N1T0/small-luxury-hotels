@@ -25,10 +25,10 @@ const otherRooms = await getRelatedRooms(slug);
 
 <Layout title="Junior Suite | Small Luxury Hotels of Cuba">
   <Hero title={room?.data.title} subtitle={room?.data.description} />
-  <BookingForm room={room} />
+  <BookingForm client:only={true} client:visible room={room} />
   <Gallery images={room?.data.images} minImages={1} maxImages={8} />
   <RoomDescription room={room} />
   <RoomDetails room={room} />
-  <RoomList rooms={otherRooms} />
+  <RoomList title="Nuestras Otras Habitaciones" rooms={otherRooms} />
   <HotelCarousel />
 </Layout>
