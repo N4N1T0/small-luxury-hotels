@@ -13,8 +13,9 @@ const formattedDate = formatBlogDate(data.publishDate);
 ---
 
 <article
-  class="group hover-200 flex flex-col overflow-hidden shadow-md hover:shadow-lg"
+  class="group hover-200 flex flex-col overflow-hidden opacity-0 shadow-md hover:shadow-lg"
   aria-labelledby={`blog-title-${slug}`}
+  id="blog-card"
 >
   <a
     href={`/blog/${slug}`}

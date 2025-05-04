@@ -13,16 +13,25 @@ const { blogs, tag } = Astro.props;
 
 <section class="py-8" aria-labelledby="blog-section-title">
   <div class="container">
-    <ShowMore
-      title={tag ? `Artículos con la etiqueta "${tag}"` : 'Todos los artículos'}
-      subtitle={tag
-        ? undefined
-        : 'Explora nuestra colección completa de artículos sobre viajes, hoteles, gastronomía y más.'}
-      className="pb-4"
-    />
+    <span id="show-more-blog-list">
+      <ShowMore
+        title={tag ? `Artículos con la etiqueta "${tag}"` : 'Todos los artículos'}
+        subtitle={tag
+          ? undefined
+          : 'Explora nuestra colección completa de artículos sobre viajes, hoteles, gastronomía y más.'}
+        className="pb-4"
+      />
+    </span>
 
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {blogs.map((blog) => <BlogCard blog={blog} />)}
     </div>
   </div>
 </section>
+
+<script>
+  import { animateElement, animateElements } from '@/lib/scripts';
+
+  animateElement('#show-more-blog-list', '0', 500);
+  animateElements('#blog-card', '-40px', 100, 200);
+</script>

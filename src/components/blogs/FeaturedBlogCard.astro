@@ -10,8 +10,9 @@ const { blog } = Astro.props;
 ---
 
 <article
-  class="group hover-200 overflow-hidden shadow-lg hover:shadow-xl"
+  class="group hover-200 overflow-hidden opacity-0 shadow-lg hover:shadow-xl"
   aria-labelledby={`featured-title-${blog.slug}`}
+  id="featured-blog-card"
 >
   <a href={`/blog/${blog.slug}`} class="block">
     <div class="relative aspect-video w-full overflow-hidden">
