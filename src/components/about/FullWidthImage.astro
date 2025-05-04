@@ -1,8 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 
-// Full width image with caption component for the about page
-
 interface Props {
   imageSrc?: string;
   imageAlt?: string;
@@ -16,7 +14,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-background py-16">
+<section class="bg-background py-16 opacity-0" id="full-width-with-image">
   <div class="container">
     <p class="mb-8 text-lg font-bold text-pretty">
       Elit nisi in eleifend sed nisi. Pulvinar at orci, proin imperdiet commodo consectetur
@@ -50,3 +48,9 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#full-width-with-image', '40px', 500);
+</script>

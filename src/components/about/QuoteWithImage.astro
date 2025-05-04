@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-background py-16">
+<section class="bg-background py-16" id="quote-with-image">
   <div class="container">
     <p class="mb-8 text-lg text-pretty">
       Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend
@@ -57,3 +57,9 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#quote-with-image', '40px', 500);
+</script>
