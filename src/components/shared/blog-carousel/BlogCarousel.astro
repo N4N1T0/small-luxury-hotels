@@ -7,12 +7,14 @@ import ShowMore from '@/components/ui/ShowMore.astro';
 
 <section class="bg-background relative py-8 md:py-15">
   <div class="container mx-auto px-4 md:px-6">
-    <ShowMore
-      title="Una selección de nuestros blogs"
-      preTitle="Blogs"
-      showMoreUrl="/blogs"
-      className="pb-8"
-    />
+    <span id="show-more-blog">
+      <ShowMore
+        title="Una selección de nuestros blogs"
+        preTitle="Blogs"
+        showMoreUrl="/blogs"
+        className="pb-8"
+      />
+    </span>
 
     <!-- Desktop Version (3 columns) -->
     <div class="swiper-blog-carousel h-full w-full">
@@ -49,6 +51,7 @@ import ShowMore from '@/components/ui/ShowMore.astro';
 </section>
 
 <script>
+  import { animateElement, animateElements } from '@/lib/scripts';
   import Swiper from 'swiper';
   import 'swiper/css';
   import { Navigation, Pagination } from 'swiper/modules';
@@ -73,4 +76,7 @@ import ShowMore from '@/components/ui/ShowMore.astro';
       el: '.swiper-pagination-swiper-blog-carousel'
     }
   });
+
+  animateElement('#show-more-blog', '40px', 500);
+  animateElements('#blog-card', '40px', 100, 100);
 </script>
