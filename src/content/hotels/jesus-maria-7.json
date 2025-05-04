@@ -1,0 +1,49 @@
+{
+  "title": "Jesús María 7",
+  "description": "Ubicado al final del malecón del barrio San Isidro, JM7 ofrece una experiencia íntima para viajeros que desean explorar el alma de La Habana desde una base acogedora. El hotel fue restaurado entre 2016 y 2022, respetando los valores patrimoniales del edificio original de 1910. Su diseño se basa en la calma: tonos suaves, líneas simples y espacios comunes pensados para la tranquilidad, como su patio central y terraza rooftop privada solo para huéspedes. Su ubicación estratégica permite explorar fácilmente los principales atractivos de La Habana Vieja, mientras se disfruta de un oasis de paz al volver.",
+  "shortDescription": "Jesús María 7 (JM7) es un refugio moderno y elegante situado en una casona restaurada de 1910 en La Habana Vieja. Tras una renovación de seis años, este hotel boutique ofrece una experiencia de serenidad y confort en uno de los barrios más vibrantes de la ciudad, combinando el encanto histórico con comodidades contemporáneas",
+  "location": {
+    "address": " Calle Jesús María 7, entre Inquisidor y San Ignacio",
+    "city": "Habana Vieja",
+    "country": "Cuba",
+    "coordinates": {
+      "lat": 23.13238,
+      "lng": -82.34837
+    }
+  },
+  "amenities": [
+    "Casona de 1910 completamente restaurada",
+    "Rooftop bar privado solo para huéspedes",
+    "Diseño sereno y elegante, ideal para desconectarse del bullicio",
+    "Ubicación en San Isidro, cerca del malecón y principales plazas",
+    "Atención personalizada y ambiente íntimo"
+  ],
+  "services": [
+    "Bar privado en la terraza (solo para huéspedes",
+    "Clases de Cocina, Clases de Baile, Clases de Yoga",
+    "Caja fuerte en cada habitación",
+    "Servicio de lavandería",
+    "Conserjería personalizada"
+  ],
+  "gallery": [
+    {
+      "url": "../../assets/hoteles/jesus-maria-7/DISTRIBIDOR Y FACHADA PAULA DE NOCHE.webp",
+      "alt": "DISTRIBIDOR Y FACHADA PAULA DE NOCHE"
+    },
+    {
+      "url": "../../assets/hoteles/jesus-maria-7/PATIO DE NOCHE 2.webp",
+      "alt": "PATIO DE NOCHE 2"
+    },
+    {
+      "url": "../../assets/hoteles/jesus-maria-7/SALA COMEDOR DESAYUNO 2.webp",
+      "alt": "SALA COMEDOR DESAYUNO 2"
+    },
+    {
+      "url": "../../assets/hoteles/jesus-maria-7/TERRAZA VISTA A LA BAHIA.webp",
+      "alt": "TERRAZA VISTA A LA BAHIA"
+    }
+  ],
+  "featured": false,
+  "rooms": ["deluxe-suite", "executive-room", "family-suite", "standard-room"],
+  "experiences": ["romantic-escape", "sunset-sailing"]
+}
