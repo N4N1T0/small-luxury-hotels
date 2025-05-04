@@ -54,7 +54,7 @@ const defaultItems: TimelineItem[] = [
 const timelineItems = items || defaultItems;
 ---
 
-<section class="bg-background py-16">
+<section class="bg-background py-16 opacity-0" id="timeline">
   <div class="container mx-auto px-4">
     <div class="mb-12 text-center">
       <h2 class="mb-4 text-4xl font-bold">{title}</h2>
@@ -96,3 +96,9 @@ const timelineItems = items || defaultItems;
     </div>
   </div>
 </section>
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#timeline', '-40px', 500);
+</script>
