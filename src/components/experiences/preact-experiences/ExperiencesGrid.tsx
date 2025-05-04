@@ -8,16 +8,17 @@ interface Props {
 }
 
 export default function ExperiencesGrid({ experiences }: Props) {
+  // STATE
   const [showAll, setShowAll] = useState(false);
 
-  // Show 6 experiences initially on desktop, 4 on mobile (handled by CSS)
+  // CONST
   const visibleExperiences = showAll ? experiences : experiences.slice(0, 6);
   const hasMoreExperiences = experiences.length > 6;
 
   return (
     <section className="bg-background py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-10">
+        <div className="mb-10" id="experience-grid-header">
           <h2 className="text-3xl font-semibold md:text-4xl">
             Nuestras Experiencias
           </h2>
@@ -30,7 +31,7 @@ export default function ExperiencesGrid({ experiences }: Props) {
         {/* Desktop Grid (3 columns) */}
         <div className="hidden gap-8 md:grid md:grid-cols-3">
           {visibleExperiences.map((experience) => (
-            <div key={experience.id}>
+            <div key={experience.id} id="experience-card">
               <ExperienceCard experience={experience} />
             </div>
           ))}

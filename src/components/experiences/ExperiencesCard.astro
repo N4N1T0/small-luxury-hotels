@@ -14,15 +14,15 @@ const { experience, index } = Astro.props;
 // CONST
 const mainDivStyle =
   index === undefined
-    ? 'flex flex-col items-center gap-8'
-    : `flex flex-col items-center gap-8 ${index % 2 !== 1 || index === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`;
+    ? 'flex flex-col items-center gap-8 opacity-0'
+    : `flex flex-col items-center gap-8 opacity-0 ${index % 2 !== 1 || index === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`;
 const {
   data: { gallery, title, description, included },
   id
 } = experience;
 ---
 
-<article class={mainDivStyle}>
+<article class={mainDivStyle} id="experience-card">
   <a class="text-main w-full" href=`/experiencias/${id}`>
     <Image
       src={gallery[0]?.url || 'https://placehold.co/800x600'}

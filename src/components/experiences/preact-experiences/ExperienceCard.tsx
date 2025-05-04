@@ -10,7 +10,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
   const { title, description, gallery } = experience.data;
 
   return (
-    <article class="group">
+    <article class="group" id="experience-card">
       {gallery[0] && (
         <a
           href={`/experiencias/${experience.id}`}
