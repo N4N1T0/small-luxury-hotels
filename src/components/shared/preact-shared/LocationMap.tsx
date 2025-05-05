@@ -17,7 +17,7 @@ export default function Locations({
 
   useEffect(() => {
     if (!mapRef.current) {
-      mapRef.current = L.map("map").setView(selectedCoords, 13);
+      mapRef.current = L.map("map").setView(selectedCoords, 10);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(mapRef.current);
@@ -68,8 +68,8 @@ export default function Locations({
               ))}
             </ul>
           </div>
-          <div className="flex-1" id="locations-map">
-            <div id="map" style={{ width: "100%", height: "400px" }} />
+          <div className="flex-1 shadow-md" id="locations-map">
+            <div id="map" style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
       </div>

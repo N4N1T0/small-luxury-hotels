@@ -20,7 +20,7 @@ const slug = featuredHotel?.id ?? '';
           class="flex flex-1 flex-col items-center md:gap-8 lg:gap-12"
           id="featured-hotel-column-1"
         >
-          <figure class="mb-6 w-full overflow-hidden md:mb-0">
+          <figure class="mb-6 w-full overflow-hidden shadow-md md:mb-0">
             {images[0] && (
               <Image
                 src={images[0].url}
@@ -55,6 +55,7 @@ const slug = featuredHotel?.id ?? '';
           <ShowMore
             title="Tu refugio ideal te espera aquí"
             preTitle="Hotel Destacado"
+            subtitle={featuredHotel?.data?.title}
             className="pb-0"
           />
 
