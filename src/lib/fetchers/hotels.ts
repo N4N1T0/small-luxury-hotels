@@ -1,4 +1,5 @@
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { getRoomBySlug } from "./rooms";
 
 // Tipo para las entradas de hoteles
 export type HotelEntry = CollectionEntry<"hotels">;
@@ -54,12 +55,10 @@ export async function getRelatedHotels(
   return relatedHotels;
 }
 
-/**
- * Obtiene hoteles por ubicación (ciudad)
- * @param city La ciudad a filtrar
- * @returns Array de hoteles en la ciudad especificada
- */
-export async function getHotelsByLocation(city: string): Promise<HotelEntry[]> {
-  const hotels = await getAllHotels();
-  return hotels.filter((hotel) => hotel.data.location.city === city);
+export async function getHotelByRoom(room: string) {
+  const roomFound = await getRoomBySlug(room);
+  if (!roomFound) return;
+  const hotel = await getHotelBySlug(roomFound.data.hotel.id);
+  if (!hotel) return;
+  return hotel;
 }
