@@ -77,7 +77,7 @@ img {
 }
 
 .custom-pagination > .swiper-pagination-bullet {
-  @apply bg-main/90 block size-3 rounded-full;
+  @apply bg-main/50 block size-3 rounded-full;
 }
 
 .custom-pagination > .swiper-pagination-bullet-active {
