@@ -1,32 +1,33 @@
 ---
+import type { BlogEntry } from '@/lib/fetchers/blog';
 import { Image } from 'astro:assets';
 
 interface Props {
-  blog: {
-    title: string;
-    description: string;
-    img: string;
-    link: string;
-    category: string;
-  };
+  blog: BlogEntry;
 }
 
 const { blog } = Astro.props;
+const { title, description, category, image } = blog.data;
 ---
 
 <article id="blog-card" class="opacity-0">
-  <div class="text-main flex h-72 w-full items-center justify-center bg-gray-200">
+  <a
+    href={`/blog/${blog.id}`}
+    class="text-main flex h-72 w-full items-center justify-center overflow-hidden bg-gray-200"
+  >
     <Image
-      src={blog.img}
-      alt={blog.title}
-      class="h-full w-full object-cover"
+      src={image.url}
+      alt={image.alt}
+      class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
       width={500}
       height={500}
     />
-  </div>
+  </a>
   <div class="space-y-3 pt-4">
-    <p class="text-secondary text-lg font-light uppercase">{blog.category}</p>
-    <h3 class="text-2xl font-bold">{blog.title}</h3>
-    <p class="font-hum text-base font-thin text-gray-600">{blog.description}</p>
+    <p class="text-secondary text-lg font-light uppercase">{category}</p>
+    <a href={`/blog/${blog.id}`} class="hover:text-secondary hover-200 text-2xl font-bold"
+      >{title}</a
+    >
+    <p class="font-hum text-base font-thin text-gray-600">{description}</p>
   </div>
 </article>

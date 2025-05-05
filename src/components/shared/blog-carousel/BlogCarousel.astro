@@ -1,8 +1,10 @@
 ---
 import { ArrowLeft, ArrowRight } from 'lucide-astro';
-import { blogData } from '@/data/blog-data';
 import BlogCarouselCard from './BlogCarouselCard.astro';
 import ShowMore from '@/components/ui/ShowMore.astro';
+import { getAllBlogs } from '@/lib/fetchers/blog';
+
+const blogs = await getAllBlogs();
 ---
 
 <section class="bg-background relative py-8 md:py-15">
@@ -20,7 +22,7 @@ import ShowMore from '@/components/ui/ShowMore.astro';
     <div class="swiper-blog-carousel h-full w-full">
       <div class="swiper-wrapper">
         {
-          blogData.map((blog) => (
+          blogs.map((blog) => (
             <div class="swiper-slide">
               <BlogCarouselCard blog={blog} />
             </div>
