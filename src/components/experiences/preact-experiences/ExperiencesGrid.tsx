@@ -29,23 +29,12 @@ export default function ExperiencesGrid({ experiences }: Props) {
         </div>
 
         {/* Desktop Grid (3 columns) */}
-        <div className="hidden gap-8 md:grid md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {visibleExperiences.map((experience) => (
             <div key={experience.id} id="experience-card">
               <ExperienceCard experience={experience} />
             </div>
           ))}
-        </div>
-
-        {/* Mobile Grid (1 column, showing only 4 initially) */}
-        <div className="grid grid-cols-1 gap-8 md:hidden">
-          {visibleExperiences
-            .slice(0, showAll ? visibleExperiences.length : 4)
-            .map((experience) => (
-              <div key={experience.id}>
-                <ExperienceCard experience={experience} />
-              </div>
-            ))}
         </div>
 
         {/* Show More Button */}
