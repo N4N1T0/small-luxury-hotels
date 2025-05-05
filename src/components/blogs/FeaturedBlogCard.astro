@@ -20,8 +20,8 @@ const { blog } = Astro.props;
         src={blog.data.image.url}
         alt={blog.data.image.alt}
         class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        width="800"
-        height="450"
+        width={800}
+        height={450}
         loading="eager"
       />
       <div
