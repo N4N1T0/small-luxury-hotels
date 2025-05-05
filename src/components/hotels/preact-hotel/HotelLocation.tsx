@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from "preact/hooks";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
 import { animateElement } from "@/lib/scripts";
 
@@ -10,27 +8,23 @@ export default function HotelLocations({
   hotel: CollectionEntry<"hotels">;
 }) {
   const { location, title } = hotel.data;
-  const mapRef = useRef<L.Map | null>(null);
-  const [selectedCoords, setSelectedCoords] = useState<[number, number]>([
-    location.coordinates.lat,
-    location.coordinates.lng,
-  ]);
 
-  useEffect(() => {
-    if (!mapRef.current) {
-      mapRef.current = L.map("map").setView(selectedCoords, 13);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(mapRef.current);
-    } else {
-      mapRef.current.setView(selectedCoords, 13);
-    }
-  }, [selectedCoords]);
+  const [mapKey, setMapKey] = useState<number>(0);
+  const [mapSrc, setMapSrc] = useState<string>("");
 
   useEffect(() => {
     animateElement("hotel-location-info", "40px", 500);
     animateElement("hotel-location-map", "-40px", 500);
-  });
+  }, []);
+
+  useEffect(() => {
+    const { lat, lng } = location.coordinates;
+    setMapSrc(`https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`);
+  }, [mapKey]);
+
+  const handleMapClick = () => {
+    setMapKey((prev) => prev + 1);
+  };
 
   return (
     <section class="container py-16">
@@ -43,22 +37,23 @@ export default function HotelLocations({
             Ubicación
           </h2>
         </div>
-        <div
-          class="cursor-pointer"
-          onClick={() =>
-            setSelectedCoords([
-              location.coordinates.lat,
-              location.coordinates.lng,
-            ])
-          }
-        >
+        <div class="cursor-pointer" onClick={handleMapClick}>
           <h3>{title}</h3>
           <p>{location.address}</p>
           <span className="font-semibold text-yellow-600">Ver Mapa</span>
         </div>
       </div>
       <div className="flex-1" id="hotel-location-map">
-        <div id="map" style={{ width: "100%", height: "450px" }} />
+        {mapSrc && (
+          <iframe
+            key={mapKey}
+            src={mapSrc}
+            style={{ width: "100%", height: "450px", border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        )}
       </div>
     </section>
   );

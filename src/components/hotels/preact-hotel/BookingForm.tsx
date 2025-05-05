@@ -1,11 +1,13 @@
 import { useEffect, useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
-import { buttonClasses } from "@/lib/ui";
+import { buttonClasses, cn } from "@/lib/ui";
 import { animateElement } from "@/lib/scripts";
 
 interface Props {
   hotel?: CollectionEntry<"hotels">;
+  hotels?: CollectionEntry<"hotels">[];
   room?: CollectionEntry<"rooms">;
+  className?: string;
 }
 
 interface BookingFormData {
@@ -14,15 +16,17 @@ interface BookingFormData {
   adults: number;
   children: number;
   roomType: string;
+  hotelSelector: string;
 }
 
-export default function BookingForm({ hotel, room }: Props) {
+export default function BookingForm({ hotel, room, hotels, className }: Props) {
   const [formData, setFormData] = useState<BookingFormData>({
     checkIn: "",
     checkOut: "",
     adults: 1,
     children: 0,
-    roomType: "",
+    roomType: room?.id || "",
+    hotelSelector: hotel?.id || "",
   });
 
   const handleSubmit = (e: Event) => {
@@ -38,17 +42,64 @@ export default function BookingForm({ hotel, room }: Props) {
     setFormData({ ...formData, [target.name]: value });
   };
 
-  useEffect(() => {
-    animateElement("#booking-section", "0", 500);
-  });
-
   return (
-    <section className="bg-main pb-8">
+    <section className={cn("bg-main pb-8", className)}>
       <div className="container" id="booking-section">
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3"
         >
+          {/* Multiple Hotels */}
+          {!hotel && hotels && hotels.length > 0 && (
+            <select
+              id="hotelSelector"
+              name="hotelSelector"
+              value={formData.hotelSelector || ""}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  hotelSelector: (e.target as HTMLSelectElement).value,
+                })
+              }
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              aria-label="Selecciona un hotel"
+              required
+            >
+              <option value="" disabled>
+                Selecciona un hotel
+              </option>
+              {hotels.map((h) => (
+                <option key={h.id} value={h.id}>
+                  {h.data.title}
+                </option>
+              ))}
+            </select>
+          )}
+
+          {/* Single Hotels */}
+          {!hotels && hotel && (
+            <select
+              id="hotelSelector"
+              name="hotelSelector"
+              value={formData.hotelSelector || ""}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  hotelSelector: (e.target as HTMLSelectElement).value,
+                })
+              }
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              aria-label="Selecciona un hotel"
+              required
+              disabled
+            >
+              <option key={hotel?.id} value={hotel?.id}>
+                {hotel?.data.title}
+              </option>
+            </select>
+          )}
+
+          {/* Check In */}
           <input
             type="date"
             id="checkIn"
@@ -59,6 +110,7 @@ export default function BookingForm({ hotel, room }: Props) {
             required
           />
 
+          {/* Check Out */}
           <input
             type="date"
             id="checkOut"
@@ -69,29 +121,69 @@ export default function BookingForm({ hotel, room }: Props) {
             required
           />
 
-          <select
-            id="roomType"
-            name="roomType"
-            value={formData.roomType}
-            onChange={handleInputChange}
-            className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
-            required
-          >
-            <option value="" disabled>
-              Selecciona un tipo de habitación
-            </option>
-            {hotel ? (
-              hotel.data.rooms.map((type) => (
+          {/* Multiple Hotels Room Type */}
+          {!hotel && !room && hotels && (
+            <select
+              id="roomType"
+              name="roomType"
+              value={formData.roomType}
+              onChange={handleInputChange}
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              required
+              disabled={formData.hotelSelector === ""}
+            >
+              <option value="" disabled>
+                Selecciona un tipo de habitación
+              </option>
+              {(
+                hotels?.find((h) => h.id === formData.hotelSelector)?.data
+                  .rooms || []
+              ).map((type) => (
                 <option key={type.id} value={type.id}>
                   {type.id}
                 </option>
-              ))
-            ) : (
-              <option value={room?.id} selected>
-                {room?.id}
+              ))}
+            </select>
+          )}
+
+          {/* Single Hotel Room Type */}
+          {!hotels && !room && hotel && (
+            <select
+              id="roomType"
+              name="roomType"
+              value={formData.roomType}
+              onChange={handleInputChange}
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              required
+              disabled={formData.hotelSelector === ""}
+            >
+              <option value="" disabled>
+                Selecciona un tipo de habitación
               </option>
-            )}
-          </select>
+              {hotel.data.rooms.map((type) => (
+                <option key={type.id} value={type.id}>
+                  {type.id}
+                </option>
+              ))}
+            </select>
+          )}
+
+          {/* Prop Room Type */}
+          {!hotels && hotel && room && (
+            <select
+              id="roomType"
+              name="roomType"
+              value={formData.roomType}
+              onChange={handleInputChange}
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              required
+              disabled={formData.roomType !== ""}
+            >
+              <option key={room.id} value={room.id}>
+                {room.data.title}
+              </option>
+            </select>
+          )}
 
           <label className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main flex w-full gap-4 border-b-2 p-2 focus:ring-2 focus:outline-none">
             Adultos
@@ -119,12 +211,10 @@ export default function BookingForm({ hotel, room }: Props) {
               onChange={handleInputChange}
             />
           </label>
-
-          <button type="submit" className={buttonClasses.outlineDark}>
-            Reservar ahora
-          </button>
         </form>
       </div>
     </section>
   );
 }
+
+// Eliminar el botón de reserva

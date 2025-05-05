@@ -9,17 +9,43 @@ interface Props {
 
 const { hotel } = Astro.props;
 const { title, description, gallery, amenities } = hotel.data;
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
 ---
 
 <article class="flex flex-col gap-8 pt-8 md:flex-row">
-  <div class="relative h-64 w-full overflow-hidden shadow-md md:h-auto md:w-1/2">
-    <Image
-      src={gallery[0].url}
-      alt={gallery[0].alt}
-      class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-      width={800}
-      height={500}
-    />
+  <div class="relative w-full overflow-hidden shadow-md md:w-1/2">
+    <div class="swiper-hotel-list-card size-full">
+      <div class="swiper-wrapper h-full">
+        {
+          gallery.map((img) => (
+            <div class="swiper-slide h-full max-h-[550px]">
+              <Image
+                src={img.url}
+                alt={img.alt}
+                class="aspect-square size-full object-cover"
+                width={500}
+                height={500}
+                loading="lazy"
+                densities={[1, 2]}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <!-- Botones navegación -->
+      <div
+        class="prev-hotel-list-card border-main bg-background hover:bg-main text-main hover:text-background absolute right-20 bottom-6 z-10 flex h-10 w-10 items-center justify-center rounded-full border transition-colors"
+        aria-label="Anterior"
+      >
+        <ArrowLeft class="current" />
+      </div>
+      <div
+        class="next-hotel-list-card border-main bg-background hover:bg-main text-main hover:text-background absolute right-6 bottom-6 z-10 flex h-10 w-10 items-center justify-center rounded-full border transition-colors"
+        aria-label="Siguiente"
+      >
+        <ArrowRight color="current" />
+      </div>
+    </div>
   </div>
   <div class="flex w-full flex-col justify-between md:w-1/2">
     <div>
@@ -47,3 +73,20 @@ const { title, description, gallery, amenities } = hotel.data;
     </div>
   </div>
 </article>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  import { Navigation } from 'swiper/modules';
+
+  new Swiper('.swiper-hotel-list-card', {
+    modules: [Navigation],
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    navigation: {
+      prevEl: '.prev-hotel-list-card',
+      nextEl: '.next-hotel-list-card'
+    }
+  });
+</script>
