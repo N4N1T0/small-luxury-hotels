@@ -17,7 +17,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
           class="block h-[300px] overflow-hidden md:h-[450px]"
         >
           <img
-            src={experience.data.gallery[0].url}
+            src={experience.data.gallery[0].url.src}
             alt={experience.data.gallery[0].alt}
             width={500}
             height={500}

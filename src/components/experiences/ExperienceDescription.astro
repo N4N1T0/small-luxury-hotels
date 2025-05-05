@@ -8,7 +8,7 @@ interface Props {
 
 const { experience } = Astro.props;
 const {
-  data: { title, description, highlights }
+  data: { title, description, included }
 } = experience;
 ---
 
@@ -23,10 +23,10 @@ const {
         <p class="text-lg text-white/80 md:text-xl">{description}</p>
         <ul class="grid grid-cols-2 gap-4">
           {
-            highlights.map((highlight) => (
+            included.map((include) => (
               <li class="flex gap-4">
                 <Star class="fill-background inline-block size-5 shrink-0" />
-                <span class="col-span-1 text-lg font-bold text-white">{highlight}</span>
+                <span class="col-span-1 text-lg font-bold text-white">{include}</span>
               </li>
             ))
           }
