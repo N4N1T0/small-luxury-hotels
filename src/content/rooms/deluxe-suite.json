@@ -1,0 +1,36 @@
+{
+  "title": "Deluxe Suite",
+  "description": "Suite de 35 m² ideal para 2 personas, equipada con cama King size, zona de estar con minibar, cafetera Illy iperespresso, altavoces Marshall y baño con ducha efecto lluvia. Diseñada para quienes buscan un ambiente sofisticado y funcional.",
+  "size": 35,
+  "maxOccupancy": 2,
+  "bedType": "King Size",
+  "amenities": [
+    "Zona de estar con minibar",
+    "Cama King con lencería Frette",
+    "Baño con ducha efecto lluvia",
+    "Cafetera Illy iperespresso",
+    "Altavoces Marshall",
+    "Amenidades Erbolario"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Salon"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "pase-206"
+}

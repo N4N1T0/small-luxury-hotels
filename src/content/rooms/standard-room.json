@@ -1,0 +1,36 @@
+{
+  "title": "Standard Room",
+  "description": "Habitación estándar de 25 m² con cama Queen size, baño con ducha, minibar, cafetera Illy iperespresso y altavoces Marshall. Con un diseño sencillo y elegante, es perfecta para una escapada cómoda al centro histórico.",
+  "size": 25,
+  "maxOccupancy": 2,
+  "bedType": "Queen Size",
+  "amenities": [
+    "Cama Queen con lencería Frette",
+    "Baño con ducha",
+    "Minibar",
+    "Cafetera Illy iperespresso",
+    "Altavoces Marshall",
+    "Amenidades Erbolario"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Salon"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "pase-206"
+}

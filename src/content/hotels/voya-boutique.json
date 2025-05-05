@@ -42,6 +42,6 @@
     }
   ],
   "featured": false,
-  "rooms": ["deluxe-suite", "executive-room", "family-suite", "standard-room"],
+  "rooms": ["deluxe-suite", "standard-room"],
   "experiences": ["romantic-escape", "sunset-sailing"]
 }
