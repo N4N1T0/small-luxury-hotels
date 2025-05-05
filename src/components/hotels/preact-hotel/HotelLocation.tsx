@@ -9,7 +9,7 @@ export default function HotelLocations({
 }: {
   hotel: CollectionEntry<"hotels">;
 }) {
-  const { location, title, shortDescription } = hotel.data;
+  const { location, title } = hotel.data;
   const mapRef = useRef<L.Map | null>(null);
   const [selectedCoords, setSelectedCoords] = useState<[number, number]>([
     location.coordinates.lat,
@@ -30,19 +30,18 @@ export default function HotelLocations({
   useEffect(() => {
     animateElement("hotel-location-info", "40px", 500);
     animateElement("hotel-location-map", "-40px", 500);
-  }, []);
+  });
 
   return (
-    <section class="container">
+    <section class="container py-16">
       <div
-        class="mb-10 flex items-center justify-between md:px-8"
+        class="mb-10 flex flex-col items-center justify-between md:flex-row md:px-8"
         id="hotel-location-info"
       >
         <div>
           <h2 class="text-foreground mb-4 text-4xl font-semibold md:text-5xl">
             Ubicación
           </h2>
-          <p class="text-foreground/80 font-hum">{shortDescription}</p>
         </div>
         <div
           class="cursor-pointer"

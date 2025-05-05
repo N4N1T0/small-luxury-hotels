@@ -1,0 +1,61 @@
+---
+import type { ImageType } from '@/types';
+import { Image } from 'astro:assets';
+import { Star } from 'lucide-astro';
+
+// AboutSection component
+interface Props {
+  title: string;
+  image: ImageType;
+  info: string[];
+  reverse?: boolean;
+}
+
+const { title, image, info, reverse = false } = Astro.props;
+const displayInfo = info.slice(0, 5);
+---
+
+<section class="bg-background py-16">
+  <div class="container mx-auto px-4">
+    <div
+      class={`flex flex-col items-center gap-12 lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''}`}
+    >
+      <!-- Image -->
+      <div
+        class="animate-fade-in-left animate-delay-300 w-full shadow-md lg:w-1/2"
+        id="two-columns-image"
+      >
+        <Image
+          src={image}
+          alt={title || 'Hotel image'}
+          class="h-auto w-full object-cover"
+          width={400}
+          height={400}
+          densities={[1, 2]}
+        />
+      </div>
+
+      <!-- Content -->
+      <div class="animate-fade-in-right animate-delay-300 w-full lg:w-1/2" id="two-columns-info">
+        <h2 class="mb-6 text-3xl font-bold md:text-4xl">{title}</h2>
+        <div class="space-y-4">
+          {
+            displayInfo.map((text) => (
+              <div class="flex gap-4">
+                <Star class="text-secondary inline-block h-4 w-4" />
+                <p class="text-foreground/80 text-lg">{text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { animateElement } from '@/lib/scripts';
+
+  animateElement('#two-columns-image', '-40px', 500);
+  animateElement('#two-columns-info', '40px', 500);
+</script>
