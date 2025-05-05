@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 
 interface GalleryImage {
-  url: string;
+  url: ImageMetadata;
   alt: string;
 }
 
@@ -39,7 +39,7 @@ const bigImagesIndex = [0, 2, 4, 6];
           >
             <a
               class="lightbox block h-full"
-              href={image.url}
+              href={image.url.src}
               data-pswp-width={800}
               data-pswp-height={600}
               target="_blank"
@@ -49,7 +49,7 @@ const bigImagesIndex = [0, 2, 4, 6];
                 src={image.url}
                 alt={image.alt}
                 width={800}
-                height={600}
+                height={800}
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="lazy"
                 decoding="async"
