@@ -1,0 +1,35 @@
+{
+  "title": "Suite 1",
+  "description": "Amplia habitación de 93 m² con balcón y terraza con vistas al Paseo del Prado, ideal para disfrutar del desayuno al aire libre. Cuenta con sala con sofá cama, comedor, pantry completamente equipado, dormitorio con cama King size y baño con bañera, ducha de hidromasaje y lavabos dobles. Equipada con detalles modernos como sistema de audio Bluetooth, caja fuerte, cafetera, microondas y más.",
+  "size": 93,
+  "maxOccupancy": 4,
+  "bedType": "King Size",
+  "amenities": [
+    "Balcón y terraza con vistas al Paseo del Prado",
+    "Sala con televisor y memoria USB con contenido audiovisual",
+    "Lámpara de mesa con sistema de audio Bluetooth",
+    "Comedor con mesa para 4 personas",
+    "Pantry equipado"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7117.webp",
+      "alt": "Cama"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7578.webp",
+      "alt": "Salon"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7682.webp",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7741.webp",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "boutique-animas-y-virtudes"
+}

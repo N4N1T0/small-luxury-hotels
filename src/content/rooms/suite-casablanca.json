@@ -1,0 +1,36 @@
+{
+  "title": "Suite Casablanca",
+  "description": "Esta exclusiva suite principal combina amplitud, elegancia y una vista directa al Paseo. Equipada con cama King size y un cómodo salón de estar, ofrece una estancia sofisticada y relajante. Tras una renovación completa, cuenta con instalaciones eléctricas y de plomería nuevas, carpintería moderna, aire acondicionado, ventilador de techo y tomas de 110V y 220V. El grupo electrógeno asegura el funcionamiento constante de todos los servicios. El baño privado dispone de ducha, toallas, albornoz, amenities y espejo de aumento. También incluye guardarropa, secador de pelo y bolsa para lavandería.",
+  "size": 50,
+  "maxOccupancy": 3,
+  "bedType": "King Size",
+  "amenities": [
+    "Baño con plato de ducha",
+    "Vista a la Bahia",
+    "Sala de estar",
+    "Secador de cabello",
+    "Servicio de lavandería",
+    "Wi-Fi de alta velocidad"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/suite-casablanca/SUITE CASABLANCA 1.webp",
+      "alt": "SUITE CASABLANCA 1"
+    },
+    {
+      "url": "../../assets/rooms/suite-casablanca/SUITE CASABLANCA.webp",
+      "alt": "SUITE CASABLANCA"
+    },
+    {
+      "url": "../../assets/rooms/suite-casablanca/SUITE CASABLANCA 2.webp",
+      "alt": "SUITE CASABLANCA 2.PG"
+    },
+    {
+      "url": "../../assets/hoteles/jesus-maria-7/SALA COMEDOR DESAYUNO 2.webp",
+      "alt": "SALA COMEDOR DESAYUNO 2.PG"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "jesus-maria-7"
+}

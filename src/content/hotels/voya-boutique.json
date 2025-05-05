@@ -1,0 +1,47 @@
+{
+  "title": "VOYA Boutique Hotel",
+  "description": "VOYA se encuentra en una mansión meticulosamente restaurada de 1925. Cada una de sus 10 habitaciones y suites destaca por su diseño elegante, mobiliario a medida y amenidades de lujo. La propuesta combina el descubrimiento de La Habana auténtica con el retiro relajante en espacios como el Secret Garden (bar y lounge tropical), la piscina climatizada al aire libre o su restaurante Brasserie 255, que ofrece cocina contemporánea cubana y mediterránea. El servicio se distingue por detalles como servicio de limpieza dos veces al día, minibar premium, bicicletas gratuitas, y room service 24 horas.",
+  "shortDescription": "VOYA Boutique Hotel es un oasis urbano situado en una mansión restaurada de 1925 en el elegante barrio de Santos Suárez, La Habana. Este exclusivo hotel boutique fusiona el encanto colonial cubano con el diseño contemporáneo, ofreciendo una experiencia de lujo bajo el concepto “Explore & Retreat”.",
+  "location": {
+    "address": "Juan Delgado 255, entre Santa Catalina y Milagros, Santos Suárez",
+    "city": "La Habana",
+    "country": "Cuba",
+    "coordinates": {
+      "lat": 23.096249219257533,
+      "lng": -82.37466450467435
+    }
+  },
+  "amenities": [
+    "Concepto “Explore & Retreat” exclusivo",
+    "Secret Garden: lounge tropical con bar",
+    "Piscina climatizada al aire libre",
+    "Brasserie 255: cocina fusión cubano-mediterránea",
+    "Bicicletas gratuitas para explorar la ciudad",
+    "Mobiliario diseñado a medida en todas las habitaciones"
+  ],
+  "services": [
+    "Concierge",
+    "Piscina climatizada",
+    "Room service 24 horas",
+    "Minibar premium",
+    "Wi-Fi gratuito",
+    "Servicio de limpieza dos veces al día"
+  ],
+  "gallery": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Fachada del Hotel Montaña"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Vista panorámica desde el restaurante"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Suite con chimenea"
+    }
+  ],
+  "featured": false,
+  "rooms": ["deluxe-suite", "executive-room", "family-suite", "standard-room"],
+  "experiences": ["romantic-escape", "sunset-sailing"]
+}

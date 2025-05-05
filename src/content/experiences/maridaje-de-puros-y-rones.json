@@ -1,16 +1,13 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
+  "title": "Maridaje de Puros y Rones",
+  "description": "Degustación guiada de rones cubanos premium y habanos seleccionados, con explicación especializada y opción de disfrutar de las bebidas y tabacos ya catados.",
+  "location": "Patio interior del hotel",
+  "price": 30,
+  "duration": "45 min - 1h",
   "maxParticipants": 8,
   "included": [
-    "Clase de cocina práctica",
-    "Tour por el mercado local",
-    "Degustación de ron",
-    "Almuerzo gourmet",
-    "Recetario exclusivo"
+    "Cata de rones cubanos premium",
+    "Degustación de habanos seleccionados"
   ],
   "gallery": [
     {
@@ -47,10 +44,9 @@
     }
   ],
   "highlights": [
-    "Aprende a preparar platos tradicionales cubanos",
-    "Visita al mercado local con el chef",
-    "Secretos de la cocina criolla",
-    "Maridaje con rones premium"
+    "Experiencia sensorial con rones y puros cubanos",
+    "Degustación guiada por expertos"
   ],
-  "featured": false
+  "featured": false,
+  "publishDate": "2024-01-16T00:00:00.000Z"
 }

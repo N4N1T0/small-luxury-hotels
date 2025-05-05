@@ -1,9 +1,9 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
+  "title": "Cafe Bohemia",
+  "description": "Café Bohemia ofrece un ambiente al aire libre o en patio interior para disfrutar de comidas tradicionales cubanas, opciones vegetarianas y repostería italiana casera. Con vistas a la Plaza Vieja, es ideal para disfrutar de un café o cóctel mientras se conecta con el legado cultural del lugar.",
+  "location": " Plaza Vieja, La Habana",
+  "price": 20,
+  "duration": "Flexible",
   "maxParticipants": 8,
   "included": [
     "Clase de cocina práctica",
@@ -52,5 +52,6 @@
     "Secretos de la cocina criolla",
     "Maridaje con rones premium"
   ],
-  "featured": false
+  "featured": false,
+  "publishDate": "2024-01-16T00:00:00.000Z"
 }

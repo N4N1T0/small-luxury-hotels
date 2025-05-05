@@ -1,17 +1,11 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
-  "maxParticipants": 8,
-  "included": [
-    "Clase de cocina práctica",
-    "Tour por el mercado local",
-    "Degustación de ron",
-    "Almuerzo gourmet",
-    "Recetario exclusivo"
-  ],
+  "title": "Conciertos de Jazz",
+  "description": "Disfruta de conciertos de jazz en el rooftop de La Guarida con vistas de 360° de la ciudad, acompañado de cena y cócteles de alta calidad.",
+  "location": "Paladar La Guarida",
+  "price": 10,
+  "duration": "1-2 horas",
+  "maxParticipants": 50,
+  "included": ["Concierto de jazz", "Opción de cena y cócteles"],
   "gallery": [
     {
       "url": "https://placehold.co/500x500",
@@ -47,10 +41,10 @@
     }
   ],
   "highlights": [
-    "Aprende a preparar platos tradicionales cubanos",
-    "Visita al mercado local con el chef",
-    "Secretos de la cocina criolla",
-    "Maridaje con rones premium"
+    "Conciertos de jazz en el rooftop",
+    "Vistas de 360° de la ciudad",
+    "Opción de cena y cócteles"
   ],
-  "featured": false
+  "featured": false,
+  "publishDate": "2024-01-16T00:00:00.000Z"
 }

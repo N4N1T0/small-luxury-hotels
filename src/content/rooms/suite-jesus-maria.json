@@ -1,0 +1,36 @@
+{
+  "title": "Suite Jesus Maria",
+  "description": "La suite principal ofrece una experiencia excepcional con cama King size, amplio salón de estar, patio privado y vistas privilegiadas a la bahía. Recientemente renovada, dispone de instalaciones eléctricas y de plomería completamente actualizadas, carpintería nueva, aire acondicionado, ventilador de techo y tomas de 110V y 220V. Un grupo electrógeno garantiza el funcionamiento continuo de todos los servicios. El baño privado cuenta con ducha, toallas, albornoz, amenities de cortesía y espejo de aumento. Además, incluye guardarropa, secador de pelo y bolsa para lavandería.",
+  "size": 50,
+  "maxOccupancy": 3,
+  "bedType": "King Size",
+  "amenities": [
+    "Baño con plato de ducha",
+    "Vista a la Bahia",
+    "Sala de estar",
+    "Secador de cabello",
+    "Servicio de lavandería",
+    "Wi-Fi de alta velocidad"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/suite-jesus-maria/SUITE JESUS MARIA 3.webp",
+      "alt": "SUITE JESUS MARIA 3"
+    },
+    {
+      "url": "../../assets/rooms/suite-jesus-maria/SUITE JESUS MARIA 7.webp",
+      "alt": "SUITE JESUS MARIA 7"
+    },
+    {
+      "url": "../../assets/rooms/suite-jesus-maria/SUITE JESUS MARIA 8.webp",
+      "alt": "SUITE JESUS MARIA 8.PG"
+    },
+    {
+      "url": "../../assets/rooms/suite-jesus-maria/SUITE JESUS MARIA 9.webp",
+      "alt": "SUITE JESUS MARIA 9.PG"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "jesus-maria-7"
+}

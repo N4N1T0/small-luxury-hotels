@@ -1,16 +1,15 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
-  "maxParticipants": 8,
+  "title": "Partidos de Golf",
+  "description": "Disfruta de una partida de 18 hoyos en el Habana Golf Club de Capdevila con servicios exclusivos como transporte, alquiler de palos, y caddie.",
+  "location": "Habana Golf Club, Capdevila",
+  "price": 150,
+  "duration": "Flexible",
+  "maxParticipants": 4,
   "included": [
-    "Clase de cocina práctica",
-    "Tour por el mercado local",
-    "Degustación de ron",
-    "Almuerzo gourmet",
-    "Recetario exclusivo"
+    "Partida de golf de 18 hoyos",
+    "Transporte incluido",
+    "Alquiler de palos y trolley",
+    "Servicios de caddie"
   ],
   "gallery": [
     {
@@ -47,10 +46,9 @@
     }
   ],
   "highlights": [
-    "Aprende a preparar platos tradicionales cubanos",
-    "Visita al mercado local con el chef",
-    "Secretos de la cocina criolla",
-    "Maridaje con rones premium"
+    "Campo de golf estilo inglés",
+    "Almuerzo criollo y degustación de puros y ron cubano opcional"
   ],
-  "featured": false
+  "featured": false,
+  "publishDate": "2024-01-16T00:00:00.000Z"
 }

@@ -1,16 +1,13 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
+  "title": "Restaurante Gastronómico Ánimas & Virtudes",
+  "description": "Cocina de autor con menús degustación innovadores creados por el chef Jesús Íñigo (Estrella Michelin), ejecutados por Alejandro Rosales, en un entorno íntimo y artístico.",
+  "location": "Planta baja del hotel",
+  "price": 0,
+  "duration": "2-3 horas",
   "maxParticipants": 8,
   "included": [
-    "Clase de cocina práctica",
-    "Tour por el mercado local",
-    "Degustación de ron",
-    "Almuerzo gourmet",
-    "Recetario exclusivo"
+    "Menú degustación de 6, 7 o 9 tiempos",
+    "Versión vegana disponible"
   ],
   "gallery": [
     {
@@ -47,10 +44,10 @@
     }
   ],
   "highlights": [
-    "Aprende a preparar platos tradicionales cubanos",
-    "Visita al mercado local con el chef",
-    "Secretos de la cocina criolla",
-    "Maridaje con rones premium"
+    "Menús de 6, 7 y 9 tiempos",
+    "Chef Jesús Íñigo (Estrella Michelin)",
+    "Experiencia culinaria íntima"
   ],
-  "featured": false
+  "featured": true,
+  "publishDate": "2024-01-16T00:00:00.000Z"
 }

@@ -1,0 +1,35 @@
+{
+  "title": "Junior Suite 3",
+  "description": "Habitación de 49 m² con dos camas Queen size y sala de estar con vista al patio interior. Equipado con minibar, cafetera, televisor con contenido audiovisual y baño con bañera y ducha de hidromasaje. Incluye portamaletas, reloj despertador y caja fuerte.",
+  "size": 49,
+  "maxOccupancy": 4,
+  "bedType": "Queen Size",
+  "amenities": [
+    "Sala de estar con vista al patio interior",
+    "Minibar, tetera, cafetera de café americano",
+    "Televisor con acceso a canales nacionales y memoria con contenido audiovisual",
+    "Baño amplio con bañera y ducha de hidromasaje",
+    "Portamaletas, reloj despertador, caja fuerte"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7117.webp",
+      "alt": "Cama"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7578.webp",
+      "alt": "Salon"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7682.webp",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7741.webp",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "boutique-animas-y-virtudes"
+}

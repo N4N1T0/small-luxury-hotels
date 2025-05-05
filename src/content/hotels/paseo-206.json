@@ -1,0 +1,57 @@
+{
+  "title": " Paseo 206 Boutique",
+  "description": "El hotel se encuentra en una casa familiar restaurada de 1933, que combina el encanto de una mansión histórica con comodidades modernas. Ofrece 10 habitaciones y suites, incluyendo Rooftop Suites con terraza privada y jacuzzi al aire libre. Todas las habitaciones están equipadas con camas king hipoalergénicas, ropa de cama Frette, artículos de tocador Erbolario, altavoces Marshall y cafeteras Illy iperespresso.El restaurante Eclectico, liderado por el chef ejecutivo Tayu Vliestra, fusiona la cocina italiana y cubana en un ambiente sofisticado. Paseo 206 también organiza experiencias personalizadas como clases de cocina, lecciones de boxeo con campeones cubanos, recorridos en autos antiguos, excursiones fotográficas en casas privadas y días de playa en el este de La Habana.",
+  "shortDescription": " Paseo 206 es un hotel boutique elegante y romántico, ideal para quienes buscan una experiencia auténtica en La Habana con toques de lujo y tradición. Situado en la famosa Avenida Paseo, en el corazón del Vedado, ofrece una experiencia acogedora bajo el lema “Tu hogar lejos de casa en La Habana”.",
+  "location": {
+    "address": "Avenida Paseo #206, entre Línea y 11, Vedado",
+    "city": "La Habana",
+    "country": "Cuba",
+    "coordinates": {
+      "lat": 23.136819399623686,
+      "lng": -82.3995834893305
+    }
+  },
+  "amenities": [
+    "Mansión histórica restaurada de 1933",
+    "Rooftop suites con jacuzzi privado",
+    "Restaurante de autor (Eclectico) con cocina ítalo-cubana",
+    "Experiencias únicas con enfoque local: clases, tours, conciertos",
+    "Filosofía de “hogar lejos de casa” con servicio personalizado"
+  ],
+  "services": [
+    "Wi-Fi de alta velocidad gratuito",
+    "Desayuno incluido",
+    "Room service 24 horas",
+    "Concierge",
+    "Organización de eventos privados"
+  ],
+  "gallery": [
+    {
+      "url": "../../assets/hoteles/paseo-206/_ZNT2560.webp",
+      "alt": "Habitación y Baño"
+    },
+    {
+      "url": "../../assets/hoteles/paseo-206/_ZNT2901.webp",
+      "alt": "Escalera Principal"
+    },
+    {
+      "url": "../../assets/hoteles/paseo-206/_ZNT2929.webp",
+      "alt": "Habitación Deluxe"
+    },
+    {
+      "url": "../../assets/hoteles/paseo-206/_ZNT3244.webp",
+      "alt": "Recepción"
+    },
+    {
+      "url": "../../assets/hoteles/paseo-206/_ZNT3748.webp",
+      "alt": "Terraza y concierto"
+    },
+    {
+      "url": "../../assets/hoteles/paseo-206/_ZNT5466.webp",
+      "alt": "Salon Principal y huéspedes"
+    }
+  ],
+  "featured": false,
+  "rooms": ["206-rooftop-suite", "206-master-suite", "206-deluxe"],
+  "experiences": ["rooftop-bar-exclusivo"]
+}

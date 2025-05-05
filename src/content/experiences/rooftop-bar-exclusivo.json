@@ -1,17 +1,11 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
-  "maxParticipants": 8,
-  "included": [
-    "Clase de cocina práctica",
-    "Tour por el mercado local",
-    "Degustación de ron",
-    "Almuerzo gourmet",
-    "Recetario exclusivo"
-  ],
+  "title": "Rooftop Bar Exclusivo",
+  "description": "Ubicado en la azotea del hotel, este bar privado ofrece un ambiente relajado para disfrutar de cócteles al atardecer, en un entorno reservado y con encanto.",
+  "location": "Rooftop",
+  "price": 15,
+  "duration": "Flexible",
+  "maxParticipants": 20,
+  "included": ["cócteles de bienvenida", "Clase de baile", "Terraza privada"],
   "gallery": [
     {
       "url": "https://placehold.co/500x500",
@@ -45,12 +39,6 @@
       "url": "https://placehold.co/500x500",
       "alt": "Ambiente del taller de cocina cubana"
     }
-  ],
-  "highlights": [
-    "Aprende a preparar platos tradicionales cubanos",
-    "Visita al mercado local con el chef",
-    "Secretos de la cocina criolla",
-    "Maridaje con rones premium"
   ],
   "featured": false
 }

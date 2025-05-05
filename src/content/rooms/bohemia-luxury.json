@@ -1,0 +1,36 @@
+{
+  "title": "Bohemia Luxury",
+  "description": "Nuestras Luxury Rooms son un refugio íntimo y sofisticado en el corazón de La Habana Vieja. Con 40 m² de diseño acogedor, cada habitación ofrece cama King size, ducha privada, lencería Frette y amenities de Erbolario. El café Illy, los altavoces Marshall y el minibar complementan la experiencia con un toque de confort moderno en un entorno con alma histórica.",
+  "size": 40,
+  "maxOccupancy": 2,
+  "bedType": "King Size",
+  "amenities": [
+    "Café Illy",
+    "Wi-Fi",
+    "Altavoces Marshall",
+    "Amenities Erbolario",
+    "Lencería y toallas Frette",
+    "Minibar"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7117.webp",
+      "alt": "Cama"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7578.webp",
+      "alt": "Salon"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7682.webp",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7741.webp",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "boutique-bohemia"
+}

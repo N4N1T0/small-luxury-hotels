@@ -1,0 +1,36 @@
+{
+  "title": "Deluxe",
+  "description": "Habitación Deluxe de 30 m² con capacidad para 2 personas. Incluye cama King size con lencería Frette, baño con ducha, cafetera Illy iperespresso, altavoces Marshall, minibar y amenidades Erbolario. Perfecta para estancias acogedoras y sofisticadas.",
+  "size": 30,
+  "maxOccupancy": 2,
+  "bedType": "King Size",
+  "amenities": [
+    "Cama King con lencería Frette",
+    "Baño con ducha",
+    "Cafetera Illy iperespresso",
+    "Altavoces Marshall",
+    "Minibar",
+    "Amenidades Erbolario"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Salon"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "pase-206"
+}

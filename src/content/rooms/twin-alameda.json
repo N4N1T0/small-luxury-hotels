@@ -1,0 +1,36 @@
+{
+  "title": "Twin Alameda",
+  "description": "Esta exclusiva suite principal combina amplitud, elegancia y una vista directa al Paseo. Equipada con cama King size y un cómodo salón de estar, ofrece una estancia sofisticada y relajante. Tras una renovación completa, cuenta con instalaciones eléctricas y de plomería nuevas, carpintería moderna, aire acondicionado, ventilador de techo y tomas de 110V y 220V. El grupo electrógeno asegura el funcionamiento constante de todos los servicios. El baño privado dispone de ducha, toallas, albornoz, amenities y espejo de aumento. También incluye guardarropa, secador de pelo y bolsa para lavandería.",
+  "size": 20,
+  "maxOccupancy": 2,
+  "bedType": "Twin Size",
+  "amenities": [
+    "Baño con plato de ducha",
+    "Sala de estar",
+    "Secador de cabello",
+    "Servicio de lavandería",
+    "Wi-Fi de alta velocidad",
+    "cuenta con camas twin"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/twin-alameda/TWIN ALAMEDA 1.webp",
+      "alt": "TWIN ALAMEDA 1"
+    },
+    {
+      "url": "../../assets/rooms/twin-alameda/TWIN ALAMEDA 2.webp",
+      "alt": "TWIN ALAMEDA 2"
+    },
+    {
+      "url": "../../assets/rooms/twin-alameda/TWIN ALAMEDA NOCHE 4.webp",
+      "alt": "TWIN ALAMEDA NOCHE 4.PG"
+    },
+    {
+      "url": "../../assets/hoteles/jesus-maria-7/PATIO DE NOCHE 2.webp",
+      "alt": "PATIO DE NOCHE 2.PG"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "jesus-maria-7"
+}

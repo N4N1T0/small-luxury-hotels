@@ -1,0 +1,37 @@
+{
+  "title": "Rooftop Suite",
+  "description": "Suite de 50 m² con capacidad para 3 personas, cuenta con cama King size equipada con lencería Frette, terraza privada con jacuzzi exterior, baño con ducha y bañera. Incluye cafetera Illy iperespresso, altavoces Marshall, minibar y amenidades Erbolario.",
+  "size": 50,
+  "maxOccupancy": 3,
+  "bedType": "King Size",
+  "amenities": [
+    "Terraza privada con jacuzzi exterior",
+    "Cama King con lencería Frette",
+    "Baño con ducha y bañera",
+    "Cafetera Illy iperespresso",
+    "Altavoces Marshall",
+    "Minibar",
+    "Amenidades Erbolario"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Salon"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "pase-206"
+}

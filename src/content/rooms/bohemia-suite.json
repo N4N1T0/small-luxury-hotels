@@ -1,0 +1,36 @@
+{
+  "title": "Bohemia Suite",
+  "description": "Elegantes y espaciosas, nuestras suites ofrecen 60 m² de confort con una cama King size y una cuidada zona de estar. Perfectas para familias o quienes buscan amplitud, combinan el encanto colonial con detalles contemporáneos. Disfrute de un baño completo con bañera y ducha, lencería Frette, amenities de Erbolario, altavoces Marshall y café Illy. Incluyen Wi-Fi, minibar y una atmósfera única que refleja el espíritu bohemio y mediterráneo de la casa.",
+  "size": 60,
+  "maxOccupancy": 4,
+  "bedType": "King Size",
+  "amenities": [
+    "Café Illy",
+    "Wi-Fi",
+    "Altavoces Marshall",
+    "Amenities Erbolario",
+    "Lencería y toallas Frette",
+    "Minibar"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/bohemia-suite/Bohemia_FAC6993.webp",
+      "alt": "Salon y baño"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-suite/Bohemia_FAC7121.webp",
+      "alt": "Cama y sombrero"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-suite/Bohemia_FAC7216.webp",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-suite/Bohemia_FAC7622.webp",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "boutique-bohemia"
+}

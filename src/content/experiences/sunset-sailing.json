@@ -46,17 +46,5 @@
       "alt": "Vista aérea del yate en el mar turquesa"
     }
   ],
-  "highlights": [
-    "Navegación al atardecer",
-    "Snorkel en aguas cristalinas",
-    "Cócteles y aperitivos premium",
-    "Fotografía profesional incluida"
-  ],
-  "featured": false,
-  "publishDate": "2024-01-15T00:00:00.000Z",
-  "content": {
-    "description": "Embárcate en una experiencia única navegando por las aguas cristalinas del Caribe cubano mientras el sol se pone en el horizonte.",
-    "experience": "Disfruta de una tarde perfecta combinando lujo, naturaleza y romance a bordo de nuestro exclusivo yate. Nuestro experimentado equipo te guiará a los mejores lugares para snorkel y te deleitará con una selección de cócteles premium y aperitivos gourmet.",
-    "highlights": "Captura momentos inolvidables con nuestro servicio de fotografía profesional incluido, mientras exploras los vibrantes arrecifes de coral y disfrutas de un espectacular atardecer en el mar Caribe."
-  }
+  "featured": false
 }

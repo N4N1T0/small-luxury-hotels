@@ -46,17 +46,5 @@
       "alt": "Jardines tropicales del resort"
     }
   ],
-  "highlights": [
-    "Cena privada en la playa al atardecer",
-    "Sesión de spa en pareja",
-    "Suite con vista al mar",
-    "Servicio personalizado"
-  ],
-  "featured": true,
-  "publishDate": "2024-01-15T00:00:00.000Z",
-  "content": {
-    "description": "Escapa de la rutina y sumérgete en una experiencia romántica diseñada para crear momentos inolvidables con tu pareja.",
-    "experience": "Disfruta de una estancia de lujo con vistas al mar, comenzando con una bienvenida especial en tu suite decorada con pétalos y velas. Relájate con un masaje en pareja en nuestro spa premium y culmina el día con una cena privada en la playa al atardecer.",
-    "amenities": "Nuestro equipo de servicio personalizado estará atento a cada detalle, desde el desayuno gourmet servido en la cama hasta los pequeños detalles que harán de tu estancia una experiencia verdaderamente memorable."
-  }
+  "featured": true
 }

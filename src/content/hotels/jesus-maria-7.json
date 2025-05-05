@@ -1,7 +1,7 @@
 {
   "title": "Jesús María 7",
   "description": "Ubicado al final del malecón del barrio San Isidro, JM7 ofrece una experiencia íntima para viajeros que desean explorar el alma de La Habana desde una base acogedora. El hotel fue restaurado entre 2016 y 2022, respetando los valores patrimoniales del edificio original de 1910. Su diseño se basa en la calma: tonos suaves, líneas simples y espacios comunes pensados para la tranquilidad, como su patio central y terraza rooftop privada solo para huéspedes. Su ubicación estratégica permite explorar fácilmente los principales atractivos de La Habana Vieja, mientras se disfruta de un oasis de paz al volver.",
-  "shortDescription": "Jesús María 7 (JM7) es un refugio moderno y elegante situado en una casona restaurada de 1910 en La Habana Vieja. Tras una renovación de seis años, este hotel boutique ofrece una experiencia de serenidad y confort en uno de los barrios más vibrantes de la ciudad, combinando el encanto histórico con comodidades contemporáneas",
+  "shortDescription": "Jesús María 7 (JM7) es un refugio moderno y elegante situado en una casona restaurada de 1910 en La Habana Vieja. Tras una renovación de seis años, este hotel boutique ofrece una experiencia de serenidad y confort en uno de los barrios más vibrantes de la ciudad.",
   "location": {
     "address": " Calle Jesús María 7, entre Inquisidor y San Ignacio",
     "city": "Habana Vieja",
@@ -44,6 +44,13 @@
     }
   ],
   "featured": false,
-  "rooms": ["deluxe-suite", "executive-room", "family-suite", "standard-room"],
-  "experiences": ["romantic-escape", "sunset-sailing"]
+  "rooms": [
+    "suite-paula",
+    "suite-patio",
+    "suite-bahia",
+    "suite-jesus-maria",
+    "suite-casablanca",
+    "twin-alameda"
+  ],
+  "experiences": ["rooftop-bar-exclusivo"]
 }

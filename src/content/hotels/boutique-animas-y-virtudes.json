@@ -1,0 +1,61 @@
+{
+  "title": "Boutique Ánimas & Virtudes",
+  "description": "Este edificio de inicios del siglo XX fue originalmente una residencia con locales comerciales en la planta baja y viviendas en plantas superiores. En 2016 fue completamente restaurado, respetando elementos como su escalera de mármol de Carrara, los mosaicos originales, carpintería francesa y herrería artística. El hotel alberga obras de arte cubanas y mezcla mobiliario contemporáneo con piezas de época. Cuenta con tres niveles, en planta baja podemos encontrar el restaurante con cava de vinos, bar y zona de recepción del restaurante, patio interior con jardín vertical, aseos y cocina. Las seis habitaciones se encuentran distribuidas en los dos niveles superiores, tres en cada uno, todas con baño privado y posibilidad de conexión entre sí.",
+  "shortDescription": "Ubicado en el emblemático Paseo del Prado, en el corazón de La Habana Vieja, el Hotel Boutique Ánimas & Virtudes ofrece una experiencia de alojamiento exclusiva con servicios personalizados y espacios cuidadosamente diseñados.",
+  "location": {
+    "address": " Paseo del Prado #312, entre Ánimas y Virtudes",
+    "city": "La Habana Vieja",
+    "country": "Cuba",
+    "coordinates": {
+      "lat": 23.13927793700328,
+      "lng": -82.35938319600645
+    }
+  },
+  "amenities": [
+    "Restaurante gastronómico con menús de degustación únicos en Cuba",
+    "Chef con estrella Michelin (Jesús Íñigo)",
+    "Arquitectura ecléctica original restaurada",
+    "Colección de arte cubano y decoración combinada de época",
+    "Patio interior con jardín vertical y zona de fumadores",
+    "Atención personalizada 24h en recepción"
+  ],
+  "services": [
+    "Cóctel de bienvenida",
+    "Servicio de Internet 24 horas",
+    "Cajas de Seguridad",
+    "Aires Acondicionados",
+    "Alarma de seguridad",
+    "Servicio a la habitación"
+  ],
+  "gallery": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Vista frontal del Hotel Playa"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Piscina infinita con vista al mar"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Suite principal con balcón"
+    }
+  ],
+  "featured": false,
+  "rooms": [
+    "animas-y-virtudes-suite-1",
+    "animas-y-virtudes-junior-suite-2",
+    "animas-y-virtudes-junior-suite-3",
+    "animas-y-virtudes-suite-4",
+    "animas-y-virtudes-standard-doble-5",
+    "animas-y-virtudes-standard-doble-6"
+  ],
+  "experiences": [
+    "restaurante-gastronomico",
+    "clases-de-cocteleria-cubana",
+    "maridaje-de-puros-y-rones",
+    "clases-de-cocina",
+    "conciertos-de-jazz",
+    "partidos-de-golf"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Master Suite",
+  "description": "Suite de 45 m² con capacidad para 3 personas. Equipada con cama King size con lencería Frette, baño con ducha y bañera, cafetera Illy iperespresso, altavoces Marshall, minibar y amenidades Erbolario. Ideal para una estancia elegante y cómoda.",
+  "size": 45,
+  "maxOccupancy": 3,
+  "bedType": "King Size",
+  "amenities": [
+    "Cama King con lencería Frette",
+    "Baño con ducha y bañera",
+    "Cafetera Illy iperespresso",
+    "Altavoces Marshall",
+    "Minibar",
+    "Amenidades Erbolario"
+  ],
+  "images": [
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Salon"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "https://placehold.co/600x400",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "pase-206"
+}

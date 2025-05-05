@@ -1,0 +1,34 @@
+{
+  "title": "Standard doble 6",
+  "description": "Habitación de 42 m² con cama King size, equipada con minibar, cafetera y televisor con contenido audiovisual. El baño cuenta con ducha de hidromasaje y bañera. También incluye portamaletas, reloj despertador y caja fuerte.",
+  "size": 42,
+  "maxOccupancy": 2,
+  "bedType": "King Size",
+  "amenities": [
+    "Sala de estar con minibar, tetera, cafetera de café americano",
+    "Televisor con canales nacionales y memoria con contenido audiovisual",
+    "Baño con ducha de hidromasaje",
+    "Portamaletas, reloj despertador, caja fuerte"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7117.webp",
+      "alt": "Cama"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7578.webp",
+      "alt": "Salon"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7682.webp",
+      "alt": "Cama y baño"
+    },
+    {
+      "url": "../../assets/rooms/bohemia-luxury/Bohemia_FAC7741.webp",
+      "alt": "Baño y Ducha"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "boutique-animas-y-virtudes"
+}

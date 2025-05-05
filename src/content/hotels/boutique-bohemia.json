@@ -1,0 +1,53 @@
+{
+  "title": "Estancia Bohemia Boutique Hotel",
+  "description": " Fundado por una familia cubano-italiana apasionada por la hospitalidad, Estancia Bohemia representa una fusión perfecta entre el alma caribeña y la elegancia mediterránea. Ubicado en una residencia histórica de 1780, el hotel ha sido cuidadosamente restaurado, preservando frescos, azulejos artesanales sicilianos y una arquitectura colonial con esencia mediterránea. Las suites están equipadas con camas king size, lencería Frette, amenities de Erbolario, altavoces Marshall e Illy iperespresso. Ofrece desayuno y comidas en el Café Bohemia, un espacio artístico en la Plaza Vieja, dedicado a Ricardo Saenz, exdirector de la revista cubana Bohemia y padre de la propietaria, Diana. Estancia Bohemia es también el proyecto hermano de Paseo 206 Boutique Hotel.",
+  "shortDescription": "Estancia Bohemia es un hotel boutique romántico y refinado ubicado en el corazón de La Habana Vieja, dentro del Palacio del Conde de Lombillo. Su estructura colonial restaurada y su ambiente acogedor hacen de este hotel un oasis de encanto.",
+  "location": {
+    "address": "San Ignacio 364, entre Muralla y Teniente Rey, Plaza Vieja",
+    "city": "Habana Vieja",
+    "country": "Cuba",
+    "coordinates": {
+      "lat": 23.136151,
+      "lng": -82.349932
+    }
+  },
+  "amenities": [
+    "Ubicado en un palacio colonial de 1780 (Conde de Lombillo)",
+    "En plena Plaza Vieja, epicentro cultural y gastronómico",
+    "Café Bohemia: ambiente artístico y literario con cocina orgánica",
+    "Estilo mediterráneo con esencia cubana",
+    "Servicio tipo \"hogar lejos de casa\" con toques de lujo italiano"
+  ],
+  "services": [
+    "Concierge 24h",
+    "Wi-Fi gratuito",
+    "Servicio a la habitación",
+    "Desayuno personalizado",
+    "Lencería Frette"
+  ],
+  "gallery": [
+    {
+      "url": "../../assets/hoteles/boutique-bohemia/Bohemia_FAC7575.webp",
+      "alt": "Salon Suite"
+    },
+    {
+      "url": "../../assets/hoteles/boutique-bohemia/Bohemia_FAC7619.webp",
+      "alt": "Baño Árabe"
+    },
+    {
+      "url": "../../assets/hoteles/boutique-bohemia/Bohemia_FAC7690.webp",
+      "alt": "Cuarto Suite"
+    },
+    {
+      "url": "../../assets/hoteles/boutique-bohemia/Bohemia_FAC7759.webp",
+      "alt": "Salon Luxury"
+    },
+    {
+      "url": "../../assets/hoteles/boutique-bohemia/Bohemia_FAC7763.webp",
+      "alt": "Baño Luxury"
+    }
+  ],
+  "featured": true,
+  "rooms": ["bohemia-suite", "bohemia-luxury"],
+  "experiences": ["cafe-bohemia"]
+}

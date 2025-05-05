@@ -1,16 +1,13 @@
 {
-  "title": "Viaje Culinario Cubano",
-  "description": "Descubre los secretos de la cocina cubana tradicional con nuestros chefs expertos, desde la selección de ingredientes hasta la preparación de platos icónicos.",
-  "location": "La Habana, Cuba",
-  "price": 199,
-  "duration": "1 día",
+  "title": "Clases de Coctelería Cubana",
+  "description": "Aprende a preparar cócteles clásicos cubanos con bartenders profesionales en una actividad práctica guiada.",
+  "location": "Bar del Restaurante",
+  "price": 30,
+  "duration": "45 min - 1h",
   "maxParticipants": 8,
   "included": [
-    "Clase de cocina práctica",
-    "Tour por el mercado local",
-    "Degustación de ron",
-    "Almuerzo gourmet",
-    "Recetario exclusivo"
+    "Clase práctica de coctelería",
+    "Cócteles preparados por los clientes"
   ],
   "gallery": [
     {
@@ -47,10 +44,9 @@
     }
   ],
   "highlights": [
-    "Aprende a preparar platos tradicionales cubanos",
-    "Visita al mercado local con el chef",
-    "Secretos de la cocina criolla",
-    "Maridaje con rones premium"
+    "Aprende a hacer cócteles cubanos clásicos",
+    "Disfruta de tu propia creación"
   ],
-  "featured": false
+  "featured": false,
+  "publishDate": "2024-01-16T00:00:00.000Z"
 }

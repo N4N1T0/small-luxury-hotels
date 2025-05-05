@@ -1,0 +1,36 @@
+{
+  "title": "Suite Patio",
+  "description": "Vive una experiencia de descanso única en esta elegante suite con cama King size, que incluye un amplio salón de estar y acceso a un encantador patio privado, ideal para disfrutar de momentos de tranquilidad al aire libre. El baño privado está equipado con plato de ducha, toallas de alta calidad, albornoz, amenities de cortesía y espejo de aumento. El espacio también cuenta con guardarropa, secador de pelo y bolsa para servicio de lavandería. Un ambiente cuidado al detalle para una estancia sofisticada y relajante.",
+  "size": 50,
+  "maxOccupancy": 3,
+  "bedType": "King Size",
+  "amenities": [
+    "Baño con plato de ducha",
+    "Patio interior",
+    "Sala de estar",
+    "Secador de cabello",
+    "Servicio de lavandería",
+    "Wi-Fi de alta velocidad"
+  ],
+  "images": [
+    {
+      "url": "../../assets/rooms/suite-patio/PATIO Y SUITE PATIO.webp",
+      "alt": "PATIO Y SUITE PATIO"
+    },
+    {
+      "url": "../../assets/rooms/suite-patio/SUITE PATIO 2.webp",
+      "alt": "SUITE PATIO 2"
+    },
+    {
+      "url": "../../assets/rooms/suite-patio/SUITE PATIO 3.webp",
+      "alt": "SUITE PATIO 3.PG"
+    },
+    {
+      "url": "../../assets/rooms/suite-patio/SUITE PATIO BANO 1.webp",
+      "alt": "SUITE PATIO BANO 1.PG"
+    }
+  ],
+  "featured": true,
+  "availability": true,
+  "hotel": "jesus-maria-7"
+}
