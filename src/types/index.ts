@@ -12,3 +12,10 @@ export interface Feature {
   title: string;
   description: string;
 }
+
+export interface ImageType {
+  src: string;
+  width: number;
+  height: number;
+  format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+}
