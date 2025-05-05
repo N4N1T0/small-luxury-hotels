@@ -13,7 +13,11 @@ const {
 ---
 
 <article class="group relative overflow-hidden opacity-0" id="press-card">
-  <div class="relative h-[450px] w-full bg-gray-200 shadow-md">
+  <a
+    href={source.url}
+    target="_blank"
+    class="relative block h-[450px] w-full bg-gray-200 shadow-md"
+  >
     <Image
       src={image.url}
       alt={image.alt}
@@ -21,7 +25,7 @@ const {
       width={300}
       height={300}
     />
-  </div>
+  </a>
   <div
     class="bg-opacity-60 bg-main text-background absolute right-0 bottom-0 left-0 space-y-2 p-4 transition-transform duration-300 group-hover:translate-y-0 md:translate-y-full"
   >
