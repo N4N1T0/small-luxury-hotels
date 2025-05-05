@@ -7,6 +7,7 @@ import HotelBosque from "./svg/hotel-bosque.svg";
 
 // IMG
 import HeroPlaceholder from "./placeholders/Hero.png";
+import Square from "./placeholders/Square.png";
 
 export {
   Logo,
@@ -15,4 +16,5 @@ export {
   HotelBosque,
   LogoWhite,
   HeroPlaceholder,
+  Square,
 };
