@@ -31,20 +31,20 @@ if (!hotel) {
 
 <Layout title={hotel.data.title}>
   <HotelHero hotel={hotel} />
-  <BookingForm client:visible client:only={true} hotel={hotel} />
+  <BookingForm client:load hotel={hotel} />
   <HotelDescription hotel={hotel} />
   <RoomList rooms={rooms} />
   <HotelTwoColumns
     title="Que nos diferencia"
-    image={hotel.data.gallery[0].url}
+    images={hotel.data.gallery}
     info={hotel.data.amenities}
   />
   <HotelTwoColumns
     title="Nuestros Servicios Exclusivos"
-    image={hotel.data.gallery[1].url}
+    images={hotel.data.gallery}
     info={hotel.data.services}
     reverse={true}
   />
-  <HotelLocation client:visible client:only={true} hotel={hotel} />
+  <HotelLocation client:visible hotel={hotel} />
   <BlogCarousel />
 </Layout>

@@ -3,14 +3,21 @@ import TwoColumns from '@/components/shared/TwoColumns.astro';
 import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
 import ExperiencesGrid from '@/components/experiences/preact-experiences/ExperiencesGrid';
 import ExperienceLayout from '@/layouts/ExperienceLayout.astro';
-import { getAllExperiences } from '@/lib/fetchers/experiences';
+import { getAllExperiences, getFeaturedExperience } from '@/lib/fetchers/experiences';
 
 const experiences = await getAllExperiences();
+const featuresExperience = await getFeaturedExperience();
+
+if (!experiences || !featuresExperience) {
+  throw new Error('No experiences found');
+}
 
 const twoColumnsInfo = {
-  title: 'Experiencias Exclusivas',
-  description:
-    'Descubre momentos únicos y memorables en nuestros hoteles boutique. Desde escapadas románticas hasta aventuras culinarias, cada experiencia está diseñada para crear recuerdos inolvidables.'
+  subtitle: 'Experiencia Destacada',
+  title: featuresExperience?.data.title,
+  description: featuresExperience?.data.description,
+  imageSrc: featuresExperience?.data.gallery[0].url.src,
+  imageAlt: featuresExperience?.data.gallery[0].alt
 };
 ---
 

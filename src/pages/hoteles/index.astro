@@ -1,36 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/home/Hero.astro';
-import DescriptionCta from '@/components/home/DescriptionCta.astro';
 import FeaturedHotel from '@/components/shared/FeaturedHotel.astro';
 import HotelList from '@/components/hotels/HotelList.astro';
 import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
+import BookingForm from '@/components/hotels/preact-hotel/BookingForm';
+import { getAllHotels } from '@/lib/fetchers/hotels';
 
 const heroInfo = {
   title: 'Nuestros Hoteles',
   subtitle: 'Descubre el lujo y el confort en cada rincón de Cuba'
 };
 
-const descriptionInfo = {
-  title: 'Una experiencia única en cada destino',
-  description:
-    'Nuestra colección de hoteles de lujo ofrece experiencias inolvidables en los destinos más exclusivos de Cuba. Desde playas paradisíacas hasta el encanto colonial de La Habana, cada propiedad ha sido cuidadosamente seleccionada para brindar el más alto nivel de servicio y confort.',
-  cta: {
-    primary: {
-      text: 'Reservar ahora',
-      url: '/reservar'
-    },
-    secondary: {
-      text: 'Contactar',
-      url: '/contacto'
-    }
-  }
-};
+const hotels = await getAllHotels();
 ---
 
 <Layout title="Hoteles | Small Luxury Hotels of Cuba">
   <Hero {...heroInfo} />
-  <DescriptionCta {...descriptionInfo} />
+  <BookingForm className="py-16" hotels={hotels} client:load />
   <FeaturedHotel />
   <HotelList />
   <BlogCarousel />

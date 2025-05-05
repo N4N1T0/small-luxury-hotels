@@ -8,6 +8,7 @@ import RoomDetails from '@/components/rooms/RoomDetails.astro';
 import { getAllRooms, getRoomBySlug, getRelatedRooms } from '@/lib/fetchers/rooms';
 import RoomList from '@/components/hotels/RoomList.astro';
 import HotelCarousel from '@/components/hotels/HotelCarousel.astro';
+import { getHotelByRoom } from '@/lib/fetchers/hotels';
 
 export const getStaticPaths = async () => {
   const rooms = await getAllRooms();
@@ -21,6 +22,7 @@ export const getStaticPaths = async () => {
 const { slug } = Astro.params;
 const room = await getRoomBySlug(slug);
 const otherRooms = await getRelatedRooms(slug);
+const hotel = await getHotelByRoom(slug);
 ---
 
 <Layout title="Junior Suite | Small Luxury Hotels of Cuba">
@@ -29,7 +31,7 @@ const otherRooms = await getRelatedRooms(slug);
     subtitle={room?.data.description}
     backgroundImage={room?.data.images[0].url}
   />
-  <BookingForm client:only={true} client:visible room={room} />
+  <BookingForm client:load room={room} hotel={hotel} />
   <Gallery images={room?.data.images} minImages={1} maxImages={8} />
   <RoomDescription room={room} />
   <RoomDetails room={room} />
