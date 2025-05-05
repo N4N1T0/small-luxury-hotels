@@ -19,12 +19,18 @@ export const experiences: MegaMenuItem = {
   featuredLabel: "Experiencias Destacada",
   featured: async () => await getFeaturedExperience(),
   label: "Otras Experiencias",
-  data: async () => await getAllExperiences().then((res) => res.slice(0, 3)),
+  data: async () =>
+    await getAllExperiences().then((res) =>
+      res.filter((experience) => experience.data.featured !== true).slice(0, 4),
+    ),
 };
 
 export const hotels: MegaMenuItem = {
   featuredLabel: "Hoteles Destacados",
   featured: async () => await getFeaturedHotel(),
   label: "Otros Hoteles",
-  data: async () => await getAllHotels().then((res) => res.slice(0, 3)),
+  data: async () =>
+    await getAllHotels().then((res) =>
+      res.filter((hotel) => hotel.data.featured !== true).slice(0, 4),
+    ),
 };
