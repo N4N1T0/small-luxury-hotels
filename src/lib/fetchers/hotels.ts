@@ -9,12 +9,7 @@ export type HotelEntry = CollectionEntry<"hotels">;
  */
 export async function getAllHotels(): Promise<HotelEntry[]> {
   const hotels = await getCollection("hotels");
-  return hotels.sort((a, b) => {
-    return (
-      new Date(b.data.publishDate).valueOf() -
-      new Date(a.data.publishDate).valueOf()
-    );
-  });
+  return hotels;
 }
 
 /**
@@ -67,22 +62,4 @@ export async function getRelatedHotels(
 export async function getHotelsByLocation(city: string): Promise<HotelEntry[]> {
   const hotels = await getAllHotels();
   return hotels.filter((hotel) => hotel.data.location.city === city);
-}
-
-/**
- * Obtiene hoteles por rango de precios
- * @param minPrice Precio mínimo
- * @param maxPrice Precio máximo
- * @returns Array de hoteles dentro del rango de precios especificado
- */
-export async function getHotelsByPriceRange(
-  minPrice: number,
-  maxPrice: number,
-): Promise<HotelEntry[]> {
-  const hotels = await getAllHotels();
-  return hotels.filter(
-    (hotel) =>
-      hotel.data.priceRange.min >= minPrice &&
-      hotel.data.priceRange.max <= maxPrice,
-  );
 }

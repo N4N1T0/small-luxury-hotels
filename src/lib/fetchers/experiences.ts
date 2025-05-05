@@ -15,12 +15,7 @@ export type ExperienceEntry = CollectionEntry<"experiences">;
  */
 export async function getAllExperiences(): Promise<ExperienceEntry[]> {
   const experiences = await getCollection("experiences");
-  return experiences.sort((a, b) => {
-    return (
-      new Date(b.data.publishDate).valueOf() -
-      new Date(a.data.publishDate).valueOf()
-    );
-  });
+  return experiences;
 }
 
 /**
