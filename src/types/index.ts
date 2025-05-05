@@ -19,3 +19,8 @@ export interface ImageType {
   height: number;
   format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
 }
+
+export interface Gallery {
+  url: ImageType;
+  alt: string;
+}
