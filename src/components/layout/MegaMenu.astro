@@ -30,6 +30,7 @@ const collectionFeatured = await data.featured();
                 width={200}
                 height={200}
                 class="aspect-video size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                densities={[1, 1.5]}
               />
             </a>
             <div class="my-auto flex-1 space-y-4">
@@ -39,7 +40,7 @@ const collectionFeatured = await data.featured();
               >
                 {collectionFeatured.data.title}
               </a>
-              <p>{collectionFeatured.data.description}</p>
+              <p>{collectionFeatured.data.description.split(' ').slice(0, 30).join(' ') + '...'}</p>
             </div>
           </article>
         </div>
@@ -70,7 +71,9 @@ const collectionFeatured = await data.featured();
                 >
                   {entry.data.title}
                 </a>
-                <p class="text-xs">{entry.data.description.split(' ').slice(0, 10).join(' ')}</p>
+                <p class="text-xs">
+                  {entry.data.description.split(' ').slice(0, 10).join(' ') + '...'}
+                </p>
               </div>
             </article>
           ))
