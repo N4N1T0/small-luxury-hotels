@@ -29,7 +29,7 @@ const relatedExperiences = await getRelatedExperiences(experience.id);
 
 <ExperienceLayout
   title={experience.data.title}
-  image={experience.data.gallery[0]?.url}
+  image={experience.data.gallery[0]?.url.src}
   experience={experience}
 >
   <ExperienceDetails experience={experience} />

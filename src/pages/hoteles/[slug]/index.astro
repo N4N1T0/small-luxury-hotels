@@ -6,10 +6,9 @@ import RoomList from '@/components/hotels/RoomList.astro';
 import BlogCarousel from '@/components/shared/blog-carousel/BlogCarousel.astro';
 import HotelLocation from '@/components/hotels/preact-hotel/HotelLocation';
 import HotelDescription from '@/components/hotels/HotelDescription.astro';
-import HotelExperiences from '@/components/hotels/HotelExperiences.astro';
 import { getAllHotels, getHotelBySlug } from '@/lib/fetchers/hotels';
 import { getRoomsByHotel } from '@/lib/fetchers/rooms';
-import { getExperiencesByHotel } from '@/lib/fetchers/experiences';
+import HotelTwoColumns from '@/components/hotels/HotelTwoColumns.astro';
 
 export async function getStaticPaths() {
   const hotels = await getAllHotels();
@@ -24,7 +23,6 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const hotel = await getHotelBySlug(slug);
 const rooms = await getRoomsByHotel(slug);
-const experiences = await getExperiencesByHotel(slug);
 
 if (!hotel) {
   throw new Error(`No experience found with slug "${slug}"`);
@@ -36,7 +34,17 @@ if (!hotel) {
   <BookingForm client:visible client:only={true} hotel={hotel} />
   <HotelDescription hotel={hotel} />
   <RoomList rooms={rooms} />
-  <HotelExperiences experiences={experiences} />
+  <HotelTwoColumns
+    title="Que nos diferencia"
+    image={hotel.data.gallery[0].url}
+    info={hotel.data.amenities}
+  />
+  <HotelTwoColumns
+    title="Nuestros Servicios Exclusivos"
+    image={hotel.data.gallery[1].url}
+    info={hotel.data.services}
+    reverse={true}
+  />
   <HotelLocation client:visible client:only={true} hotel={hotel} />
   <BlogCarousel />
 </Layout>
