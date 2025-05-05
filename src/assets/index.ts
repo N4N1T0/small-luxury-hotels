@@ -5,4 +5,14 @@ import HotelCiudad from "./svg/hotel-ciudad.svg";
 import HotelPlaya from "./svg/hotel-playa.svg";
 import HotelBosque from "./svg/hotel-bosque.svg";
 
-export { Logo, HotelCiudad, HotelPlaya, HotelBosque, LogoWhite };
+// IMG
+import HeroPlaceholder from "./placeholders/Hero.png";
+
+export {
+  Logo,
+  HotelCiudad,
+  HotelPlaya,
+  HotelBosque,
+  LogoWhite,
+  HeroPlaceholder,
+};
