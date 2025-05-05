@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from "preact/hooks";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
 import { animateElement } from "@/lib/scripts";
 
@@ -9,22 +7,12 @@ export default function Locations({
 }: {
   hotels: CollectionEntry<"hotels">[];
 }) {
-  const mapRef = useRef<L.Map | null>(null);
   const [selectedCoords, setSelectedCoords] = useState<[number, number]>([
     hotels[0].data.location.coordinates.lat,
     hotels[0].data.location.coordinates.lng,
   ]);
 
-  useEffect(() => {
-    if (!mapRef.current) {
-      mapRef.current = L.map("map").setView(selectedCoords, 10);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(mapRef.current);
-    } else {
-      mapRef.current.setView(selectedCoords, 13);
-    }
-  }, [selectedCoords]);
+  const mapUrl = `https://maps.google.com/maps?q=${selectedCoords[0]},${selectedCoords[1]}&z=15&output=embed`;
 
   useEffect(() => {
     animateElement("#location-header", "0", 500);
@@ -69,7 +57,16 @@ export default function Locations({
             </ul>
           </div>
           <div className="flex-1 shadow-md" id="locations-map">
-            <div id="map" style={{ width: "100%", height: "100%" }} />
+            <iframe
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              src={mapUrl}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa de ubicación"
+            ></iframe>
           </div>
         </div>
       </div>
