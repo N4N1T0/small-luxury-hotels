@@ -60,7 +60,6 @@ export default function Locations({
             <iframe
               width="100%"
               height="100%"
-              frameBorder="0"
               src={mapUrl}
               allowFullScreen
               loading="lazy"

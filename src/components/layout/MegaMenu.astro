@@ -98,7 +98,7 @@ const collectionFeatured = await data.featured();
       return;
     }
 
-    let hideTimeoutId: number;
+    let hideTimeoutId: NodeJS.Timeout;
 
     const showMenu = () => {
       clearTimeout(hideTimeoutId);

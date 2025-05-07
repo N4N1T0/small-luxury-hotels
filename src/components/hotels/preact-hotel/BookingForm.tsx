@@ -1,7 +1,6 @@
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import type { CollectionEntry } from "astro:content";
-import { buttonClasses, cn } from "@/lib/ui";
-import { animateElement } from "@/lib/scripts";
+import { cn } from "@/lib/ui";
 
 interface Props {
   hotel?: CollectionEntry<"hotels">;
