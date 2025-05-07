@@ -12,6 +12,16 @@ const features = [
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/></svg>',
     title: 'Aventura y Relax',
     description: 'Elige entre una variedad de actividades que se adaptan a tus preferencias.'
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>',
+    title: 'Servicio Personalizado',
+    description: 'Atención dedicada y exclusiva para hacer de tu estancia una experiencia única.'
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: 'Ubicación Privilegiada',
+    description: 'Situados en lugares estratégicos para maximizar tu experiencia de viaje.'
   }
 ];
 ---
@@ -19,14 +29,6 @@ const features = [
 <section class="text-main bg-background py-8 md:py-16">
   <div class="container mx-auto px-4 md:px-16">
     <div class="flex flex-col items-end justify-between md:flex-row">
-      <!-- Header and Description -->
-      <div class="mb-10 max-w-3xl" id="featured-section-header">
-        <h2 class="text-3xl font-semibold md:text-4xl">Descubre experiencias únicas.</h2>
-        <p class="mt-2 text-base md:text-lg">
-          Sumérgete en actividades diseñadas para todos los gustos. Desde aventuras al aire libre
-          hasta relajantes escapadas, tenemos algo para ti.
-        </p>
-      </div>
       <!-- Features Row -->
       <div
         class="mb-12 grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2"
@@ -40,7 +42,7 @@ const features = [
               </div>
               <div>
                 <h3 class="text-main text-xl font-semibold">{feature.title}</h3>
-                <p class="mt-2">{feature.description}</p>
+                <p class="mt-2 font-light">{feature.description}</p>
               </div>
             </div>
           ))

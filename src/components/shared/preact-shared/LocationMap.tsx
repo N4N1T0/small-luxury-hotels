@@ -27,7 +27,7 @@ export default function Locations({
           <h2 class="text-3xl font-semibold md:text-4xl">
             Encuentra nuestros hoteles exclusivos
           </h2>
-          <p class="mt-2 text-base md:text-lg">
+          <p class="mt-2 text-base font-normal md:text-lg">
             Explora el mapa interactivo para descubrir dónde se encuentran
             nuestros hoteles boutique y sus privilegiadas ubicaciones en los
             destinos más codiciados.

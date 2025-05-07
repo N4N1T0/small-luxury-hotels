@@ -17,7 +17,7 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
           <Mail size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.email.title}</h3>
-        <p class="text-foreground/80 mb-4">{contactInfo.email.description}</p>
+        <p class="text-foreground/80 mb-4 font-light">{contactInfo.email.description}</p>
         <a
           href={`mailto:${contactInfo.email.address}`}
           class="text-secondary focus:ring-secondary transition-colors duration-200 hover:underline focus:ring-2 focus:outline-none"
@@ -33,7 +33,7 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
           <MessagesSquare size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.social.title}</h3>
-        <p class="text-foreground/80 mb-4">{contactInfo.social.description}</p>
+        <p class="text-foreground/80 mb-4 font-light">{contactInfo.social.description}</p>
         <div class="flex space-x-4">
           {
             contactInfo.social.networks.map(({ url, name }) => (
@@ -57,7 +57,7 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
           <Phone size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.phone.title}</h3>
-        <p class="text-foreground/80 mb-4">{contactInfo.phone.description}</p>
+        <p class="text-foreground/80 mb-4 font-light">{contactInfo.phone.description}</p>
         <div class="flex flex-col space-y-2">
           {
             contactInfo.phone.numbers.map((phone) => (
@@ -79,7 +79,7 @@ import { Mail, MapPin, MessagesSquare, Phone } from 'lucide-astro';
           <MapPin size={52} stroke-width={1.5} />
         </div>
         <h3 class="mb-2 text-2xl font-semibold">{contactInfo.location.title}</h3>
-        <p class="text-foreground/80 mb-4">{contactInfo.location.description}</p>
+        <p class="text-foreground/80 mb-4 font-light">{contactInfo.location.description}</p>
         <a
           href={contactInfo.location.link}
           class="text-secondary focus:ring-secondary transition-colors duration-200 hover:underline focus:ring-2 focus:outline-none"

@@ -15,16 +15,16 @@ export default function Newsletter() {
 
   return (
     <div className="bg-accent-dark mt-8 rounded-lg md:mt-0 md:p-6">
-      <h3 className="mb-2 text-xl font-semibold text-white">
+      <h3 className="text-background mb-2 text-xl font-semibold">
         Suscríbete a nuestro newsletter
       </h3>
-      <p className="mb-4 text-white/80">
+      <p className="text-background/80 mb-4 font-light">
         Recibe ofertas exclusivas y noticias sobre nuestros hoteles directamente
         en tu bandeja de entrada.
       </p>
 
       {subscribed ? (
-        <div className="rounded bg-green-600/20 p-4 text-white">
+        <div className="text-background rounded bg-green-600/20 p-4">
           ¡Gracias por suscribirte! Pronto recibirás nuestras novedades.
         </div>
       ) : (
@@ -42,7 +42,7 @@ export default function Newsletter() {
           />
           <button
             type="submit"
-            className="border-background hover:text-secondary hover:border-secondary focus:ring-accent hover-200 cursor-pointer border px-4 py-2 text-white focus:outline-none"
+            className="border-background hover:text-secondary hover:border-secondary focus:ring-accent hover-200 text-background cursor-pointer border px-4 py-2 focus:outline-none"
           >
             Suscribirse
           </button>

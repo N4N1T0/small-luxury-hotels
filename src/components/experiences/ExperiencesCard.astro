@@ -32,15 +32,15 @@ const {
       class="h-[400px] w-full object-cover"
     />
   </a>
-  <div class="w-full space-y-4 md:max-w-[80%]">
+  <div class="w-full space-y-4">
     <a href=`/experiencias/${id}`>
       <h3 class="hover:text-secondary hover-200 text-3xl font-semibold">{title}</h3>
     </a>
-    <p class="text-gray-600">{description}</p>
+    <p class="text-foreground/70 mt-2 font-light">{description}</p>
     <div class="space-y-2">
       <p class="text-xl font-medium">Incluye:</p>
       <ul class="list-inside list-disc space-y-1">
-        {included.slice(0, 3).map((item) => <li>{item}</li>)}
+        {included.slice(0, 3).map((item) => <li class="font-light">{item}</li>)}
       </ul>
     </div>
     <div class="mt-6 flex items-center gap-4">
