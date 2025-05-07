@@ -64,13 +64,13 @@ const displayInfo = info.slice(0, 5);
       </div>
       <!-- Contenido -->
       <div class="animate-fade-in-right animate-delay-300 w-full lg:w-1/2" id="two-columns-info">
-        <h2 class="mb-6 text-3xl font-bold md:text-4xl">{title}</h2>
+        <h2 class="text-main mb-6 text-3xl font-bold md:text-4xl">{title}</h2>
         <div class="space-y-4">
           {
             displayInfo.map((text) => (
-              <div class="flex gap-4">
-                <Star class="text-secondary inline-block h-4 w-4" />
-                <p class="text-foreground/80 text-lg">{text}</p>
+              <div class="flex items-center gap-4">
+                <Star class="fill-secondary text-secondary inline-block size-5" />
+                <p class="text-foreground/70 text-lg">{text}</p>
               </div>
             ))
           }

@@ -33,7 +33,7 @@ export default function HotelLocations({
         id="hotel-location-info"
       >
         <div>
-          <h2 class="text-foreground mb-4 text-4xl font-semibold md:text-5xl">
+          <h2 class="text-main mb-4 text-4xl font-semibold md:text-5xl">
             Ubicación
           </h2>
         </div>

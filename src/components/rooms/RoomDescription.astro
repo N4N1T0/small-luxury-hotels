@@ -14,10 +14,12 @@ if (!room) {
 const { title, description } = room?.data;
 ---
 
-<section class="w-full bg-white py-12" id="room-description">
+<section class="w-full py-16" id="room-description">
   <div class="container mx-auto flex flex-col items-center">
     <h2 class="mb-4 text-center text-2xl font-semibold md:text-3xl">{title}</h2>
-    <p class="max-w-2xl text-center text-base text-gray-700 md:text-lg">{description}</p>
+    <p class="text-background-700 max-w-2xl text-center text-base font-light md:text-lg">
+      {description}
+    </p>
   </div>
 </section>
 

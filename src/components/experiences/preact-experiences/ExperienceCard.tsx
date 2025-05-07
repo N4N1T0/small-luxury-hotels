@@ -30,8 +30,8 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
       )}
       <div class="flex h-full flex-col justify-between space-y-4 pt-4">
         <div>
-          <h3 class="mb-2 text-xl font-bold">{title}</h3>
-          <p class="text-gray-600">{description}</p>
+          <h3 class="text-main mb-2 text-xl font-bold">{title}</h3>
+          <p class="text-foreground/70 font-light">{description}</p>
         </div>
         <p class="text-secondary text-xl font-bold">
           {eurolize(experience.data.price)}
