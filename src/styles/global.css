@@ -10,52 +10,50 @@ body {
   height: 100%;
 }
 
-/* FONTS */
-@font-face {
-  font-family: "Rozanova GEO";
-  src: url("/fonts/RozanovaGEO-Demo-SemiBold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Rozanova GEO";
-  src: url("/fonts/RozanovaGEO-Demo-Thin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Rozanova HUM";
-  src: url("/fonts/RozanovaHUM-Demo-SemiBold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Rozanova HUM";
-  src: url("/fonts/RozanovaHUM-Demo-Thin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
   --color-main: #1f2a44;
   --color-secondary: #c09250;
   --color-background: #ffffff;
   --color-foreground: #0f1114;
 
-  --font-geo: "Rozanova GEO", sans-serif;
-  --font-hum: "Rozanova HUM", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
+@layer base {
+  p,
+  span,
+  a,
+  time,
+  input,
+  textarea,
+  select,
+  option {
+    @apply font-inter;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-jakarta;
+  }
+}
+
+/* CUSTOM */
 .hover-200 {
   @apply transition-all duration-200 ease-in-out;
 }
 
 img {
   @apply shadow-md;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Inverts black to white */
+  cursor: pointer;
 }
 
 /* CUSTOM HERO HOTEL PAGINATION */
@@ -84,11 +82,7 @@ img {
   @apply bg-secondary;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Inverts black to white */
-  cursor: pointer;
-}
-
+/* UTILITIES */
 @utility container-full {
   max-width: 1480px;
   margin: 0 auto;

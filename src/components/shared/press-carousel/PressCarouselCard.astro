@@ -30,10 +30,10 @@ const {
     class="bg-opacity-60 bg-main text-background absolute right-0 bottom-0 left-0 space-y-2 p-4 transition-transform duration-300 group-hover:translate-y-0 md:translate-y-full"
   >
     <h3 class="text-lg font-bold">{title}</h3>
-    <p class="font-hum hidden text-sm font-thin md:block">{description}</p>
+    <p class="hidden text-sm font-thin md:block">{description}</p>
     <small>{author}</small>
     <div class="flex items-center gap-2">
-      <time class="font-hum text-sm font-thin">
+      <time class="text-sm font-thin">
         {new Date(publishDate).toLocaleString('es-ES')}
       </time>
       <a href={source.url} target="_blank" class="underline">{source.name}</a>
