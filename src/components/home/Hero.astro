@@ -1,5 +1,5 @@
 ---
-import { HeroPlaceholder } from '@/assets';
+import { heroHotels } from '@/assets';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -10,18 +10,30 @@ interface Props {
 }
 
 const { backgroundImage, title, subtitle, showCTA = true } = Astro.props;
+const images = backgroundImage ? [backgroundImage] : heroHotels;
 ---
 
 <section class="relative flex h-screen items-center justify-center">
-  <Image
-    src={backgroundImage || HeroPlaceholder}
-    alt="Una vista de la Habana Vieja"
-    loading="eager"
-    width={1200}
-    height={800}
-    class="animate-fade-in absolute inset-0 h-full w-full object-cover"
-  />
-  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="swiper-hero z absolute inset-0 h-full w-full">
+    <div class="swiper-wrapper">
+      {
+        images.map((image) => (
+          <div class="swiper-slide">
+            <Image
+              src={image}
+              alt="Vista de hotel"
+              loading="eager"
+              width={1200}
+              height={800}
+              densities={[1, 2]}
+              class="h-full w-full object-cover"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="bg-main/30 absolute inset-0 z-10"></div>
 
   <div class="relative z-10 mx-auto max-w-[800px] px-4 text-center">
     {
@@ -33,7 +45,7 @@ const { backgroundImage, title, subtitle, showCTA = true } = Astro.props;
     }
     {
       subtitle && (
-        <p class="animate-fade-in-up animate-delay-300 mb-8 text-xl text-white/90 md:text-2xl">
+        <p class="animate-fade-in-up animate-delay-300 mb-8 text-xl font-light text-white/90 md:text-2xl">
           {subtitle}
         </p>
       )
@@ -51,3 +63,22 @@ const { backgroundImage, title, subtitle, showCTA = true } = Astro.props;
     }
   </div>
 </section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay, EffectFade } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/effect-fade';
+
+  new Swiper('.swiper-hero', {
+    modules: [Autoplay, EffectFade],
+    slidesPerView: 1,
+    loop: true,
+    effect: 'fade',
+    speed: 1000,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    }
+  });
+</script>
