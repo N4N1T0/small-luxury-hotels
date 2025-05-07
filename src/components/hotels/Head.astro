@@ -2,26 +2,57 @@
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
 }
 
-const { title, description } = Astro.props as Props;
+const {
+  title = 'Astro Basics',
+  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia.',
+  image = '/default-og-image.jpg',
+  canonicalURL = Astro.url,
+  type = 'website'
+} = Astro.props as Props;
 ---
 
 <head>
+  <!-- Essential Meta Tags -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
-  <title>{title || 'Astro Basics'}</title>
-  <meta
-    name="description"
-    content={description ||
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia.'}
-  />
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={image} />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Sitemap -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
 </head>
