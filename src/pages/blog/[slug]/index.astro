@@ -20,6 +20,7 @@ if (!blog) {
 
 const { Content } = await blog.render();
 const relatedBlogs = await getRelatedBlogs(blog, 3);
+console.log('🚀 ~ relatedBlogs:', relatedBlogs);
 ---
 
 <BlogLayout blog={blog}>
@@ -57,3 +58,9 @@ const relatedBlogs = await getRelatedBlogs(blog, 3);
     )
   }
 </BlogLayout>
+
+<script>
+  import { animateElements } from '@/lib/scripts';
+
+  animateElements('#blog-card', '-40px', 100, 200);
+</script>

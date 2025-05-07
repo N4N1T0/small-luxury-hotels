@@ -38,7 +38,7 @@ const formattedDate = formatBlogDate(data.publishDate);
       <span class="text-secondary text-sm font-medium tracking-wider uppercase"
         >{data.category}</span
       >
-      <time datetime={data.publishDate} class="text-sm text-gray-500">{formattedDate}</time>
+      <time datetime={data.publishDate} class="text-foreground/70 text-sm">{formattedDate}</time>
     </div>
 
     <h3
@@ -48,10 +48,10 @@ const formattedDate = formatBlogDate(data.publishDate);
       <a href={`/blog/${slug}`} class="block">{data.title}</a>
     </h3>
 
-    <p class="mb-4 flex-1 text-sm font-thin text-gray-600">{data.description}</p>
+    <p class="text-foreground/70 mb-4 flex-1 text-sm font-light">{data.description}</p>
 
     <div class="mt-auto flex items-center justify-between">
-      <span class="text-sm text-gray-500">Por {data.author}</span>
+      <span class="text-foreground/70 text-sm">Por {data.author}</span>
       <a
         href={`/blog/${slug}`}
         class="text-secondary hover-200 flex items-center text-sm font-medium hover:underline"

@@ -15,7 +15,7 @@ const formattedDate = formatBlogDate(blog.data.publishDate);
     <div class="animate-fade-in-down animate-delay-200 mb-4 flex items-center justify-center gap-4">
       <span class="text-secondary text-sm font-medium tracking-wider">{blog.data.category}</span>
       <span class="text-background/70">|</span>
-      <time datetime={blog.data.publishDate} class="text-background/70 text-sm"
+      <time datetime={blog.data.publishDate} class="text-background/70 text-sm font-light"
         >{formattedDate}</time
       >
     </div>
@@ -25,7 +25,7 @@ const formattedDate = formatBlogDate(blog.data.publishDate);
       {blog.data.title}
     </h1>
     <p
-      class="text-background/70 animate-fade-in-down animate-delay-400 mx-auto mb-6 max-w-2xl text-lg"
+      class="text-background/70 animate-fade-in-down animate-delay-400 mx-auto mb-6 max-w-2xl text-lg font-light"
     >
       {blog.data.description}
     </p>

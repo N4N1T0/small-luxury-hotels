@@ -38,9 +38,9 @@ const { blog } = Astro.props;
     >
       <a href={`/blog/${blog.slug}`}>{blog.data.title}</a>
     </h3>
-    <p class="mb-4 text-gray-600">{blog.data.description}</p>
+    <p class="text-foreground/70 mb-4 font-light">{blog.data.description}</p>
     <div class="flex items-center justify-between">
-      <span class="text-sm text-gray-500">Por {blog.data.author}</span>
+      <span class="text-foreground/70 text-sm">Por {blog.data.author}</span>
       <a
         href={`/blog/${blog.slug}`}
         class="text-secondary hover-200 flex items-center text-sm font-medium hover:underline"
