@@ -54,7 +54,6 @@ export async function getRelatedRooms(
   if (!currentRoom) return [];
 
   const allRooms = await getRoomsByHotel(currentRoom.data.hotel.id);
-  console.log("🚀 ~ allRooms:", allRooms);
   const relatedRooms = allRooms
     .filter((room) => room.id !== currentSlug)
     .slice(0, limit);
