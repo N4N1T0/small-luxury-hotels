@@ -21,7 +21,11 @@ const twoColumnsInfo = {
 };
 ---
 
-<ExperienceLayout>
+<ExperienceLayout
+  title="Experiencias | Small Luxury Hotels of Cuba"
+  subtitle="Descubre experiencias únicas y exclusivas en nuestros hoteles de lujo en Cuba."
+  image={featuresExperience?.data.gallery[0].url.src}
+>
   <TwoColumns {...twoColumnsInfo} />
   <ExperiencesGrid experiences={experiences} client:load />
   <BlogCarousel />

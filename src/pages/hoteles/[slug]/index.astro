@@ -29,7 +29,11 @@ if (!hotel) {
 }
 ---
 
-<Layout title={hotel.data.title}>
+<Layout
+  title={`${hotel.data.title} | Small Luxury Hotels of Cuba`}
+  description={hotel.data.shortDescription}
+  image={hotel.data.gallery[0].url.src}
+>
   <HotelHero hotel={hotel} />
   <BookingForm client:load hotel={hotel} />
   <HotelDescription hotel={hotel} />

@@ -11,7 +11,11 @@ interface Props {
 const { blog } = Astro.props;
 ---
 
-<Layout title={`${blog.data.title} | Small Luxury Hotels`} description={blog.data.description}>
+<Layout
+  title={`${blog.data.title} | Small Luxury Hotels`}
+  description={blog.data.description}
+  image={blog.data.image?.url}
+>
   <BlogHero blog={blog} />
   <section class="container py-16">
     <slot />

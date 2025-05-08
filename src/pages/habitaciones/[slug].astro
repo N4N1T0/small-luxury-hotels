@@ -25,7 +25,11 @@ const otherRooms = await getRelatedRooms(slug);
 const hotel = await getHotelByRoom(slug);
 ---
 
-<Layout title="Junior Suite | Small Luxury Hotels of Cuba">
+<Layout
+  title={`${room?.data.title} | Small Luxury Hotels of Cuba`}
+  description={room?.data.description}
+  image={room?.data.images[0].url.src}
+>
   <Hero
     title={room?.data.title}
     subtitle={room?.data.description}

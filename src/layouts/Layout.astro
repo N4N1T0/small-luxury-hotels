@@ -11,12 +11,12 @@ interface Props {
   image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-  <Head title={title} description={description} />
+  <Head title={title} description={description} image={image} />
   <body class="font font-inter relative overflow-x-hidden">
     <Navbar />
     <MobileNavbar />
