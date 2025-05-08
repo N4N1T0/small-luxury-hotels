@@ -5,14 +5,16 @@ interface Props {
   image?: string;
   canonicalURL?: string;
   type?: string;
+  themeColor?: string;
 }
 
 const {
-  title = 'Astro Basics',
-  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia.',
+  title = 'Small Luxury Hotels',
+  description = 'Descubre experiencias únicas en nuestros hoteles de lujo. Disfruta de un servicio personalizado y exclusivo en los mejores destinos.',
   image = '/default-og-image.jpg',
   canonicalURL = Astro.url,
-  type = 'website'
+  type = 'website',
+  themeColor = '#ffffff'
 } = Astro.props as Props;
 ---
 
@@ -20,13 +22,23 @@ const {
   <!-- Essential Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content={themeColor} />
 
   <!-- Primary Meta Tags -->
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  <meta name="author" content="Small Luxury Hotels" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="es" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content={type} />
@@ -35,12 +47,12 @@ const {
   <meta property="og:description" content={description} />
   <meta property="og:image" content={image} />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={canonicalURL} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={image} />
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalURL} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
 
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
