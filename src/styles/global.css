@@ -47,10 +47,6 @@ body {
   @apply transition-all duration-200 ease-in-out;
 }
 
-img {
-  @apply shadow-md;
-}
-
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1); /* Inverts black to white */
   cursor: pointer;
