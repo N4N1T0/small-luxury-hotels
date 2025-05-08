@@ -3,6 +3,7 @@ title: "Términos y Condiciones"
 publishDate: "2023-10-01"
 updatedDate: "2023-10-10"
 slug: "terminos-y-condiciones"
+description: "Este documento explica los terminos y condiciones en el sitio web Small Luxury Hotels of Cuba y cómo se gestionan."
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia.
