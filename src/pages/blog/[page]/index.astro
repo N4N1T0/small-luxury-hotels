@@ -22,6 +22,8 @@ const { currentPage, data: blogs, lastPage } = page;
 <Layout
   title={`Blog | Página ${currentPage} | Small Luxury Hotels`}
   description="Descubre artículos sobre viajes, hoteles de lujo, gastronomía y experiencias únicas en nuestro blog."
+  type="blogList"
+  data={blogs}
 >
   <BlogList blogs={blogs} />
   <Pagination currentPage={currentPage} totalPages={lastPage} baseUrl="/blog" />

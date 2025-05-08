@@ -15,7 +15,12 @@ const heroInfo = {
 const hotels = await getAllHotels();
 ---
 
-<Layout title="Hoteles | Small Luxury Hotels of Cuba">
+<Layout
+  title="Hoteles | Small Luxury Hotels of Cuba"
+  description="Lista de los hoteles del gran Small Luxury Hotels de Cuba. Conoce nuestros hoteles de lujo y encuentra tu estancia perfecta en Cuba. Reserva ahora mismo y descubre el lujo y el confort en cada rincón de Cuba."
+  type="hotelList"
+  data={hotels}
+>
   <Hero {...heroInfo} />
   <BookingForm className="py-16" hotels={hotels} client:load />
   <FeaturedHotel />

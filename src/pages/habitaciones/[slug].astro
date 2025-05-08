@@ -21,6 +21,11 @@ export const getStaticPaths = async () => {
 
 const { slug } = Astro.params;
 const room = await getRoomBySlug(slug);
+
+if (!room) {
+  throw new Error('Room not found');
+}
+
 const otherRooms = await getRelatedRooms(slug);
 const hotel = await getHotelByRoom(slug);
 ---
@@ -29,6 +34,8 @@ const hotel = await getHotelByRoom(slug);
   title={`${room?.data.title} | Small Luxury Hotels of Cuba`}
   description={room?.data.description}
   image={room?.data.images[0].url.src}
+  type="room"
+  data={room}
 >
   <Hero
     title={room?.data.title}

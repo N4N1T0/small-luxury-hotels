@@ -2,22 +2,23 @@
 import ExperienceHero from '@/components/experiences/ExperienceHero.astro';
 import Layout from './Layout.astro';
 import ExperienceDescription from '@/components/experiences/ExperienceDescription.astro';
-import type { CollectionEntry } from 'astro:content';
+import type { ExperienceEntry } from '@/lib/fetchers/experiences';
 
 interface Props {
   title?: string;
   subtitle?: string;
   image?: string;
-  experience?: CollectionEntry<'experiences'>;
+  data: ExperienceEntry | ExperienceEntry[];
+  type?: 'experience' | 'experienceList';
 }
 
-const { title, subtitle, image, experience }: Props = Astro.props;
+const { title, subtitle, data } = Astro.props;
 ---
 
-<Layout title={title} description={subtitle} image={image}>
+<Layout {...Astro.props}>
   <main class="bg-background">
     <ExperienceHero title={title} subtitle={subtitle} />
-    {experience && <ExperienceDescription experience={experience} />}
+    {!Array.isArray(data) && <ExperienceDescription experience={data} />}
     <slot />
   </main>
 </Layout>

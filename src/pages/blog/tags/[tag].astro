@@ -18,6 +18,8 @@ const blogs = await getBlogsByTag(tag);
 <Layout
   title={`Blog | Etiqueta ${tag} | Small Luxury Hotels`}
   description="Descubre artículos sobre viajes, hoteles de lujo, gastronomía y experiencias únicas en nuestro blog."
+  type="blogList"
+  data={blogs}
 >
   <section class="mt-8 py-16">
     <BlogList blogs={blogs} tag={tag} />

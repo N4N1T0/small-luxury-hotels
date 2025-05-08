@@ -22,6 +22,8 @@ const { Content } = await legalDocument?.render();
 <Layout
   title={`${legalDocument.data.title} | Small Luxury Hotels of Cuba`}
   description={`Información legal: ${legalDocument.data.title}. Términos y condiciones de Small Luxury Hotels of Cuba.`}
+  type="legal"
+  data={legalDocument}
 >
   <section class="container mt-16 py-16">
     <h1 class="mb-4 text-4xl font-bold" id="legal-title">{legalDocument.data.title}</h1>
