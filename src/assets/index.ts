@@ -1,9 +1,6 @@
 // SVG
-import Logo from "./svg/logo.svg";
-import LogoWhite from "./svg/logo-white.svg";
-import HotelCiudad from "./svg/hotel-ciudad.svg";
-import HotelPlaya from "./svg/hotel-playa.svg";
-import HotelBosque from "./svg/hotel-bosque.svg";
+import Logo from "./svg/Asset 5.svg";
+import LogoWhite from "./svg/Asset 9.svg";
 
 // IMG
 import HeroPlaceholder from "./placeholders/Hero.png";
@@ -18,13 +15,4 @@ import Hotel5 from "./hoteles/jesus-maria-7/PATIO DE NOCHE 2.webp";
 import Hotel6 from "./hoteles/paseo-206/_ZNT3748.webp";
 const heroHotels = [Hotel1, Hotel2, Hotel3, Hotel4, Hotel5, Hotel6];
 
-export {
-  Logo,
-  HotelCiudad,
-  HotelPlaya,
-  HotelBosque,
-  LogoWhite,
-  HeroPlaceholder,
-  Square,
-  heroHotels,
-};
+export { Logo, LogoWhite, HeroPlaceholder, Square, heroHotels };
