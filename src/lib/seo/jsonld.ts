@@ -147,7 +147,7 @@ export function generateRoomJsonLd(room: RoomEntry) {
 
 // 5. Individual Experience
 export function generateExperienceJsonLd(experience: ExperienceEntry) {
-  const { title, description, gallery, location } = experience.data;
+  const { title, description, gallery } = experience.data;
   const url = `https://small-luxury-hotels.com/experiencias/${experience.id}`;
 
   return {
