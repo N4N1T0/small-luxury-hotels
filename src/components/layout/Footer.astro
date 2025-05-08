@@ -2,13 +2,14 @@
 import { footerData, contactInfo } from '@/data/site-data';
 import Newsletter from './preact-layout/Newsletter';
 import { LogoWhite } from '@/assets';
+import { Image } from 'astro:assets';
 ---
 
 <footer class="bg-main text-background">
   <div class="container mx-auto flex flex-col px-4 py-12 md:flex-row" id="footer-info">
     <!-- Logo -->
     <div class="min-w-[200px] shrink-0">
-      <LogoWhite aria-label="Logo de Small Luxury Hotels" />
+      <Image src={LogoWhite} alt="Logo de Small Luxury Hotels" class="size-20" />
     </div>
 
     <!-- Main Footer Content -->

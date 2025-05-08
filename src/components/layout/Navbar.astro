@@ -3,8 +3,10 @@ import { Logo } from '@/assets';
 import { navbarItems } from '@/data/site-data';
 import MegaMenu from '@/components/layout/MegaMenu.astro';
 import { buttonClasses, cn } from '@/lib/ui';
+import { Image } from 'astro:assets';
 
 const pathname = Astro.url.pathname;
+console.log('🚀 ~ Logo:', Logo);
 ---
 
 <nav
@@ -14,7 +16,7 @@ const pathname = Astro.url.pathname;
   <div class="mx-auto flex w-full max-w-[1200px] items-center justify-between px-4">
     <div class="flex justify-center">
       <a href="/" aria-label="Pagina Principal">
-        <Logo aria-label="Logo de Small Luxury Hotels" />
+        <Image src={Logo} alt="Logo de Small Luxury Hotels" class="size-13" />
       </a>
     </div>
     <div>

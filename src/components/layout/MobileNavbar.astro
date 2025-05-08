@@ -15,12 +15,12 @@ const experiences = await getAllExperiences();
 <!-- Mobile Navbar Sheet -->
 <div
   id="mobile-navbar-sheet"
-  class="bg-background fixed top-0 z-50 h-screen w-full translate-x-full transform overflow-y-auto"
+  class="bg-background fixed top-0 z-50 h-[95vh] w-full translate-x-full transform overflow-y-auto"
 >
   <div class="flex h-full flex-col p-6">
     <!-- Navigation Links -->
     <nav class="mt-auto">
-      <ul class="flex list-none flex-col space-y-6 p-0">
+      <ul class="flex list-none flex-col space-y-4 p-0">
         {
           navbarItems.map(({ label, link, megamenu }) => {
             const items =
@@ -36,7 +36,7 @@ const experiences = await getAllExperiences();
                   <a
                     href={link}
                     class={cn(
-                      'text-foreground text-3xl font-medium no-underline',
+                      'text-main text-3xl font-medium no-underline',
                       link === pathname ? 'text-secondary' : ''
                     )}
                   >
@@ -117,9 +117,9 @@ const experiences = await getAllExperiences();
   id="mobile-navbar"
   class="bg-background border-main fixed top-0 z-[60] flex h-fit w-full items-center justify-between border-b px-4 py-1 transition-transform duration-300 md:hidden"
 >
-  <div class="flex size-10 justify-center">
+  <div class="flex size-10 items-center justify-center">
     <a href="/" aria-label="Pagina Principal">
-      <Logo aria-label="Logo de Small Luxury Hotels" class="fill-main size-full" />
+      <Image src={Logo} alt="Logo de Small Luxury Hotels" class="size-8" />
     </a>
   </div>
   <div class="size-10">
