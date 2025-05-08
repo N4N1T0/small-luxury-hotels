@@ -24,6 +24,8 @@ const paginatedBlogs = regularBlogs.slice(0, BLOGS_PER_PAGE);
 <Layout
   title="Blog | Small Luxury Hotels"
   description="Descubre artículos sobre viajes, hoteles de lujo, gastronomía y experiencias únicas en nuestro blog."
+  type="blogList"
+  data={allBlogs}
 >
   <FeaturedBlog />
   <BlogList blogs={paginatedBlogs} />
