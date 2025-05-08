@@ -34,7 +34,10 @@ export default function Locations({
           </p>
         </div>
         <div className="flex flex-col gap-8 md:flex-row">
-          <div className="flex-1" id="locations-list">
+          <div
+            className="flex flex-1 flex-col justify-center"
+            id="locations-list"
+          >
             <ul className="grid grid-cols-2 gap-4 md:grid-cols-1">
               {hotels.map((hotel) => (
                 <li
@@ -56,7 +59,10 @@ export default function Locations({
               ))}
             </ul>
           </div>
-          <div className="flex-1 shadow-md" id="locations-map">
+          <div
+            className="aspect-square min-h-[300px] flex-1 shadow-md"
+            id="locations-map"
+          >
             <iframe
               width="100%"
               height="100%"
@@ -65,6 +71,7 @@ export default function Locations({
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Mapa de ubicación"
+              class="aspect-square size-full min-h-[300px]"
             ></iframe>
           </div>
         </div>
