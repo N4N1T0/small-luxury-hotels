@@ -96,6 +96,7 @@ const legalCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    description: z.string(),
     publishDate: z.string(),
     updatedDate: z.string().optional(),
   }),

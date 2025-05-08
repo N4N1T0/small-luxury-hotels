@@ -24,3 +24,11 @@ export interface Gallery {
   url: ImageType;
   alt: string;
 }
+
+export interface HomeEntry {
+  title: string;
+}
+
+export interface AboutEntry {
+  title: string;
+}

@@ -1,11 +1,14 @@
 ---
+import { getJsonLd, type JsonLdType, type JsonLdInputMap } from '@/lib/seo/jsonld';
+
 interface Props {
   title?: string;
   description?: string;
   image?: string;
   canonicalURL?: string;
-  type?: string;
+  type?: JsonLdType;
   themeColor?: string;
+  data: JsonLdInputMap[JsonLdType];
 }
 
 const {
@@ -13,9 +16,12 @@ const {
   description = 'Descubre experiencias únicas en nuestros hoteles de lujo. Disfruta de un servicio personalizado y exclusivo en los mejores destinos.',
   image = '/default-og-image.jpg',
   canonicalURL = Astro.url,
-  type = 'website',
-  themeColor = '#ffffff'
+  type = 'home',
+  themeColor = '#ffffff',
+  data
 } = Astro.props as Props;
+
+const jsonLd = getJsonLd(type, data);
 ---
 
 <head>
@@ -67,4 +73,7 @@ const {
 
   <!-- Sitemap -->
   <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- JsonLd -->
+  <script type="application/ld+json" is:inline set:html={jsonLd} />
 </head>
