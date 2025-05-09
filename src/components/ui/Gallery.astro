@@ -27,38 +27,40 @@ const bigImagesIndex = [0, 2, 4, 6];
   <div class="container">
     <div class="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2" id="gallery-lightbox">
       {
-        displayImages.map((image, index) => (
-          <div
-            id="gallery-lightbox-item"
-            class:list={[
-              'group col-span-1 overflow-hidden opacity-0 shadow-md transition-transform',
-              {
-                'row-span-1 md:row-span-3': bigImagesIndex.includes(index),
-                'row-span-1 md:row-span-2': !bigImagesIndex.includes(index)
-              }
-            ]}
-          >
-            <a
-              class="lightbox block h-full"
-              href={image.url.src || Square.src}
-              data-pswp-width={500}
-              data-pswp-height={500}
-              target="_blank"
-              data-cropped="true"
+        displayImages.map((image, index) => {
+          return (
+            <div
+              id="gallery-lightbox-item"
+              class:list={[
+                'group col-span-1 overflow-hidden opacity-0 shadow-md transition-transform',
+                {
+                  'row-span-1 md:row-span-3': bigImagesIndex.includes(index),
+                  'row-span-1 md:row-span-2': !bigImagesIndex.includes(index)
+                }
+              ]}
             >
-              <Image
-                src={image.url}
-                alt={image.alt}
-                width={500}
-                height={500}
-                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                loading="lazy"
-                decoding="async"
-                densities={[1, 2]}
-              />
-            </a>
-          </div>
-        ))
+              <a
+                class="lightbox block h-full"
+                href={image.url.src || Square.src}
+                data-pswp-width={image.url.width || 500}
+                data-pswp-height={image.url.height || 500}
+                target="_blank"
+                data-cropped="true"
+              >
+                <Image
+                  src={image.url}
+                  alt={image.alt}
+                  width={500}
+                  height={500}
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  densities={[1, 2]}
+                />
+              </a>
+            </div>
+          );
+        })
       }
     </div>
   </div>
