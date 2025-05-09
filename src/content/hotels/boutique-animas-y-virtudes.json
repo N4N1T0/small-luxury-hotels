@@ -29,16 +29,28 @@
   ],
   "gallery": [
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Vista frontal del Hotel Playa"
+      "url": "/src/assets/hoteles/boutique-animas-y-virtudes/Breakfast Terrace.webp",
+      "alt": "Breakfast terrace at Boutique Ánimas & Virtudes"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Piscina infinita con vista al mar"
+      "url": "/src/assets/hoteles/boutique-animas-y-virtudes/PRADO0161.webp",
+      "alt": "Facade of Boutique Ánimas & Virtudes"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Suite principal con balcón"
+      "url": "/src/assets/hoteles/boutique-animas-y-virtudes/RPH07665-Enhanced-NR.webp",
+      "alt": "Lobby area at Boutique Ánimas & Virtudes"
+    },
+    {
+      "url": "/src/assets/hoteles/boutique-animas-y-virtudes/_MG_0042-HDR.webp",
+      "alt": "Room interior at Boutique Ánimas & Virtudes"
+    },
+    {
+      "url": "/src/assets/hoteles/boutique-animas-y-virtudes/loby 1er piso a.webp",
+      "alt": "First floor lobby at Boutique Ánimas & Virtudes"
+    },
+    {
+      "url": "/src/assets/hoteles/boutique-animas-y-virtudes/restaurante 02.webp",
+      "alt": "Restaurant at Boutique Ánimas & Virtudes"
     }
   ],
   "featured": false,

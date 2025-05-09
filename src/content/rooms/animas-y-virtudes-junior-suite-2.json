@@ -13,20 +13,20 @@
   ],
   "images": [
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-2/Hab 2.webp",
+      "alt": "Junior Suite 2 - Main Bed"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Salon"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-2/Hab 2 (2).webp",
+      "alt": "Junior Suite 2 - Alternate Bed View"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama y baño"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-2/Junior Suite 2 Living.webp",
+      "alt": "Junior Suite 2 - Living Area"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Baño y Ducha"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-2/estandar 1er piso b.webp",
+      "alt": "Junior Suite 2 - Bathroom and Shower"
     }
   ],
   "featured": true,

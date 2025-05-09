@@ -12,20 +12,28 @@
   ],
   "images": [
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-4/_MG_0015.webp",
+      "alt": "Vista general de la suite"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Salon"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-4/SUITE 2do PISO .webp",
+      "alt": "Vista principal del segundo piso de la suite"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama y baño"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-4/SUITE 2do PISO a.webp",
+      "alt": "Detalle de la cama y decoración en la suite"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Baño y Ducha"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-4/SUITE 2do PISO b.webp",
+      "alt": "Vista lateral de la suite"
+    },
+    {
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-4/SUITE 2do PISO c.webp",
+      "alt": "Otra perspectiva del segundo piso de la suite"
+    },
+    {
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-4/Bathroom Suite 4.webp",
+      "alt": "Baño y ducha de hidromasaje de la suite"
     }
   ],
   "featured": true,

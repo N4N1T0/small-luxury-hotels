@@ -12,20 +12,20 @@
   ],
   "images": [
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama"
+      "url": "/src/assets/rooms/animas-y-virtudes-standard-doble-5/_MG_9946-HDR.webp",
+      "alt": "Vista general de la habitación"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Salon"
+      "url": "/src/assets/rooms/animas-y-virtudes-standard-doble-5/hab 2  2do piso a.webp",
+      "alt": "Detalle de la cama y decoración"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama y baño"
+      "url": "/src/assets/rooms/animas-y-virtudes-standard-doble-5/hab 2  2do piso b.webp",
+      "alt": "Vista lateral de la habitación"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Baño y Ducha"
+      "url": "/src/assets/rooms/animas-y-virtudes-standard-doble-5/hab 2  2do piso c.webp",
+      "alt": "Baño y ducha de hidromasaje"
     }
   ],
   "featured": true,

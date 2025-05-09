@@ -13,20 +13,20 @@
   ],
   "images": [
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-3/Junior Suite 3 First  floor.webp",
+      "alt": "Junior Suite 3 - Main Bedroom"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Salon"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-3/Private terrace Junior Suite 3.webp",
+      "alt": "Junior Suite 3 - Private Terrace"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama y baño"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-3/View Private Terrace Junior Suite 3.webp",
+      "alt": "Junior Suite 3 - Terrace View"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Baño y Ducha"
+      "url": "/src/assets/rooms/animas-y-virtudes-junior-suite-3/Bathroom Junior Suite 3.webp",
+      "alt": "Junior Suite 3 - Bathroom"
     }
   ],
   "featured": true,

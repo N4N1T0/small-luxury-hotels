@@ -13,20 +13,28 @@
   ],
   "images": [
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-1/SUITE 1er PISO a.webp",
+      "alt": "Suite 1 - Main Bedroom"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Salon"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-1/SUITE 1er PISO b.webp",
+      "alt": "Suite 1 - Living Area"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Cama y baño"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-1/SUITE 1er PISO c.webp",
+      "alt": "Suite 1 - Bathroom"
     },
     {
-      "url": "https://placehold.co/600x400",
-      "alt": "Baño y Ducha"
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-1/SUITE 1er PISO d.webp",
+      "alt": "Suite 1 - Bathtub and Shower"
+    },
+    {
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-1/_MG_0543.webp",
+      "alt": "Suite 1 - Details"
+    },
+    {
+      "url": "/src/assets/rooms/animas-y-virtudes-suite-1/terrace Suite 1.webp",
+      "alt": "Suite 1 - Terrace View"
     }
   ],
   "featured": true,
