@@ -5,17 +5,19 @@ import { LogoWhite } from '@/assets';
 import { Image } from 'astro:assets';
 ---
 
-<footer class="bg-main text-background">
+<footer class="bg-main text-background" role="contentinfo" aria-label="Pie de página">
   <div class="container mx-auto flex flex-col px-4 py-12 md:flex-row" id="footer-info">
     <!-- Logo -->
     <div class="min-w-[200px] shrink-0">
-      <Image src={LogoWhite} alt="Logo de Small Luxury Hotels" class="size-20" />
+      <a href="/" aria-label="Volver a la página principal">
+        <Image src={LogoWhite} alt="Logo de Small Luxury Hotels" class="size-20" />
+      </a>
     </div>
 
     <!-- Main Footer Content -->
     <div class="mt-8 grid grid-cols-1 gap-8 md:mt-0 md:grid-cols-2 lg:grid-cols-3">
       <!-- Quick Links -->
-      <div>
+      <nav aria-label="Enlaces rápidos">
         <h3 class="mb-4 text-xl font-semibold">Enlaces rápidos</h3>
         <ul class="space-y-2">
           {
@@ -23,7 +25,7 @@ import { Image } from 'astro:assets';
               <li>
                 <a
                   href={link.link}
-                  class="hover:text-accent text-background/80 font-light transition-colors"
+                  class="hover:text-accent text-background/80 focus:ring-accent font-light transition-colors focus:ring-2 focus:outline-none"
                 >
                   {link.label}
                 </a>
@@ -31,17 +33,17 @@ import { Image } from 'astro:assets';
             ))
           }
         </ul>
-      </div>
+      </nav>
 
       <!-- Contact Info -->
-      <div>
+      <div role="region" aria-label="Información de contacto">
         <h3 class="mb-4 text-xl font-semibold">Contacto</h3>
         <div class="text-background/80 space-y-2">
           <p>
             <span class="font-medium">Email:</span>
             <a
               href={`mailto:${contactInfo.email.address}`}
-              class="hover:text-accent transition-colors"
+              class="hover:text-accent focus:ring-accent transition-colors focus:ring-2 focus:outline-none"
             >
               {contactInfo.email.address}
             </a>
@@ -50,7 +52,7 @@ import { Image } from 'astro:assets';
             <span class="font-medium">Teléfono:</span>
             <a
               href={`tel:${contactInfo.phone.numbers[0].value}`}
-              class="hover:text-accent transition-colors"
+              class="hover:text-accent focus:ring-accent transition-colors focus:ring-2 focus:outline-none"
             >
               {contactInfo.phone.numbers[0].label}
             </a>
@@ -59,24 +61,26 @@ import { Image } from 'astro:assets';
       </div>
 
       <!-- Social Media -->
-      <div>
+      <nav aria-label="Redes sociales">
         <h3 class="mb-4 text-xl font-semibold">Síguenos</h3>
-        <div class="flex flex-col gap-2">
+        <ul class="flex flex-col gap-2">
           {
             contactInfo.social.networks.map((network) => (
-              <a
-                href={network.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:text-accent text-background/80 font-light transition-colors"
-                aria-label={`Visita nuestro perfil de ${network.name}`}
-              >
-                {network.name}
-              </a>
+              <li>
+                <a
+                  href={network.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-accent text-background/80 focus:ring-accent font-light transition-colors focus:ring-2 focus:outline-none"
+                  aria-label={`Visita nuestro perfil de ${network.name}`}
+                >
+                  {network.name}
+                </a>
+              </li>
             ))
           }
-        </div>
-      </div>
+        </ul>
+      </nav>
     </div>
 
     <!-- Newsletter -->
@@ -88,25 +92,36 @@ import { Image } from 'astro:assets';
   <div class="border-background/20 mt-6 border-t p-6">
     <div class="flex flex-col items-center justify-between md:flex-row">
       <p class="text-background/60 mb-4 text-center md:mb-0">{footerData.companyInfo.copyright}</p>
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-        {
-          footerData.legal.map((item) => (
-            <a
-              href={item.link}
-              class="hover:text-accent text-background/60 text-sm font-light transition-colors"
-            >
-              {item.label}
-            </a>
-          ))
-        }
-      </div>
+      <nav aria-label="Enlaces legales">
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {
+            footerData.legal.map((item) => (
+              <li>
+                <a
+                  href={item.link}
+                  class="hover:text-accent text-background/60 focus:ring-accent text-sm font-light transition-colors focus:ring-2 focus:outline-none"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
     </div>
   </div>
   <div class="border-background/30 text-background/30 w-full border-t p-3 text-center">
     <small
-      >Created by <a href="https://www.adrian-alvarez.dev/es/" target="_blank" class="underline"
-        >Adrian</a
-      > and powered by <a href="https://astro.build/" target="_blank" class="underline">Astro.js</a
+      >Created by <a
+        href="https://www.adrian-alvarez.dev/es/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="focus:ring-accent underline focus:ring-2 focus:outline-none">Adrian</a
+      > and powered by <a
+        href="https://astro.build/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="focus:ring-accent underline focus:ring-2 focus:outline-none">Astro.js</a
       ></small
     >
   </div>
