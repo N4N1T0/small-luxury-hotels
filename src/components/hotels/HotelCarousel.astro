@@ -4,6 +4,12 @@ import ShowMore from '@/components/ui/ShowMore.astro';
 import { getAllHotels } from '@/lib/fetchers/hotels';
 import { ArrowLeft, ArrowRight } from 'lucide-astro';
 
+interface Props {
+  title?: string;
+}
+
+const { title = 'Nuestros Hoteles' } = Astro.props;
+
 const hotels = await getAllHotels();
 ---
 
@@ -11,7 +17,7 @@ const hotels = await getAllHotels();
   <div class="container mx-auto px-4 md:px-6">
     <span id="show-more">
       <ShowMore
-        title="Nuestros Hoteles"
+        title={title}
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         showMoreUrl="/hoteles"
       />
