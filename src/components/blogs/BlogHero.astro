@@ -10,7 +10,7 @@ const { blog } = Astro.props;
 const formattedDate = formatBlogDate(blog.data.publishDate);
 ---
 
-<article class="bg-main text-background w-full py-16">
+<article class="bg-main text-background w-full py-8 md:py-16">
   <header class="container mt-16 mb-8 text-center">
     <div class="animate-fade-in-down animate-delay-200 mb-4 flex items-center justify-center gap-4">
       <span class="text-secondary text-sm font-medium tracking-wider">{blog.data.category}</span>
@@ -35,14 +35,14 @@ const formattedDate = formatBlogDate(blog.data.publishDate);
   </header>
 
   <div
-    class="animate-fade-in-up animate-delay-700 container mb-10 overflow-hidden rounded-lg shadow-lg"
+    class="animate-fade-in-up animate-delay-700 container mb-10 aspect-square max-h-[700px] overflow-hidden shadow-lg md:aspect-auto"
   >
     <Image
       src={blog.data.image.url}
       alt={blog.data.image.alt}
       width={1200}
       height={675}
-      class="h-[90vh] w-full object-cover"
+      class="size-full object-cover"
       loading="eager"
       densities={[1, 2]}
     />
