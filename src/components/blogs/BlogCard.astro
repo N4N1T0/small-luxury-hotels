@@ -13,13 +13,14 @@ const formattedDate = formatBlogDate(data.publishDate);
 ---
 
 <article
-  class="group hover-200 flex flex-col overflow-hidden opacity-0 shadow-md hover:shadow-lg"
+  class="group hover-200 flex flex-col overflow-hidden opacity-0 shadow-sm hover:shadow-md"
   aria-labelledby={`blog-title-${slug}`}
   id="blog-card"
+  role="article"
 >
   <a
     href={`/blog/${slug}`}
-    class="block overflow-hidden"
+    class="focus:outline-secondary block overflow-hidden focus:outline-2 focus:outline-offset-2"
     aria-label={`Ver artículo: ${data.title}`}
   >
     <div class="relative aspect-[4/3] w-full overflow-hidden">
@@ -30,32 +31,52 @@ const formattedDate = formatBlogDate(data.publishDate);
         height={300}
         densities={[1, 2]}
         class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   </a>
 
   <div class="flex flex-1 flex-col p-5">
     <div class="mb-2 flex items-center justify-between">
-      <span class="text-secondary text-sm font-medium tracking-wider uppercase"
-        >{data.category}</span
+      <span
+        class="text-secondary text-sm font-medium tracking-wider uppercase"
+        aria-label={`Categoría: ${data.category}`}
       >
-      <time datetime={data.publishDate} class="text-foreground/70 text-sm">{formattedDate}</time>
+        {data.category}
+      </span>
+      <time
+        datetime={data.publishDate}
+        class="text-foreground/70 text-sm"
+        aria-label={`Fecha de publicación: ${formattedDate}`}
+      >
+        {formattedDate}
+      </time>
     </div>
 
     <h3
       id={`blog-title-${slug}`}
       class="text-main hover-200 group-hover:text-secondary mb-3 text-xl font-bold"
     >
-      <a href={`/blog/${slug}`} class="block">{data.title}</a>
-    </h3>
-
-    <p class="text-foreground/70 mb-4 flex-1 text-sm font-light">{data.description}</p>
-
-    <div class="mt-auto flex items-center justify-between">
-      <span class="text-foreground/70 text-sm">Por {data.author}</span>
       <a
         href={`/blog/${slug}`}
-        class="text-secondary hover-200 flex items-center text-sm font-medium hover:underline"
+        class="focus:outline-secondary block focus:outline-2 focus:outline-offset-2"
+      >
+        {data.title}
+      </a>
+    </h3>
+
+    <p class="text-foreground/70 mb-4 flex-1 text-sm font-light">
+      {data.description}
+    </p>
+
+    <div class="mt-auto flex items-center justify-between">
+      <span class="text-foreground/50 text-sm underline" aria-label={`Autor: ${data.author}`}>
+        Por {data.author}
+      </span>
+      <a
+        href={`/blog/${slug}`}
+        class="text-secondary hover-200 focus:outline-secondary flex items-center text-sm font-medium hover:underline focus:outline-2 focus:outline-offset-2"
         aria-label={`Leer más sobre ${data.title}`}
       >
         Leer más
@@ -65,6 +86,8 @@ const formattedDate = formatBlogDate(data.publishDate);
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden="true"
+          role="img"
         >
           <path
             stroke-linecap="round"
