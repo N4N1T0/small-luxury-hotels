@@ -90,3 +90,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+@utility scroll-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

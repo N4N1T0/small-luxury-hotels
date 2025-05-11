@@ -15,12 +15,16 @@ const experiences = await getAllExperiences();
 <!-- Mobile Navbar Sheet -->
 <div
   id="mobile-navbar-sheet"
-  class="bg-background fixed top-0 z-50 h-[95vh] w-full translate-x-full transform overflow-y-auto"
+  class="bg-background fixed top-0 z-50 h-screen w-full translate-x-full transform overflow-y-auto"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu de navegación móvil"
+  hidden
 >
   <div class="flex h-full flex-col p-6">
     <!-- Navigation Links -->
-    <nav class="mt-auto">
-      <ul class="flex list-none flex-col space-y-4 p-0">
+    <nav aria-label="Navegación principal">
+      <ul class="flex list-none flex-col space-y-4 p-0" role="menu">
         {
           navbarItems.map(({ label, link, megamenu }) => {
             const items =
@@ -32,32 +36,40 @@ const experiences = await getAllExperiences();
 
             if (items) {
               return (
-                <li class="flex flex-col items-start gap-3">
+                <li class="flex flex-col items-start gap-3" role="none">
                   <a
                     href={link}
                     class={cn(
                       'text-main text-3xl font-medium no-underline',
                       link === pathname ? 'text-secondary' : ''
                     )}
+                    role="menuitem"
+                    aria-current={link === pathname ? 'page' : undefined}
                   >
                     {label}
                   </a>
-                  <ul class="flex w-full gap-2 overflow-x-auto">
+                  <ul
+                    class="scroll-hide flex w-full gap-2 overflow-x-auto"
+                    role="menu"
+                    aria-label={`Submenu de ${label}`}
+                  >
                     {items.map(({ data: { title, gallery }, id }) => (
-                      <li>
+                      <li role="none">
                         <a
                           href={`${link}/${id}`}
                           class="text-foreground block aspect-square size-24 text-lg font-medium no-underline"
+                          role="menuitem"
                         >
                           <Image
                             src={gallery[0].url}
-                            alt={title}
+                            alt={`Imagen de ${title}`}
                             width={100}
                             height={100}
                             class="size-full object-cover"
                             loading="eager"
                             densities={[1, 2]}
                           />
+                          <span class="sr-only">{title}</span>
                         </a>
                       </li>
                     ))}
@@ -66,13 +78,15 @@ const experiences = await getAllExperiences();
               );
             } else {
               return (
-                <li>
+                <li role="none">
                   <a
                     href={link}
                     class={cn(
                       'text-foreground text-3xl font-medium no-underline',
                       link === pathname ? 'text-secondary' : ''
                     )}
+                    role="menuitem"
+                    aria-current={link === pathname ? 'page' : undefined}
                   >
                     {label}
                   </a>
@@ -85,7 +99,11 @@ const experiences = await getAllExperiences();
     </nav>
 
     <!-- Social Media -->
-    <div class="border-main mt-auto flex gap-2 border-y-[1px] py-2">
+    <div
+      class="border-main mt-auto flex gap-2 border-y-[1px] py-2"
+      role="navigation"
+      aria-label="Redes sociales"
+    >
       {
         contactInfo.social.networks.map((network) => (
           <a
@@ -106,39 +124,49 @@ const experiences = await getAllExperiences();
       <a
         href="/reservar"
         class="bg-secondary block w-full rounded-none py-3 text-center text-base font-medium text-white no-underline"
-        >Reservar</a
+        role="button">Reservar</a
       >
     </div>
   </div>
 </div>
 
 <!-- Navbar -->
-<div
+<header
   id="mobile-navbar"
   class="bg-background border-main fixed top-0 z-[60] flex h-fit w-full items-center justify-between border-b px-4 py-1 transition-transform duration-300 md:hidden"
+  role="banner"
 >
   <div class="flex size-10 items-center justify-center">
     <a href="/" aria-label="Pagina Principal">
       <Image src={Logo} alt="Logo de Small Luxury Hotels" class="size-8" />
     </a>
   </div>
-  <div class="size-10">
-    <button id="mobile-menu-toggle" class="relative size-full">
+  <a href="/hotels" class="font-700">EH Cuba Collection</a>
+  <div class="size-8">
+    <button
+      id="mobile-menu-toggle"
+      class="relative size-full"
+      aria-expanded="false"
+      aria-controls="mobile-navbar-sheet"
+      aria-label="Abrir menú"
+    >
       <Menu
         id="menu-open"
-        class="text-secondary absolute inset-0 opacity-100 transition-opacity duration-200 ease-out"
-        size={40}
+        class="text-main absolute inset-0 opacity-100 transition-opacity duration-200 ease-out"
+        size={32}
         stroke-width={1.5}
+        aria-hidden="true"
       />
       <X
         id="menu-close"
-        class="text-secondary absolute inset-0 opacity-0 transition-opacity duration-200 ease-out"
-        size={40}
+        class="text-main absolute inset-0 opacity-0 transition-opacity duration-200 ease-out"
+        size={32}
         stroke-width={1.5}
+        aria-hidden="true"
       />
     </button>
   </div>
-</div>
+</header>
 
 <script>
   import { animate } from 'animejs';
@@ -161,14 +189,16 @@ const experiences = await getAllExperiences();
   // FUNCTIONS
   const handleScroll = navbarAnimation('mobile-navbar');
 
-  // EVENTS
-  window.addEventListener('scroll', () => {
-    window.innerWidth < 768 && handleScroll();
-  });
+  // Handle keyboard navigation
+  const handleEscapeKey = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && mobileNavbar?.style.translate === OPEN_POSITION) {
+      toggleMenu(true);
+    }
+  };
 
-  toggleButton?.addEventListener('click', () => {
-    const isOpen = mobileNavbar?.style.translate === OPEN_POSITION;
-
+  const toggleMenu = (isOpen: boolean) => {
+    toggleButton?.setAttribute('aria-expanded', (!isOpen).toString());
+    mobileNavbar?.toggleAttribute('hidden', isOpen);
     toggleOpacity(menuOpen, isOpen ? '100' : '0');
     toggleOpacity(menuClose, isOpen ? '0' : '100');
     toggleClass(body, 'overflow-hidden');
@@ -178,5 +208,17 @@ const experiences = await getAllExperiences();
       duration: ANIMATION_DURATION,
       easing: EASING
     });
+  };
+
+  // EVENTS
+  window.addEventListener('scroll', () => {
+    window.innerWidth < 768 && handleScroll();
+  });
+
+  document.addEventListener('keydown', handleEscapeKey);
+
+  toggleButton?.addEventListener('click', () => {
+    const isOpen = mobileNavbar?.style.translate === OPEN_POSITION;
+    toggleMenu(isOpen);
   });
 </script>
