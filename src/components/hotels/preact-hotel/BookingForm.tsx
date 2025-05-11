@@ -19,15 +19,22 @@ interface BookingFormData {
 }
 
 export default function BookingForm({ hotel, room, hotels, className }: Props) {
+  // INITIAL
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+
+  // STATE
   const [formData, setFormData] = useState<BookingFormData>({
-    checkIn: "",
-    checkOut: "",
+    checkIn: today.toISOString().split("T")[0],
+    checkOut: tomorrow.toISOString().split("T")[0],
     adults: 1,
     children: 0,
     roomType: room?.id || "",
     hotelSelector: hotel?.id || "",
   });
 
+  // HANDLERS
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     // Aquí iría la lógica de envío del formulario
@@ -60,9 +67,22 @@ export default function BookingForm({ hotel, room, hotels, className }: Props) {
                   hotelSelector: (e.target as HTMLSelectElement).value,
                 })
               }
-              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
-              aria-label="Selecciona un hotel"
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none disabled:opacity-50"
+              aria-label={
+                formData.hotelSelector === ""
+                  ? "Selecciona un hotel"
+                  : hotel
+                    ? "Hotel Seleccionado por su pagina"
+                    : ""
+              }
               required
+              title={
+                formData.hotelSelector === ""
+                  ? "Selecciona un hotel"
+                  : hotel
+                    ? "Hotel Seleccionado por su pagina"
+                    : ""
+              }
             >
               <option value="" disabled>
                 Selecciona un hotel
@@ -87,10 +107,11 @@ export default function BookingForm({ hotel, room, hotels, className }: Props) {
                   hotelSelector: (e.target as HTMLSelectElement).value,
                 })
               }
-              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none disabled:opacity-50"
               aria-label="Selecciona un hotel"
               required
               disabled
+              title="Hotel Seleccionado por su pagina"
             >
               <option key={hotel?.id} value={hotel?.id}>
                 {hotel?.data.title}
@@ -127,9 +148,14 @@ export default function BookingForm({ hotel, room, hotels, className }: Props) {
               name="roomType"
               value={formData.roomType}
               onChange={handleInputChange}
-              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none disabled:opacity-50"
               required
               disabled={formData.hotelSelector === ""}
+              title={
+                formData.hotelSelector === ""
+                  ? "Selecciona un hotel"
+                  : "Selecciona un tipo de habitación de este hotel"
+              }
             >
               <option value="" disabled>
                 Selecciona un tipo de habitación
@@ -152,7 +178,12 @@ export default function BookingForm({ hotel, room, hotels, className }: Props) {
               name="roomType"
               value={formData.roomType}
               onChange={handleInputChange}
-              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              title={
+                formData.hotelSelector === ""
+                  ? "Selecciona un hotel primero"
+                  : "Selecciona un tipo de habitación de este hotel"
+              }
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none disabled:opacity-50"
               required
               disabled={formData.hotelSelector === ""}
             >
@@ -174,7 +205,7 @@ export default function BookingForm({ hotel, room, hotels, className }: Props) {
               name="roomType"
               value={formData.roomType}
               onChange={handleInputChange}
-              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none"
+              className="border-background focus:border-background focus:ring-background placeholder:text-background/80 text-background/80 bg-main w-full border-b-2 p-2 focus:ring-2 focus:outline-none disabled:opacity-50"
               required
               disabled={formData.roomType !== ""}
             >
