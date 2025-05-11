@@ -56,18 +56,28 @@ const experiences = await getAllExperiences();
   import Swiper from 'swiper';
   import 'swiper/css';
   import 'swiper/css/pagination';
-  import { Navigation, Pagination } from 'swiper/modules';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
   new Swiper('.swiper-experience-carousel', {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay],
     loop: true,
     spaceBetween: 40,
+    autoplay: true,
     breakpoints: {
+      0: {
+        slidesPerView: 1,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        }
+      },
       768: {
-        slidesPerView: 1
+        slidesPerView: 1,
+        autoplay: false
       },
       1024: {
-        slidesPerView: 3
+        slidesPerView: 3,
+        autoplay: false
       }
     },
     navigation: {
