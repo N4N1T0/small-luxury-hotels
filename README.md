@@ -1,4 +1,5 @@
 # TODOS
 
-- [ ] Add Navbar animarion scroll
-- [ ] Add Hero Aanimations
+- [ ] Pagina Reservar
+- [ ] Experiencia Card Carousel
+- [ ] Nuestras experiencia title
