@@ -17,7 +17,9 @@ const twoColumnsInfo = {
   title: featuresExperience?.data.title,
   description: featuresExperience?.data.description,
   imageSrc: featuresExperience?.data.gallery[0].url.src,
-  imageAlt: featuresExperience?.data.gallery[0].alt
+  imageAlt: featuresExperience?.data.gallery[0].alt,
+  buttonText: 'Ver más',
+  buttonHref: `/experiencias${featuresExperience?.id}`
 };
 ---
 
