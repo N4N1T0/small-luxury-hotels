@@ -12,21 +12,24 @@ const {
 } = experience;
 ---
 
-<section class="bg-main text-background py-16">
+<section class="bg-main text-background py-8 md:py-16" aria-labelledby="experience-title">
   <div class="container mx-auto px-4 md:px-6">
     <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
       <div class="space-y-4 md:w-1/2">
-        <h2 class="text-4xl font-bold md:text-5xl">{title}</h2>
+        <h2 id="experience-title" class="text-4xl font-bold md:text-5xl">{title}</h2>
       </div>
 
       <div class="space-y-6 md:w-1/2">
         <p class="text-background/80 text-lg font-light md:text-xl">{description}</p>
-        <ul class="grid grid-cols-2 gap-4">
+        <ul class="grid grid-cols-2 gap-4" aria-label="Experience inclusions">
           {
             included.map((include) => (
               <li class="flex gap-4">
-                <Star class="fill-background inline-block size-5 shrink-0" />
-                <span class="text-background col-span-1 text-lg font-bold">{include}</span>
+                <Star
+                  class="fill-secondary text-secondary inline-block size-5 shrink-0"
+                  aria-hidden="true"
+                />
+                <span class="text-secondary col-span-1 text-lg font-bold">{include}</span>
               </li>
             ))
           }
