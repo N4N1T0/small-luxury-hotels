@@ -3,6 +3,7 @@ import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from '@/lib/fetchers/blog
 import BlogCard from '@/components/blogs/BlogCard.astro';
 import BlogLayout from '@/layouts/BlogLayout.astro';
 import SocialShare from '@/components/blogs/SocialShare.astro';
+import BlogTags from '@/components/blogs/BlogTags.astro';
 
 export async function getStaticPaths() {
   const blogs = await getAllBlogs();
@@ -28,17 +29,7 @@ const relatedBlogs = await getRelatedBlogs(blog, 3);
   </div>
 
   <div class="flex w-full flex-col items-center justify-between px-8 md:flex-row">
-    {
-      blog.data.tags && blog.data.tags.length > 0 && (
-        <div class="mt-10 flex flex-wrap gap-2 px-4">
-          {blog.data.tags.map((tag: string) => (
-            <a href={`/blog/tags/${tag}`} class="bg-secondary text-background px-3 py-1 text-sm">
-              {tag}
-            </a>
-          ))}
-        </div>
-      )
-    }
+    <BlogTags tags={blog.data.tags} />
     <SocialShare title={blog.data.title} description={blog.data.description} />
   </div>
 
